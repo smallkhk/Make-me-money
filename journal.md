@@ -13,3 +13,5 @@
 - `2026-10-07 17:51 UTC` BUY **RARINU** $2.97 @ 0.001443 (score 0.82, liq $114,733, mcap $1,428,500) https://dexscreener.com/solana/a2asuorcetj9kwkmzhf3pvsslgzrnmnghiqku8uegqmj
 - `2026-10-07 18:18 UTC` SELL **CATCRAFT** (take profit) price +57.2%, net $+1.40 after fees. Cash $6.49
 - `2026-10-07 18:18 UTC` BUY **UI** $3.05 @ 0.0001871 (score 0.82, liq $38,239, mcap $177,713) https://dexscreener.com/solana/8sbe1r1tzibgoje85srgpv3pkapntbbj1wn7stoo2wht
+- `2026-10-07 18:25 UTC` SELL **SNDWITCH** (take profit) price +55.9%, net $+1.24 after fees. Cash $7.29
+- `2026-10-07 18:25 UTC` BUY **ECSTASY** $3.15 @ 9.037e-05 (score 0.82, liq $25,565, mcap $87,401) https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1
