@@ -1,8 +1,10 @@
 name: paper-crawler
 
+# Runs nonstop: each job scans every 60s for ~5h45m (GitHub caps jobs at 6h),
+# and the schedule queues the next job so it picks up as soon as one ends.
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -15,16 +17,39 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python3 crawler.py --once
-      - name: Save state and journal
+      - name: Scan every minute, save trades as they happen
         run: |
           git config user.name "paper-crawler"
           git config user.email "paper-crawler@users.noreply.github.com"
-          git add state.json journal.md
-          git diff --cached --quiet || git commit -m "crawler: scan $(date -u +%H:%M)"
-          git push
+
+          save() {
+            git add state.json journal.md
+            git diff --cached --quiet && return 0
+            git commit -qm "crawler: $1 $(date -u +%H:%M)"
+            for i in 1 2 3; do
+              git pull -q --rebase origin "$GITHUB_REF_NAME" && git push -q && return 0
+              sleep 5
+            done
+          }
+
+          end=$((SECONDS + 345 * 60))
+          tick=0
+          while [ $SECONDS -lt $end ]; do
+            before=$(md5sum journal.md 2>/dev/null)
+            python3 crawler.py --once || echo "scan failed, retrying next minute"
+            tick=$((tick + 1))
+            # Save right away when a trade happens, otherwise every 30 minutes.
+            if [ "$(md5sum journal.md 2>/dev/null)" != "$before" ]; then
+              save trade
+            elif [ $((tick % 30)) -eq 0 ]; then
+              save scan
+            fi
+            sleep 60
+          done
+          save scan
