@@ -9,3 +9,5 @@
 - `2026-10-07 17:22 UTC` BUY **CATCRAFT** $2.84 @ 0.001188 (score 0.82, liq $104,465, mcap $1,170,296) https://dexscreener.com/solana/7mqdgteiad4tkupg9hstypqnestntrauehh1zj1awp8x
 - `2026-10-07 17:28 UTC` SELL **MINER** (take profit) price +54.7%, net $+1.15 after fees. Cash $6.09
 - `2026-10-07 17:28 UTC` BUY **9-5** $2.86 @ 7.456e-05 (score 0.85, liq $23,375, mcap $71,650) https://dexscreener.com/solana/bv7qr31hgsja6y2d4tppxkfrq1smhydkdce5wchsvp3p
+- `2026-10-07 17:51 UTC` SELL **9-5** (stop loss) price -26.2%, net $-0.87 after fees. Cash $5.22
+- `2026-10-07 17:51 UTC` BUY **RARINU** $2.97 @ 0.001443 (score 0.82, liq $114,733, mcap $1,428,500) https://dexscreener.com/solana/a2asuorcetj9kwkmzhf3pvsslgzrnmnghiqku8uegqmj

@@ -1,5 +1,5 @@
 {
-  "cash": 3.2270915813520804,
+  "cash": 2.2511568693904094,
   "positions": {
     "J9qzFhTLYnmf3tZYvHBaF96rH3YKToELAAVMzz66pump": {
       "symbol": "SNDWITCH",
@@ -19,14 +19,14 @@
       "opened": 1791393733.4106264,
       "url": "https://dexscreener.com/solana/7mqdgteiad4tkupg9hstypqnestntrauehh1zj1awp8x"
     },
-    "7sGrkreGkheyJamnsu55uRX527rrH2Fue9io9p72P6Ka": {
-      "symbol": "9-5",
-      "qty": 37315.41627392865,
-      "entry_px": 7.456e-05,
-      "cost": 2.859369729323451,
-      "entry_liq": 23375.13,
-      "opened": 1791394097.1474733,
-      "url": "https://dexscreener.com/solana/bv7qr31hgsja6y2d4tppxkfrq1smhydkdce5wchsvp3p"
+    "45VHsie7CwFfPKWCw28PCdZdJWMA5Y6k56wDam9Hpump": {
+      "symbol": "RARINU",
+      "qty": 2001.391065875968,
+      "entry_px": 0.001443,
+      "cost": 2.967023474776031,
+      "entry_liq": 114732.71,
+      "opened": 1791395488.4065604,
+      "url": "https://dexscreener.com/solana/a2asuorcetj9kwkmzhf3pvsslgzrnmnghiqku8uegqmj"
     }
   },
   "closed": [
@@ -46,7 +46,14 @@
       "reason": "take profit",
       "addr": "2T6Wg3urxPQHaoGh4gqNHyYL6FAfyWA5BaH6Lo37pump",
       "at": 1791394097.1469305
+    },
+    {
+      "symbol": "9-5",
+      "pnl": -0.8682809665090909,
+      "reason": "stop loss",
+      "addr": "7sGrkreGkheyJamnsu55uRX527rrH2Fue9io9p72P6Ka",
+      "at": 1791395488.4059477
     }
   ],
-  "seen_rejects": 1576
+  "seen_rejects": 2451
 }
