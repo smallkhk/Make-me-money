@@ -1,5 +1,5 @@
 {
-  "cash": 1.6202704517577633,
+  "cash": 2.4489188942363267,
   "positions": {
     "2T6Wg3urxPQHaoGh4gqNHyYL6FAfyWA5BaH6Lo37pump": {
       "symbol": "MINER",
@@ -10,15 +10,6 @@
       "opened": 1791389329.599679,
       "url": "https://dexscreener.com/solana/8j42or3k3kbgnguqr2rbzcrweta7jhrnscjmscipv8in"
     },
-    "9BkorQ9bvmbbpUtEMEyYggG8ApSgGfLZVsM9nSbJpump": {
-      "symbol": "UI",
-      "qty": 13622.201695416721,
-      "entry_px": 0.0001759,
-      "cost": 2.465212714333495,
-      "entry_liq": 36640.51,
-      "opened": 1791389329.599779,
-      "url": "https://dexscreener.com/solana/8sbe1r1tzibgoje85srgpv3pkapntbbj1wn7stoo2wht"
-    },
     "J9qzFhTLYnmf3tZYvHBaF96rH3YKToELAAVMzz66pump": {
       "symbol": "SNDWITCH",
       "qty": 9234.736224674956,
@@ -27,6 +18,15 @@
       "entry_liq": 53970.35,
       "opened": 1791392645.5761068,
       "url": "https://dexscreener.com/solana/hu22ubatza7ajmkdjasyodhtffw6xvs6d9bsxlt9ugdb"
+    },
+    "ADPN2aqzY5RhkBC7bNQWFhTFFEYKY4drHUQG887Cpump": {
+      "symbol": "CATCRAFT",
+      "qty": 2326.9582860376786,
+      "entry_px": 0.001188,
+      "cost": 2.8409210390396886,
+      "entry_liq": 104465.42,
+      "opened": 1791393733.4106264,
+      "url": "https://dexscreener.com/solana/7mqdgteiad4tkupg9hstypqnestntrauehh1zj1awp8x"
     }
   },
   "closed": [
@@ -34,7 +34,12 @@
       "symbol": "SNDWITCH",
       "pnl": -0.829858049847966,
       "reason": "stop loss"
+    },
+    {
+      "symbol": "UI",
+      "pnl": 1.2043567671847564,
+      "reason": "take profit"
     }
   ],
-  "seen_rejects": 197
+  "seen_rejects": 1040
 }
