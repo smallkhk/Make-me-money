@@ -1,0 +1,5 @@
+# Trade journal (paper)
+
+- `2026-10-07 16:08 UTC` BUY **SNDWITCH** $2.50 @ 0.0003861 (score 0.89, liq $63,712, mcap $382,770) https://dexscreener.com/solana/hu22ubatza7ajmkdjasyodhtffw6xvs6d9bsxlt9ugdb
+- `2026-10-07 16:08 UTC` BUY **MINER** $2.48 @ 0.0001101 (score 0.84, liq $30,157, mcap $83,294) https://dexscreener.com/solana/8j42or3k3kbgnguqr2rbzcrweta7jhrnscjmscipv8in
+- `2026-10-07 16:08 UTC` BUY **UI** $2.47 @ 0.0001759 (score 0.83, liq $36,641, mcap $167,024) https://dexscreener.com/solana/8sbe1r1tzibgoje85srgpv3pkapntbbj1wn7stoo2wht
