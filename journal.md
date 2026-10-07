@@ -15,3 +15,5 @@
 - `2026-10-07 18:18 UTC` BUY **UI** $3.05 @ 0.0001871 (score 0.82, liq $38,239, mcap $177,713) https://dexscreener.com/solana/8sbe1r1tzibgoje85srgpv3pkapntbbj1wn7stoo2wht
 - `2026-10-07 18:25 UTC` SELL **SNDWITCH** (take profit) price +55.9%, net $+1.24 after fees. Cash $7.29
 - `2026-10-07 18:25 UTC` BUY **ECSTASY** $3.15 @ 9.037e-05 (score 0.82, liq $25,565, mcap $87,401) https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1
+- `2026-10-07 18:36 UTC` SELL **UI** (stop loss) price -29.6%, net $-1.02 after fees. Cash $6.17
+- `2026-10-07 18:36 UTC` BUY **peakmale** $3.06 @ 0.0001214 (score 0.82, liq $30,687, mcap $121,413) https://dexscreener.com/solana/6ksizkgalecrfqlgpyokyfufftyy9fg51nh8zdinfpzq
