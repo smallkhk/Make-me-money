@@ -31,3 +31,5 @@
 - `2026-10-07 19:35 UTC` BUY **TON618** $3.20 @ 0.0003395 (score 0.76, liq $53,758, mcap $323,959) https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx
 - `2026-10-07 21:04 UTC` SELL **TON618** (stop loss) price -27.7%, net $-1.01 after fees. Cash $4.47
 - `2026-10-07 21:04 UTC` BUY **SCraft** $3.02 @ 8.164e-05 (score 0.74, liq $25,625, mcap $80,635) https://dexscreener.com/solana/4d17cm7jjegsqeoxpcgbbd9znpqgzuj3ukwr4fdjedfy
+- `2026-10-07 21:15 UTC` SELL **SCraft** (stop loss) price -34.1%, net $-1.14 after fees. Cash $3.33
+- `2026-10-07 21:15 UTC` BUY **gem** $2.52 @ 0.0001174 (score 0.73, liq $30,217, mcap $117,453) https://dexscreener.com/solana/3ja1kknkepryldn18oa49lgzpdlk6csj6czkozpguj7n
