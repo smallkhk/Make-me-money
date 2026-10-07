@@ -1,0 +1,34 @@
+{
+  "cash": 2.552211419127558,
+  "positions": {
+    "J9qzFhTLYnmf3tZYvHBaF96rH3YKToELAAVMzz66pump": {
+      "symbol": "SNDWITCH",
+      "qty": 6294.49227183576,
+      "entry_px": 0.0003861,
+      "cost": 2.5,
+      "entry_liq": 63712.37,
+      "opened": 1791389329.5991778,
+      "url": "https://dexscreener.com/solana/hu22ubatza7ajmkdjasyodhtffw6xvs6d9bsxlt9ugdb"
+    },
+    "2T6Wg3urxPQHaoGh4gqNHyYL6FAfyWA5BaH6Lo37pump": {
+      "symbol": "MINER",
+      "qty": 21917.559107330973,
+      "entry_px": 0.0001101,
+      "cost": 2.482575866538947,
+      "entry_liq": 30156.82,
+      "opened": 1791389329.599679,
+      "url": "https://dexscreener.com/solana/8j42or3k3kbgnguqr2rbzcrweta7jhrnscjmscipv8in"
+    },
+    "9BkorQ9bvmbbpUtEMEyYggG8ApSgGfLZVsM9nSbJpump": {
+      "symbol": "UI",
+      "qty": 13622.201695416721,
+      "entry_px": 0.0001759,
+      "cost": 2.465212714333495,
+      "entry_liq": 36640.51,
+      "opened": 1791389329.599779,
+      "url": "https://dexscreener.com/solana/8sbe1r1tzibgoje85srgpv3pkapntbbj1wn7stoo2wht"
+    }
+  },
+  "closed": [],
+  "seen_rejects": 50
+}

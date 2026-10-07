@@ -1,0 +1,30 @@
+name: paper-crawler
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-crawler
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 crawler.py --once
+      - name: Save state and journal
+        run: |
+          git config user.name "paper-crawler"
+          git config user.email "paper-crawler@users.noreply.github.com"
+          git add state.json journal.md
+          git diff --cached --quiet || git commit -m "crawler: scan $(date -u +%H:%M)"
+          git push
