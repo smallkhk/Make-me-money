@@ -47,6 +47,7 @@ RISK = {
     "stop_loss_pct": -25,
     "time_stop_hours": 6,
     "rug_liquidity_drop": 0.5,  # exit if liquidity falls by half
+    "cooldown_hours": 24,       # don't rebuy a coin we just sold
 }
 
 # Cost model for tiny Solana swaps: DEX fee, slippage, network + priority fee.
@@ -206,16 +207,19 @@ def manage_positions(state, pairs):
         proceeds = max(gross * (1 - fill_cost(gross, liq)) - NETWORK_FEE_USD, 0)
         state["cash"] += proceeds
         pnl = proceeds - pos["cost"]
-        state["closed"].append({"symbol": pos["symbol"], "pnl": pnl, "reason": reason})
+        state["closed"].append({"symbol": pos["symbol"], "pnl": pnl, "reason": reason,
+                                "addr": addr, "at": now()})
         del state["positions"][addr]
         journal(f"SELL **{pos['symbol']}** ({reason}) price {pnl_pct:+.1f}%, "
                 f"net ${pnl:+.2f} after fees. Cash ${state['cash']:.2f}")
 
 
 def open_positions(state, pairs):
+    cutoff = now() - RISK["cooldown_hours"] * 3600
+    recent = {c.get("addr") for c in state["closed"] if c.get("at", 0) > cutoff}
     ranked = []
     for addr, pair in pairs.items():
-        if addr in state["positions"]:
+        if addr in state["positions"] or addr in recent:
             continue
         score, fails = check(pair)
         if fails:
