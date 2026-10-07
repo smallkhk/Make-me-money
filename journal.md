@@ -25,3 +25,5 @@
 - `2026-10-07 18:47 UTC` BUY **BULLCRAFT** $3.72 @ 0.0001036 (score 0.73, liq $28,134, mcap $101,908) https://dexscreener.com/solana/eghzxfbbb6gkwl9m7zenzn2s1bejjvafyexkat5ghfsf
 - `2026-10-07 19:15 UTC` SELL **ECSTASY** (take profit) price +51.6%, net $+1.38 after fees. Cash $8.61
 - `2026-10-07 19:15 UTC` BUY **SPAWN** $4.33 @ 8.502e-05 (score 0.82, liq $25,672, mcap $80,200) https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka
+- `2026-10-07 19:17 UTC` SELL **SI276** (take profit) price +54.9%, net $+1.64 after fees. Cash $9.41
+- `2026-10-07 19:17 UTC` BUY **BLOX** $4.16 @ 8.457e-05 (score 0.81, liq $25,359, mcap $84,570) https://dexscreener.com/solana/eji6lww66yu43wxt9rbswiaz12yz7vtnwhe5sdnn6vyx
