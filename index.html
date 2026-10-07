@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>$10 Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one column on phones, summary strip then positions then the tape. Ink-blue terminal, amber accent. */
+:root {
+  --bg: #f3f4f8; --panel: #ffffff; --line: #dfe2ec; --fg: #161a2b; --muted: #636a85;
+  --accent: #b86e00; --up: #0d8a55; --down: #c92e3b; --track: #e8eaf2;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0c0f1c; --panel: #141a2e; --line: #232b47; --fg: #e6e9f5; --muted: #8b93b3;
+  --accent: #f5a524; --up: #3ad08a; --down: #ff6b74; --track: #1d2440; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0c0f1c; --panel: #141a2e; --line: #232b47; --fg: #e6e9f5; --muted: #8b93b3;
+  --accent: #f5a524; --up: #3ad08a; --down: #ff6b74; --track: #1d2440; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 var(--body);
+  padding: calc(env(safe-area-inset-top, 0px) + 20px) 16px calc(env(safe-area-inset-bottom, 0px) + 40px); }
+.wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 20px; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.up { color: var(--up); } .down { color: var(--down); } .muted { color: var(--muted); }
+a { color: var(--accent); }
+
+header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+h1 { font: 800 22px/1 var(--display); margin: 0; letter-spacing: -0.01em; }
+h1 span { color: var(--accent); }
+.status { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); }
+.dot.live { background: var(--up); box-shadow: 0 0 0 4px color-mix(in srgb, var(--up) 22%, transparent); }
+.dot.stale { background: var(--accent); } .dot.dead { background: var(--down); }
+button { font: 600 13px var(--body); color: var(--fg); background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.hero { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; }
+.label { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.equity { font: 800 clamp(40px, 12vw, 60px)/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.pnl { font: 600 17px var(--mono); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; border-top: 1px solid var(--line); padding-top: 14px; }
+.stats div { display: grid; gap: 2px; min-width: 0; }
+.stats .num { font-size: 17px; font-weight: 600; }
+@media (max-width: 520px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+h2 { font: 600 17px var(--display); margin: 0 0 10px; display: flex; justify-content: space-between; align-items: baseline; }
+h2 small { font: 400 13px var(--body); color: var(--muted); }
+
+.pos { display: grid; gap: 10px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 10px; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.sym { font: 700 17px var(--display); }
+.sym a { color: inherit; text-decoration: none; }
+.chg { font: 600 18px var(--mono); }
+.meta { font-size: 13px; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; }
+.meta b { color: var(--fg); font-weight: 600; font-family: var(--mono); }
+
+/* stop-loss -25% ... entry 0 ... take-profit +50% */
+.range { position: relative; height: 8px; background: var(--track); border-radius: 4px; }
+.range .zero { position: absolute; left: 33.33%; top: -3px; bottom: -3px; width: 2px; background: var(--muted); }
+.range .fill { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+.range .mark { position: absolute; top: -4px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%;
+  border: 3px solid var(--panel); }
+.ends { display: flex; justify-content: space-between; font: 11px var(--mono); color: var(--muted); }
+
+.pill { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 99px;
+  background: var(--track); color: var(--muted); }
+.pill.tp { background: color-mix(in srgb, var(--up) 18%, transparent); color: var(--up); }
+.pill.sl { background: color-mix(in srgb, var(--down) 18%, transparent); color: var(--down); }
+
+.tape { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.tape ol { list-style: none; margin: 0; padding: 0; }
+.tape li { display: grid; grid-template-columns: 52px 46px minmax(0, 1fr) auto; gap: 10px; align-items: baseline;
+  padding: 10px 16px; border-top: 1px solid var(--line); font-size: 14px; }
+.tape li:first-child { border-top: 0; }
+.tape .side { font: 700 12px var(--mono); }
+.tape .why { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.empty { padding: 18px 16px; color: var(--muted); }
+
+.note { font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span>$10</span> Desk</h1>
+    <div class="status"><span class="dot" id="dot"></span><span id="status">Loading…</span>
+      <button id="refresh" type="button">Refresh</button></div>
+  </header>
+
+  <section class="hero" aria-label="Account">
+    <div class="label">Paper equity · live prices</div>
+    <div class="equity num" id="equity">$—</div>
+    <div class="pnl" id="pnl">vs $10.00 start</div>
+    <div class="stats">
+      <div><span class="label">Cash</span><span class="num" id="cash">—</span></div>
+      <div><span class="label">If sold now</span><span class="num" id="net">—</span></div>
+      <div><span class="label">Closed</span><span class="num" id="closed">—</span></div>
+      <div><span class="label">Coins rejected</span><span class="num" id="rejects">—</span></div>
+    </div>
+  </section>
+
+  <section aria-label="Open positions">
+    <h2>Holding <small id="poscount"></small></h2>
+    <div class="pos" id="positions"><div class="card muted">Loading positions…</div></div>
+  </section>
+
+  <section aria-label="Trade log">
+    <h2>Tape <small>newest first</small></h2>
+    <div class="tape"><ol id="tape"><li class="empty">Loading trades…</li></ol></div>
+  </section>
+
+  <p class="note">Paper money only. The bot sells at +50%, −25%, after 6 hours, or if liquidity is pulled.
+    "If sold now" subtracts about 2% each for fees and slippage. Prices refresh every 30 seconds; the bot's files update when it trades.
+    <a href="https://github.com/smallkhk/Make-me-money/actions" target="_blank" rel="noopener">Bot runs on GitHub</a></p>
+</div>
+
+<script>
+const REPO = "smallkhk/Make-me-money";
+const BRANCH = "claude/paper-trading-crawler";
+const RAW = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/`;
+const START = 10, TP = 50, SL = -25, SELL_COST = 0.02;
+const $ = id => document.getElementById(id);
+const usd = v => (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
+const pct = v => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + "%";
+const cls = v => v > 0 ? "up" : v < 0 ? "down" : "";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const ago = sec => sec < 90 ? `${Math.round(sec)}s ago` : sec < 5400 ? `${Math.round(sec / 60)}m ago` : `${(sec / 3600).toFixed(1)}h ago`;
+
+let state = null, journal = "", lastBot = null, prices = {};
+
+async function loadFiles() {
+  const t = Date.now();
+  const [s, j] = await Promise.all([
+    fetch(RAW + "state.json?t=" + t, { cache: "no-store" }).then(r => r.json()),
+    fetch(RAW + "journal.md?t=" + t, { cache: "no-store" }).then(r => r.text()),
+  ]);
+  state = s; journal = j;
+}
+
+async function loadBotTime() {
+  try {
+    const r = await fetch(`https://api.github.com/repos/${REPO}/commits?sha=${BRANCH}&per_page=1`);
+    if (r.ok) lastBot = new Date((await r.json())[0].commit.committer.date);
+  } catch (e) { /* rate limited; keep the last value */ }
+}
+
+async function loadPrices() {
+  const addrs = Object.keys(state?.positions || {});
+  if (!addrs.length) return;
+  const pairs = await fetch(`https://api.dexscreener.com/tokens/v1/solana/${addrs.join(",")}`).then(r => r.json());
+  const best = {};
+  for (const p of pairs) {
+    const a = p.baseToken.address, liq = p.liquidity?.usd || 0;
+    if (!best[a] || liq > (best[a].liquidity?.usd || 0)) best[a] = p;
+  }
+  for (const a in best) prices[a] = { px: +best[a].priceUsd, liq: best[a].liquidity?.usd || 0, h1: best[a].priceChange?.h1 };
+}
+
+function parseTape(md) {
+  return md.split("\n").filter(l => l.startsWith("- `")).map(l => {
+    const m = l.match(/^- `([^`]+)` (BUY|SELL) \*\*([^*]+)\*\* (.*)$/);
+    if (!m) return null;
+    const [, when, side, sym, rest] = m;
+    let amount = "", why = "";
+    if (side === "BUY") { amount = (rest.match(/^\$[\d.]+/) || [""])[0]; why = (rest.match(/\(score [^)]*\)/) || [""])[0].replace(/[()]/g, ""); }
+    else { const n = rest.match(/net \$([+-][\d.]+)/); amount = n ? n[1] : ""; why = (rest.match(/^\(([^)]+)\)/) || ["", ""])[1]; }
+    return { time: when.slice(11, 16), side, sym, amount, why };
+  }).filter(Boolean).reverse();
+}
+
+function render() {
+  if (!state) return;
+  const pos = Object.entries(state.positions || {});
+  let value = 0, cards = [];
+  for (const [addr, p] of pos) {
+    const live = prices[addr];
+    const px = live ? live.px : p.entry_px;
+    const now = p.qty * px, change = (px / p.entry_px - 1) * 100;
+    value += now;
+    const held = (Date.now() / 1000 - p.opened) / 3600;
+    const clamp = Math.max(SL, Math.min(TP, change));
+    const at = (clamp - SL) / (TP - SL) * 100, zero = -SL / (TP - SL) * 100;
+    const color = change >= 0 ? "var(--up)" : "var(--down)";
+    const near = change >= TP * 0.8 ? '<span class="pill tp">near take profit</span>'
+      : change <= SL * 0.8 ? '<span class="pill sl">near stop loss</span>' : "";
+    const rug = live && live.liq < p.entry_liq * 0.6 ? '<span class="pill sl">liquidity draining</span>' : "";
+    cards.push(`<article class="card">
+      <div class="row"><span class="sym"><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.symbol)} ↗</a></span>
+        <span class="chg ${cls(change)}">${live ? pct(change) : "…"}</span></div>
+      <div class="range" role="img" aria-label="${pct(change)} between stop loss ${SL}% and take profit +${TP}%">
+        <div class="fill" style="left:${Math.min(at, zero)}%;width:${Math.abs(at - zero)}%;background:${color}"></div>
+        <div class="zero"></div><div class="mark" style="left:${at}%;background:${color}"></div></div>
+      <div class="ends"><span>stop ${SL}%</span><span>entry</span><span>take +${TP}%</span></div>
+      <div class="meta"><span>Paid <b>${usd(p.cost)}</b></span><span>Now <b>${usd(now)}</b></span>
+        <span>Held <b>${held.toFixed(1)}h</b> of 6h</span>${live ? `<span>Liquidity <b>$${Math.round(live.liq).toLocaleString()}</b></span>` : ""}</div>
+      ${near || rug ? `<div class="row" style="justify-content:flex-start">${near}${rug}</div>` : ""}
+    </article>`);
+  }
+  $("positions").innerHTML = cards.join("") || '<div class="card muted">No open trades. The bot is scanning for coins that pass its filters.</div>';
+  $("poscount").textContent = `${pos.length} of 3 slots`;
+
+  const equity = state.cash + value, net = state.cash + value * (1 - SELL_COST);
+  const diff = equity - START;
+  $("equity").textContent = usd(equity);
+  $("equity").className = "equity num " + cls(diff);
+  $("pnl").innerHTML = `<span class="${cls(diff)}">${diff >= 0 ? "+" : "−"}$${Math.abs(diff).toFixed(2)} (${pct(diff / START * 100)})</span> <span class="muted">vs $10.00 start</span>`;
+  $("cash").textContent = usd(state.cash);
+  $("net").textContent = usd(net);
+  $("net").className = "num " + cls(net - START);
+  const closed = state.closed || [], wins = closed.filter(c => c.pnl > 0).length;
+  const realized = closed.reduce((s, c) => s + c.pnl, 0);
+  $("closed").innerHTML = `${closed.length} <span class="muted" style="font-size:13px">${wins}W · <span class="${cls(realized)}">${usd(realized)}</span></span>`;
+  $("rejects").textContent = (state.seen_rejects || 0).toLocaleString();
+
+  const tape = parseTape(journal);
+  $("tape").innerHTML = tape.length ? tape.map(t => `<li>
+      <span class="num muted">${esc(t.time)}</span>
+      <span class="side ${t.side === "BUY" ? "" : cls(parseFloat(t.amount))}">${t.side}</span>
+      <span><b>${esc(t.sym)}</b> <span class="why">${esc(t.why)}</span></span>
+      <span class="num ${t.side === "SELL" ? cls(parseFloat(t.amount)) : ""}">${t.side === "SELL" ? (t.amount.startsWith("-") ? "−$" + t.amount.slice(1) : "+$" + t.amount.slice(1)) : esc(t.amount)}</span>
+    </li>`).join("") : '<li class="empty">No trades yet.</li>';
+
+  const dot = $("dot");
+  if (lastBot) {
+    const s = (Date.now() - lastBot) / 1000;
+    dot.className = "dot " + (s < 45 * 60 ? "live" : s < 3 * 3600 ? "stale" : "dead");
+    $("status").textContent = `Bot saved ${ago(s)}`;
+  } else { dot.className = "dot"; $("status").textContent = "Prices live"; }
+}
+
+async function refreshAll() {
+  try { await loadFiles(); } catch (e) { $("status").textContent = "Can't reach GitHub. Retrying…"; return; }
+  await Promise.allSettled([loadPrices(), loadBotTime()]);
+  render();
+}
+async function refreshPrices() {
+  try { await loadPrices(); render(); } catch (e) { /* keep last prices */ }
+}
+
+$("refresh").addEventListener("click", refreshAll);
+refreshAll();
+setInterval(refreshPrices, 30_000);
+setInterval(refreshAll, 120_000);
+setInterval(render, 15_000);
+</script>
+</body>
+</html>
