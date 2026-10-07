@@ -9,9 +9,12 @@ the strategy actually makes money before risking anything.
     python3 crawler.py --once          # one scan + position check
     python3 crawler.py --interval 60   # keep running, scan every 60s
     python3 crawler.py --report        # print the scoreboard
+    python3 crawler.py --serve --sync  # server mode: exits checked every 3s,
+                                       # trades pushed to GitHub for the dashboard
 """
 import argparse
 import json
+import subprocess
 import sys
 import time
 import urllib.request
@@ -271,16 +274,62 @@ def tick(state):
     report(state, pairs)
 
 
+def sync(reason):
+    """Commit state + journal and push, so the dashboard sees them."""
+    def git(*a):
+        return subprocess.run(["git", "-C", str(HERE), *a], capture_output=True, text=True, timeout=60)
+    git("add", "state.json", "journal.md")
+    if git("diff", "--cached", "--quiet").returncode == 0:
+        return
+    git("commit", "-qm", f"crawler: {reason} {datetime.now(timezone.utc):%H:%M}")
+    for _ in range(3):
+        if git("pull", "-q", "--rebase").returncode == 0 and git("push", "-q").returncode == 0:
+            return
+        git("rebase", "--abort")
+        time.sleep(5)
+    print("warn: push failed, will retry on next sync", file=sys.stderr)
+
+
+def serve(state, scan_every, exit_every, do_sync):
+    """Scan for new coins every scan_every s; check held coins every exit_every s."""
+    last_scan = last_sync = 0.0
+    while True:
+        trades_before = len(state["closed"]) + len(state["positions"])
+        try:
+            if now() - last_scan >= scan_every:
+                tick(state)
+                last_scan = now()
+            elif state["positions"]:
+                manage_positions(state, best_pairs(list(state["positions"])))
+                save_state(state)
+        except Exception as e:
+            print(f"warn: {e}", file=sys.stderr)
+        traded = len(state["closed"]) + len(state["positions"]) != trades_before
+        if do_sync and (traded or now() - last_sync >= 600):
+            try:
+                sync("trade" if traded else "scan")
+            except Exception as e:
+                print(f"warn: sync: {e}", file=sys.stderr)
+            last_sync = now()
+        time.sleep(exit_every)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--once", action="store_true", help="run a single scan")
     ap.add_argument("--interval", type=int, default=60, help="seconds between scans")
     ap.add_argument("--report", action="store_true", help="print the scoreboard and exit")
+    ap.add_argument("--serve", action="store_true", help="run nonstop with fast exit checks")
+    ap.add_argument("--exit-every", type=float, default=3, help="seconds between exit checks in --serve")
+    ap.add_argument("--sync", action="store_true", help="push trades to GitHub in --serve")
     args = ap.parse_args()
 
     state = load_state()
     if args.report:
         report(state)
+        return
+    if args.serve:
+        serve(state, args.interval, args.exit_every, args.sync)
         return
     while True:
         tick(state)

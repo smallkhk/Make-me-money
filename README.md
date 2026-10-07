@@ -21,3 +21,13 @@ Python 3 standard library only, nothing to install.
 Paper-trade for at least 1–2 weeks. If the equity line isn't clearly above $10
 after 30+ closed trades, the edge isn't real, and real money will lose faster
 than paper (MEV bots, failed transactions, worse fills).
+
+## Run it on a server (Oracle Cloud free tier)
+On a fresh Ubuntu server:
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/smallkhk/Make-me-money/claude/paper-trading-crawler/setup-server.sh)
+```
+It asks for a GitHub token (fine-grained, this repo only, Contents: Read and write),
+then runs `crawler.py --serve --sync` as a service: new coins scanned every 60s,
+held coins checked every 3s, trades pushed to GitHub so the dashboard stays live.
+Disable the GitHub Action once the server is running, so only one bot trades.
