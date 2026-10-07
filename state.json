@@ -1,15 +1,6 @@
 {
-  "cash": 4.106128103088237,
+  "cash": 2.8628745371731026,
   "positions": {
-    "45VHsie7CwFfPKWCw28PCdZdJWMA5Y6k56wDam9Hpump": {
-      "symbol": "RARINU",
-      "qty": 2001.391065875968,
-      "entry_px": 0.001443,
-      "cost": 2.967023474776031,
-      "entry_liq": 114732.71,
-      "opened": 1791395488.4065604,
-      "url": "https://dexscreener.com/solana/a2asuorcetj9kwkmzhf3pvsslgzrnmnghiqku8uegqmj"
-    },
     "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
       "symbol": "ECSTASY",
       "qty": 33914.24595349415,
@@ -27,6 +18,15 @@
       "entry_liq": 42845.02,
       "opened": 1791398278.2955728,
       "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg"
+    },
+    "FAopSovS2WFJK5qEAmcuwAVH98CvmBwT6Lpq4EK2pump": {
+      "symbol": "A1",
+      "qty": 7579.433470418007,
+      "entry_px": 0.0004127,
+      "cost": 3.2120330603331264,
+      "entry_liq": 63599.88,
+      "opened": 1791398400.7555616,
+      "url": "https://dexscreener.com/solana/f2p22sfcg4gkja2upyqzef9bpw3rsec5q2wmvewuibl7"
     }
   },
   "closed": [
@@ -81,7 +81,14 @@
       "reason": "take profit",
       "addr": "AAYnxkQJySJ4RkTQidjUoi4c7P7RNBHDWgzpHjbapump",
       "at": 1791398278.2948036
+    },
+    {
+      "symbol": "RARINU",
+      "pnl": -0.998243980358039,
+      "reason": "stop loss",
+      "addr": "45VHsie7CwFfPKWCw28PCdZdJWMA5Y6k56wDam9Hpump",
+      "at": 1791398400.754771
     }
   ],
-  "seen_rejects": 4790
+  "seen_rejects": 4884
 }

@@ -19,3 +19,5 @@
 - `2026-10-07 18:36 UTC` BUY **peakmale** $3.06 @ 0.0001214 (score 0.82, liq $30,687, mcap $121,413) https://dexscreener.com/solana/6ksizkgalecrfqlgpyokyfufftyy9fg51nh8zdinfpzq
 - `2026-10-07 18:37 UTC` SELL **peakmale** (take profit) price +54.1%, net $+1.42 after fees. Cash $7.59
 - `2026-10-07 18:37 UTC` BUY **SI276** $3.48 @ 0.0002226 (score 0.80, liq $42,845, mcap $220,269) https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg
+- `2026-10-07 18:40 UTC` SELL **RARINU** (stop loss) price -29.7%, net $-1.00 after fees. Cash $6.07
+- `2026-10-07 18:40 UTC` BUY **A1** $3.21 @ 0.0004127 (score 0.78, liq $63,600, mcap $409,365) https://dexscreener.com/solana/f2p22sfcg4gkja2upyqzef9bpw3rsec5q2wmvewuibl7
