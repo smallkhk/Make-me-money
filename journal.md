@@ -7,3 +7,5 @@
 - `2026-10-07 17:04 UTC` BUY **SNDWITCH** $2.60 @ 0.000274 (score 0.92, liq $53,970, mcap $271,696) https://dexscreener.com/solana/hu22ubatza7ajmkdjasyodhtffw6xvs6d9bsxlt9ugdb
 - `2026-10-07 17:22 UTC` SELL **UI** (take profit) price +57.1%, net $+1.20 after fees. Cash $5.29
 - `2026-10-07 17:22 UTC` BUY **CATCRAFT** $2.84 @ 0.001188 (score 0.82, liq $104,465, mcap $1,170,296) https://dexscreener.com/solana/7mqdgteiad4tkupg9hstypqnestntrauehh1zj1awp8x
+- `2026-10-07 17:28 UTC` SELL **MINER** (take profit) price +54.7%, net $+1.15 after fees. Cash $6.09
+- `2026-10-07 17:28 UTC` BUY **9-5** $2.86 @ 7.456e-05 (score 0.85, liq $23,375, mcap $71,650) https://dexscreener.com/solana/bv7qr31hgsja6y2d4tppxkfrq1smhydkdce5wchsvp3p
