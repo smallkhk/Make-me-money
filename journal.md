@@ -21,3 +21,5 @@
 - `2026-10-07 18:37 UTC` BUY **SI276** $3.48 @ 0.0002226 (score 0.80, liq $42,845, mcap $220,269) https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg
 - `2026-10-07 18:40 UTC` SELL **RARINU** (stop loss) price -29.7%, net $-1.00 after fees. Cash $6.07
 - `2026-10-07 18:40 UTC` BUY **A1** $3.21 @ 0.0004127 (score 0.78, liq $63,600, mcap $409,365) https://dexscreener.com/solana/f2p22sfcg4gkja2upyqzef9bpw3rsec5q2wmvewuibl7
+- `2026-10-07 18:47 UTC` SELL **A1** (take profit) price +61.7%, net $+1.72 after fees. Cash $7.80
+- `2026-10-07 18:47 UTC` BUY **BULLCRAFT** $3.72 @ 0.0001036 (score 0.73, liq $28,134, mcap $101,908) https://dexscreener.com/solana/eghzxfbbb6gkwl9m7zenzn2s1bejjvafyexkat5ghfsf

@@ -1,5 +1,5 @@
 {
-  "cash": 2.8628745371731026,
+  "cash": 4.080847915827031,
   "positions": {
     "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
       "symbol": "ECSTASY",
@@ -19,14 +19,14 @@
       "opened": 1791398278.2955728,
       "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg"
     },
-    "FAopSovS2WFJK5qEAmcuwAVH98CvmBwT6Lpq4EK2pump": {
-      "symbol": "A1",
-      "qty": 7579.433470418007,
-      "entry_px": 0.0004127,
-      "cost": 3.2120330603331264,
-      "entry_liq": 63599.88,
-      "opened": 1791398400.7555616,
-      "url": "https://dexscreener.com/solana/f2p22sfcg4gkja2upyqzef9bpw3rsec5q2wmvewuibl7"
+    "DwcXyhEcSvzWgakDKpetZLFvbAHutpGpzhbU4iempump": {
+      "symbol": "BULLCRAFT",
+      "qty": 34986.382981183175,
+      "entry_px": 0.0001036,
+      "cost": 3.719056764083894,
+      "entry_liq": 28133.99,
+      "opened": 1791398825.1693218,
+      "url": "https://dexscreener.com/solana/eghzxfbbb6gkwl9m7zenzn2s1bejjvafyexkat5ghfsf"
     }
   },
   "closed": [
@@ -88,7 +88,14 @@
       "reason": "stop loss",
       "addr": "45VHsie7CwFfPKWCw28PCdZdJWMA5Y6k56wDam9Hpump",
       "at": 1791398400.754771
+    },
+    {
+      "symbol": "A1",
+      "pnl": 1.724997082404696,
+      "reason": "take profit",
+      "addr": "FAopSovS2WFJK5qEAmcuwAVH98CvmBwT6Lpq4EK2pump",
+      "at": 1791398825.1686175
     }
   ],
-  "seen_rejects": 4884
+  "seen_rejects": 5206
 }
