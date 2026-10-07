@@ -1,5 +1,5 @@
 {
-  "cash": 0.17210102273158778,
+  "cash": 0.0,
   "positions": {
     "DwcXyhEcSvzWgakDKpetZLFvbAHutpGpzhbU4iempump": {
       "symbol": "BULLCRAFT",
@@ -19,14 +19,14 @@
       "opened": 1791400519.7504961,
       "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka"
     },
-    "BhMNZtBDSvG38oMRBJqoxLVzWr7Wfs4tWaW8wM69pump": {
-      "symbol": "JET",
-      "qty": 14421.57272478304,
-      "entry_px": 0.0001557,
-      "cost": 2.311403858024719,
-      "entry_liq": 38350.91,
-      "opened": 1791407916.6553729,
-      "url": "https://dexscreener.com/solana/3ehu5cgugq7iurpzqbowpyxbwatothewudvbacducabr"
+    "HbPDWSqu8hpVMX6gMjwMDGe5rVgicWo3Qh3Jaojypump": {
+      "symbol": "Frank",
+      "qty": 2394.9030274099505,
+      "entry_px": 0.000632,
+      "cost": 1.5644988624768281,
+      "entry_liq": 79062.85,
+      "opened": 1791408038.994901,
+      "url": "https://dexscreener.com/solana/745atasswxvry5qt1xvv9exug884hdvnjfva2o82dnbi"
     }
   },
   "closed": [
@@ -137,7 +137,14 @@
       "reason": "stop loss",
       "addr": "D6EuxSLN2ooDQLQGGTMC1H2oqjjVR7NGZWcq9Krhpump",
       "at": 1791407916.6547074
+    },
+    {
+      "symbol": "JET",
+      "pnl": -0.9190060182794788,
+      "reason": "stop loss",
+      "addr": "BhMNZtBDSvG38oMRBJqoxLVzWr7Wfs4tWaW8wM69pump",
+      "at": 1791408038.994251
     }
   ],
-  "seen_rejects": 9370
+  "seen_rejects": 9465
 }

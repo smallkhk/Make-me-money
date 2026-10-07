@@ -35,3 +35,5 @@
 - `2026-10-07 21:15 UTC` BUY **gem** $2.52 @ 0.0001174 (score 0.73, liq $30,217, mcap $117,453) https://dexscreener.com/solana/3ja1kknkepryldn18oa49lgzpdlk6csj6czkozpguj7n
 - `2026-10-07 21:18 UTC` SELL **gem** (stop loss) price -29.3%, net $-0.84 after fees. Cash $2.48
 - `2026-10-07 21:18 UTC` BUY **JET** $2.31 @ 0.0001557 (score 0.66, liq $38,351, mcap $152,100) https://dexscreener.com/solana/3ehu5cgugq7iurpzqbowpyxbwatothewudvbacducabr
+- `2026-10-07 21:20 UTC` SELL **JET** (stop loss) price -35.8%, net $-0.92 after fees. Cash $1.56
+- `2026-10-07 21:20 UTC` BUY **Frank** $1.56 @ 0.000632 (score 0.66, liq $79,063, mcap $600,783) https://dexscreener.com/solana/745atasswxvry5qt1xvv9exug884hdvnjfva2o82dnbi
