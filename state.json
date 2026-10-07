@@ -1,5 +1,5 @@
 {
-  "cash": 0.8085594086221102,
+  "cash": 0.17210102273158778,
   "positions": {
     "DwcXyhEcSvzWgakDKpetZLFvbAHutpGpzhbU4iempump": {
       "symbol": "BULLCRAFT",
@@ -19,14 +19,14 @@
       "opened": 1791400519.7504961,
       "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka"
     },
-    "D6EuxSLN2ooDQLQGGTMC1H2oqjjVR7NGZWcq9Krhpump": {
-      "symbol": "gem",
-      "qty": 20841.759935896775,
-      "entry_px": 0.0001174,
-      "cost": 2.516968320523885,
-      "entry_liq": 30216.74,
-      "opened": 1791407734.0105574,
-      "url": "https://dexscreener.com/solana/3ja1kknkepryldn18oa49lgzpdlk6csj6czkozpguj7n"
+    "BhMNZtBDSvG38oMRBJqoxLVzWr7Wfs4tWaW8wM69pump": {
+      "symbol": "JET",
+      "qty": 14421.57272478304,
+      "entry_px": 0.0001557,
+      "cost": 2.311403858024719,
+      "entry_liq": 38350.91,
+      "opened": 1791407916.6553729,
+      "url": "https://dexscreener.com/solana/3ehu5cgugq7iurpzqbowpyxbwatothewudvbacducabr"
     }
   },
   "closed": [
@@ -130,7 +130,14 @@
       "reason": "stop loss",
       "addr": "BMaoqGpX2KPp2DtM2pWWYZyssz9tsJsjUfRrw6cmpump",
       "at": 1791407734.0099819
+    },
+    {
+      "symbol": "gem",
+      "pnl": -0.8420228483896881,
+      "reason": "stop loss",
+      "addr": "D6EuxSLN2ooDQLQGGTMC1H2oqjjVR7NGZWcq9Krhpump",
+      "at": 1791407916.6547074
     }
   ],
-  "seen_rejects": 9230
+  "seen_rejects": 9370
 }

@@ -33,3 +33,5 @@
 - `2026-10-07 21:04 UTC` BUY **SCraft** $3.02 @ 8.164e-05 (score 0.74, liq $25,625, mcap $80,635) https://dexscreener.com/solana/4d17cm7jjegsqeoxpcgbbd9znpqgzuj3ukwr4fdjedfy
 - `2026-10-07 21:15 UTC` SELL **SCraft** (stop loss) price -34.1%, net $-1.14 after fees. Cash $3.33
 - `2026-10-07 21:15 UTC` BUY **gem** $2.52 @ 0.0001174 (score 0.73, liq $30,217, mcap $117,453) https://dexscreener.com/solana/3ja1kknkepryldn18oa49lgzpdlk6csj6czkozpguj7n
+- `2026-10-07 21:18 UTC` SELL **gem** (stop loss) price -29.3%, net $-0.84 after fees. Cash $2.48
+- `2026-10-07 21:18 UTC` BUY **JET** $2.31 @ 0.0001557 (score 0.66, liq $38,351, mcap $152,100) https://dexscreener.com/solana/3ehu5cgugq7iurpzqbowpyxbwatothewudvbacducabr
