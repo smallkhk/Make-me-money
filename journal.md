@@ -29,3 +29,5 @@
 - `2026-10-07 19:17 UTC` BUY **BLOX** $4.16 @ 8.457e-05 (score 0.81, liq $25,359, mcap $84,570) https://dexscreener.com/solana/eji6lww66yu43wxt9rbswiaz12yz7vtnwhe5sdnn6vyx
 - `2026-10-07 19:35 UTC` SELL **BLOX** (liquidity pulled (rug?)) price -93.7%, net $-3.93 after fees. Cash $5.48
 - `2026-10-07 19:35 UTC` BUY **TON618** $3.20 @ 0.0003395 (score 0.76, liq $53,758, mcap $323,959) https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx
+- `2026-10-07 21:04 UTC` SELL **TON618** (stop loss) price -27.7%, net $-1.01 after fees. Cash $4.47
+- `2026-10-07 21:04 UTC` BUY **SCraft** $3.02 @ 8.164e-05 (score 0.74, liq $25,625, mcap $80,635) https://dexscreener.com/solana/4d17cm7jjegsqeoxpcgbbd9znpqgzuj3ukwr4fdjedfy
