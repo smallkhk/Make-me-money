@@ -27,3 +27,5 @@
 - `2026-10-07 19:15 UTC` BUY **SPAWN** $4.33 @ 8.502e-05 (score 0.82, liq $25,672, mcap $80,200) https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka
 - `2026-10-07 19:17 UTC` SELL **SI276** (take profit) price +54.9%, net $+1.64 after fees. Cash $9.41
 - `2026-10-07 19:17 UTC` BUY **BLOX** $4.16 @ 8.457e-05 (score 0.81, liq $25,359, mcap $84,570) https://dexscreener.com/solana/eji6lww66yu43wxt9rbswiaz12yz7vtnwhe5sdnn6vyx
+- `2026-10-07 19:35 UTC` SELL **BLOX** (liquidity pulled (rug?)) price -93.7%, net $-3.93 after fees. Cash $5.48
+- `2026-10-07 19:35 UTC` BUY **TON618** $3.20 @ 0.0003395 (score 0.76, liq $53,758, mcap $323,959) https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx

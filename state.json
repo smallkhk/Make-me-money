@@ -1,5 +1,5 @@
 {
-  "cash": 5.248650702264704,
+  "cash": 2.279820280010635,
   "positions": {
     "DwcXyhEcSvzWgakDKpetZLFvbAHutpGpzhbU4iempump": {
       "symbol": "BULLCRAFT",
@@ -19,14 +19,14 @@
       "opened": 1791400519.7504961,
       "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka"
     },
-    "651d7ymtZ9aspt6RU3mEx27xitQQKYJLYcfhsbFdpump": {
-      "symbol": "BLOX",
-      "qty": 47942.40426400547,
-      "entry_px": 8.457e-05,
-      "cost": 4.157922778914252,
-      "entry_liq": 25359.21,
-      "opened": 1791400642.5753698,
-      "url": "https://dexscreener.com/solana/eji6lww66yu43wxt9rbswiaz12yz7vtnwhe5sdnn6vyx"
+    "CioPfvQWpVF2eTzpBj72x2zPyqgJRgvi36PqdLCCpump": {
+      "symbol": "TON618",
+      "qty": 9175.276008407529,
+      "entry_px": 0.0003395,
+      "cost": 3.198769561762277,
+      "entry_liq": 53757.56,
+      "opened": 1791401733.0927305,
+      "url": "https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx"
     }
   },
   "closed": [
@@ -109,7 +109,14 @@
       "reason": "take profit",
       "addr": "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump",
       "at": 1791400642.5748045
+    },
+    {
+      "symbol": "BLOX",
+      "pnl": -3.9279836394060434,
+      "reason": "liquidity pulled (rug?)",
+      "addr": "651d7ymtZ9aspt6RU3mEx27xitQQKYJLYcfhsbFdpump",
+      "at": 1791401733.0919564
     }
   ],
-  "seen_rejects": 7551
+  "seen_rejects": 7600
 }
