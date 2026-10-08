@@ -34,3 +34,5 @@
 - `2026-10-08 12:43 UTC` BUY **CLAUDEPLNT** $2.06 @ 2.357e-05 (score 0.87, liq $14,223, mcap $23,579) https://dexscreener.com/solana/fkydv9aexsc8fi8kgn8bkaqmrj3xzefar5l5zktdmbx4
 - `2026-10-08 13:05 UTC` SELL **CLAUDEPLNT** (take profit) price +107.3%, net $+1.98 after fees. Cash $4.54
 - `2026-10-08 13:06 UTC` BUY **Stonked** $2.97 @ 2.24e-05 (score 0.87, liq $13,719, mcap $22,404) https://dexscreener.com/solana/6xmz83tufrjbdh8d5dvcz2yu5wtih2uq4rw9pd4wgxbb
+- `2026-10-08 13:40 UTC` SELL **Stonked** (stop loss) price -38.1%, net $-1.24 after fees. Cash $3.31
+- `2026-10-08 13:41 UTC` BUY **OMARCHY** $2.45 @ 3.144e-05 (score 0.85, liq $14,774, mcap $31,444) https://dexscreener.com/solana/djqmfhfybyooqvjsjankqvzmartlzoaf8ze44dofm4mj

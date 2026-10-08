@@ -1,5 +1,5 @@
 {
-  "cash": 1.5707342507596636,
+  "cash": 0.8522112161852569,
   "positions": {
     "FvfX6xmM8UPmbmQJaFpDfuz5kqnbe2pB75c4xdKLpump": {
       "symbol": "SPAWN",
@@ -11,15 +11,14 @@
       "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka",
       "peak_pct": 31.534972547147277
     },
-    "63vCoVhdkjDvcAxcuDA4p8xgLN5ws8yHk4kDrqdQPBet": {
-      "symbol": "Stonked",
-      "qty": 129190.1603828945,
-      "entry_px": 2.24e-05,
-      "cost": 2.9735667946937197,
-      "entry_liq": 13719.17,
-      "opened": 1791464770.0620332,
-      "url": "https://dexscreener.com/solana/6xmz83tufrjbdh8d5dvcz2yu5wtih2uq4rw9pd4wgxbb",
-      "peak_pct": 56.205357142857146
+    "DRDEKFoEqf4y5C6z3FEPpsNrmDRSqNajvhPgs8KHKbsz": {
+      "symbol": "OMARCHY",
+      "qty": 75864.17694614537,
+      "entry_px": 3.144e-05,
+      "cost": 2.4542559339403636,
+      "entry_liq": 14773.67,
+      "opened": 1791466892.381109,
+      "url": "https://dexscreener.com/solana/djqmfhfybyooqvjsjankqvzmartlzoaf8ze44dofm4mj"
     }
   },
   "closed": [
@@ -134,8 +133,15 @@
       "reason": "take profit",
       "addr": "3jkqYnyZQYj4FHw48PmQu53WbLbfdSjx7wZhmmCQdTUm",
       "at": 1791464742.1432717
+    },
+    {
+      "symbol": "Stonked",
+      "pnl": -1.2378338953277628,
+      "reason": "stop loss",
+      "addr": "63vCoVhdkjDvcAxcuDA4p8xgLN5ws8yHk4kDrqdQPBet",
+      "at": 1791466833.9770355
     }
   ],
-  "seen_rejects": 3930,
+  "seen_rejects": 3966,
   "paused_until": 0
 }
