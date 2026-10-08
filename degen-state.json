@@ -8,7 +8,8 @@
       "cost": 5.0,
       "entry_liq": 28541.86,
       "opened": 1791422676.246789,
-      "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1"
+      "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1",
+      "peak_pct": 0
     },
     "Aov3BtQvrGXM5V9oiHu8PKJWeV8a2rFnr24fwWcNpump": {
       "symbol": "HNET",
@@ -17,7 +18,8 @@
       "cost": 4.939765543380846,
       "entry_liq": 15517.73,
       "opened": 1791422676.5802288,
-      "url": "https://dexscreener.com/solana/hglsak3nvlzazpbmiqrkv52cmzhnvrwvquzpsncsyakw"
+      "url": "https://dexscreener.com/solana/hglsak3nvlzazpbmiqrkv52cmzhnvrwvquzpsncsyakw",
+      "peak_pct": 0
     }
   },
   "closed": [],

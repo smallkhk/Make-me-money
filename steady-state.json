@@ -8,7 +8,8 @@
       "cost": 1.5,
       "entry_liq": 39769.71,
       "opened": 1791422675.5971622,
-      "url": "https://dexscreener.com/solana/8j42or3k3kbgnguqr2rbzcrweta7jhrnscjmscipv8in"
+      "url": "https://dexscreener.com/solana/8j42or3k3kbgnguqr2rbzcrweta7jhrnscjmscipv8in",
+      "peak_pct": 1.538461538461533
     },
     "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
       "symbol": "ECSTASY",
@@ -17,7 +18,8 @@
       "cost": 1.4925517384361113,
       "entry_liq": 28541.86,
       "opened": 1791422675.9133599,
-      "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1"
+      "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1",
+      "peak_pct": 0
     },
     "CioPfvQWpVF2eTzpBj72x2zPyqgJRgvi36PqdLCCpump": {
       "symbol": "TON618",
@@ -26,7 +28,8 @@
       "cost": 1.4851226872818784,
       "entry_liq": 43489.26,
       "opened": 1791422676.24582,
-      "url": "https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx"
+      "url": "https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx",
+      "peak_pct": 0
     }
   },
   "closed": [],
