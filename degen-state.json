@@ -1,5 +1,5 @@
 {
-  "cash": 2.2718113379543197,
+  "cash": 1.3973477703517747,
   "positions": {
     "FvfX6xmM8UPmbmQJaFpDfuz5kqnbe2pB75c4xdKLpump": {
       "symbol": "SPAWN",
@@ -11,14 +11,14 @@
       "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka",
       "peak_pct": 31.534972547147277
     },
-    "5zmavc3k69CCvkzMjcSrbuM9Tcv1tm8NumeoVbytPEAx": {
-      "symbol": "SKY",
-      "qty": 134422.7073763908,
-      "entry_px": 2.698e-05,
-      "cost": 3.721838385597794,
-      "entry_liq": 12724.19,
-      "opened": 1791467832.4390986,
-      "url": "https://dexscreener.com/solana/eykdaqgko58cpaypukcdthq9psenqa14j9eey5t3dgj3"
+    "7NUqX7ir3jxA4KVMwrjJCQMFcP4hWTG7PxmVAzUKSTNK": {
+      "symbol": "uBTC",
+      "qty": 99981.62307791365,
+      "entry_px": 2.919e-05,
+      "cost": 2.998589860492775,
+      "entry_liq": 16000.41,
+      "opened": 1791468146.0985603,
+      "url": "https://dexscreener.com/solana/h4v5dtvggruoztf26uwtzlcpvqhsgqtzwdy46w5xda92"
     }
   },
   "closed": [
@@ -147,8 +147,15 @@
       "reason": "take profit",
       "addr": "DRDEKFoEqf4y5C6z3FEPpsNrmDRSqNajvhPgs8KHKbsz",
       "at": 1791467804.5506012
+    },
+    {
+      "symbol": "SKY",
+      "pnl": -1.5977120927075639,
+      "reason": "stop loss",
+      "addr": "5zmavc3k69CCvkzMjcSrbuM9Tcv1tm8NumeoVbytPEAx",
+      "at": 1791468118.015708
     }
   ],
-  "seen_rejects": 4004,
+  "seen_rejects": 4042,
   "paused_until": 0
 }
