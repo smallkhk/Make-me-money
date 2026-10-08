@@ -1,5 +1,5 @@
 {
-  "cash": 4.9995086134192235,
+  "cash": 3.865394753041662,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -20,6 +20,15 @@
       "opened": 1791443468.1004446,
       "url": "https://dexscreener.com/solana/aurjhnmdxwqhyexvhrdlnxewusnfv7npaeerk4cpakfx",
       "peak_pct": 21.842661622343385
+    },
+    "7fxxzRh3Sotcto3qduvjFv6jyR3doPRd8vpDeQiUpump": {
+      "symbol": "Organisme",
+      "qty": 13625.100338229888,
+      "entry_px": 8.013e-05,
+      "cost": 1.1341138603775616,
+      "entry_liq": 23736.41,
+      "opened": 1791444260.1759813,
+      "url": "https://dexscreener.com/solana/52qg1opv3yuscwk8z4887fwurwrgr1h2xtcpvetfycbt"
     }
   },
   "closed": [
@@ -80,6 +89,6 @@
       "at": 1791443988.5354936
     }
   ],
-  "seen_rejects": 3318,
+  "seen_rejects": 3505,
   "paused_until": 1791443465.1272202
 }

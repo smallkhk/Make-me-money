@@ -20,3 +20,4 @@
 - `2026-10-08 07:11 UTC` BUY **Tincan** $1.24 @ 8.057e-05 (score 0.77, liq $25,116, mcap $77,040) https://dexscreener.com/solana/4svitreiu8kkrpey3oonukcf7sqyxv9k3uuatpqn6trz
 - `2026-10-08 07:11 UTC` BUY **FIX** $1.23 @ 8.987e-05 (score 0.69, liq $24,953, mcap $87,273) https://dexscreener.com/solana/aurjhnmdxwqhyexvhrdlnxewusnfv7npaeerk4cpakfx
 - `2026-10-08 07:19 UTC` SELL **Tincan** (stop loss) price -30.0%, net $-0.44 after fees. Cash $5.00
+- `2026-10-08 07:24 UTC` BUY **Organisme** $1.13 @ 8.013e-05 (score 0.72, liq $23,736, mcap $80,140) https://dexscreener.com/solana/52qg1opv3yuscwk8z4887fwurwrgr1h2xtcpvetfycbt
