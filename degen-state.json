@@ -1,15 +1,6 @@
 {
   "cash": 0.021198980910406506,
   "positions": {
-    "4QdbyFbAWvRQSz8qrxB5pZiS9BXUqmPKYCSkTu2Fpump": {
-      "symbol": "BCAT",
-      "qty": 6366.751240527108,
-      "entry_px": 0.0001721,
-      "cost": 1.1381158503155284,
-      "entry_liq": 35073.35,
-      "opened": 1791481608.17562,
-      "url": "https://dexscreener.com/solana/aeznpgyspr9mbhqhpmu2gwejf6rvcanf2jd1jmgnlkcp"
-    },
     "5Qp2CwEHHNgjvuCEcqFsCfPq2C5beGpMSYgNFoBdY3Jx": {
       "symbol": "BEARY",
       "qty": 38320.79074193323,
@@ -17,7 +8,8 @@
       "cost": 1.116916869405122,
       "entry_liq": 14974.5,
       "opened": 1791481608.5083916,
-      "url": "https://dexscreener.com/solana/aukv5bh8ewvsszhbchiop92rwl4z4bclaldyhbueeh5"
+      "url": "https://dexscreener.com/solana/aukv5bh8ewvsszhbchiop92rwl4z4bclaldyhbueeh5",
+      "peak_pct": 0
     }
   },
   "closed": [
@@ -202,8 +194,15 @@
       "reason": "stop loss",
       "addr": "29Vp6MThvxvSNuwtii3agTwaXcC4NGqqekAoYAX657E4",
       "at": 1791481577.6763058
+    },
+    {
+      "symbol": "BCAT",
+      "pnl": -1.1381158503155284,
+      "reason": "liquidity pulled (rug?)",
+      "addr": "4QdbyFbAWvRQSz8qrxB5pZiS9BXUqmPKYCSkTu2Fpump",
+      "at": 1791481644.699596
     }
   ],
-  "seen_rejects": 5287,
+  "seen_rejects": 5686,
   "paused_until": 0
 }
