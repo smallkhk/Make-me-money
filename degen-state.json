@@ -9,7 +9,7 @@
       "entry_liq": 13735.9,
       "opened": 1791453026.6127217,
       "url": "https://dexscreener.com/solana/ekejcolc4fx6rsvez9nxvyra4hjucre8kqqpusgfbmvy",
-      "peak_pct": 43.85614385614387
+      "peak_pct": 49.4838494838495
     },
     "FvfX6xmM8UPmbmQJaFpDfuz5kqnbe2pB75c4xdKLpump": {
       "symbol": "SPAWN",
@@ -18,7 +18,8 @@
       "cost": 1.392404828260788,
       "entry_liq": 25486.56,
       "opened": 1791461160.2414627,
-      "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka"
+      "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka",
+      "peak_pct": 31.534972547147277
     }
   },
   "closed": [
