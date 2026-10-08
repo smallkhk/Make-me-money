@@ -11,3 +11,5 @@
 - `2026-10-08 02:13 UTC` PAUSE 3 losses in a row, no new buys for 2h
 - `2026-10-08 03:01 UTC` SELL **ZKDARK** (take profit) price +67.2%, net $+0.79 after fees. Cash $7.85
 - `2026-10-08 04:14 UTC` BUY **SI276** $1.34 @ 0.0004229 (score 0.75, liq $60,069, mcap $418,381) https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg
+- `2026-10-08 04:19 UTC` SELL **ECSTASY** (stop loss) price -26.3%, net $-0.47 after fees. Cash $7.52
+- `2026-10-08 04:23 UTC` BUY **QUANT** $1.33 @ 7.494e-05 (score 0.72, liq $22,113, mcap $71,692) https://dexscreener.com/solana/32bsyvldyypnukywntalqa9ypufwkhaysbnxaxoaexwn
