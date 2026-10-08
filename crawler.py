@@ -7,8 +7,8 @@ Four bots trade side by side, each with its own paper $10:
   degen   young coins, big bets, big targets, a trailing stop to ride pumps
   base    the steady rules on Base instead of Solana, with GoPlus rug checks
   jev     the steady rules, plus the Jev AI model must rate the coin a likely
-          winner and unlikely rug. Needs TYPESAFE_API_KEY, or Cloudflare's
-          CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN; skipped without them
+          winner and unlikely rug. Needs AI_GATEWAY_API_KEY (Vercel), TYPESAFE_API_KEY,
+          or CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN; skipped without them
 
 No wallet, no keys, no real money: it only records what each bot *would* have
 done, with realistic fees, so you can see which (if either) actually makes money.
@@ -36,6 +36,7 @@ RUGCHECK = "https://api.rugcheck.xyz/v1/tokens/{}/report"
 GOPLUS = "https://api.gopluslabs.io/api/v1/token_security/8453?contract_addresses={}"
 JEV_URL = "https://api.typesafe.ai/v1/systemone"
 CF_URL = "https://api.cloudflare.com/client/v4/accounts/{}/ai/run"
+VERCEL_URL = "https://ai-gateway.vercel.sh/typesafe/v1/systemone"
 GECKO = "https://api.geckoterminal.com/api/v2/networks/base/{}?page=1"
 HERE = Path(__file__).resolve().parent
 START_CASH = 10.0
@@ -520,7 +521,7 @@ _jev_cache = {}
 
 
 def jev_configured():
-    return bool(os.environ.get("TYPESAFE_API_KEY") or
+    return bool(os.environ.get("AI_GATEWAY_API_KEY") or os.environ.get("TYPESAFE_API_KEY") or
                 (os.environ.get("CLOUDFLARE_ACCOUNT_ID") and os.environ.get("CLOUDFLARE_API_TOKEN")))
 
 
@@ -563,7 +564,10 @@ def jev_verdict(addr, pair, report):
                     "Is this memecoin likely to be rugged or dumped by insiders within the next 6 hours?"},
         },
     }
-    if os.environ.get("TYPESAFE_API_KEY"):
+    if os.environ.get("AI_GATEWAY_API_KEY"):   # Vercel AI Gateway, same API as TypeSafe's
+        url, key = VERCEL_URL, os.environ["AI_GATEWAY_API_KEY"]
+        body = {**body, "model": "typesafe-ai/jev"}
+    elif os.environ.get("TYPESAFE_API_KEY"):
         url, key = JEV_URL, os.environ["TYPESAFE_API_KEY"]
     else:   # same model through Cloudflare Workers AI
         url, key = CF_URL.format(os.environ["CLOUDFLARE_ACCOUNT_ID"]), os.environ["CLOUDFLARE_API_TOKEN"]
