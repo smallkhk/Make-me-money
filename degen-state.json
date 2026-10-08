@@ -8,7 +8,8 @@
       "cost": 1.7839979830677655,
       "entry_liq": 14687.23,
       "opened": 1791444322.4976676,
-      "url": "https://dexscreener.com/solana/gb79zgp981qtyswj8py3lquegt2tcqeeenve3brqad5r"
+      "url": "https://dexscreener.com/solana/gb79zgp981qtyswj8py3lquegt2tcqeeenve3brqad5r",
+      "peak_pct": 42.85714285714284
     },
     "6x36m5J2VxRPpWBV3MEZq15oe5Tq8ahR7qSCdA7pump": {
       "symbol": "iCoin",
@@ -17,7 +18,8 @@
       "cost": 1.7562520714553882,
       "entry_liq": 20149.05,
       "opened": 1791444322.4978917,
-      "url": "https://dexscreener.com/solana/7ohdsl98qr5euomahubiciun8dyyrdsmsm8dpeesvvsw"
+      "url": "https://dexscreener.com/solana/7ohdsl98qr5euomahubiciun8dyyrdsmsm8dpeesvvsw",
+      "peak_pct": 0
     }
   },
   "closed": [

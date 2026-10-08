@@ -1,5 +1,5 @@
 {
-  "cash": 3.865394753041662,
+  "cash": 4.265122134779746,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -21,15 +21,14 @@
       "url": "https://dexscreener.com/solana/aurjhnmdxwqhyexvhrdlnxewusnfv7npaeerk4cpakfx",
       "peak_pct": 21.842661622343385
     },
-    "7fxxzRh3Sotcto3qduvjFv6jyR3doPRd8vpDeQiUpump": {
-      "symbol": "Organisme",
-      "qty": 13625.100338229888,
-      "entry_px": 8.013e-05,
-      "cost": 1.1341138603775616,
-      "entry_liq": 23736.41,
-      "opened": 1791444260.1759813,
-      "url": "https://dexscreener.com/solana/52qg1opv3yuscwk8z4887fwurwrgr1h2xtcpvetfycbt",
-      "peak_pct": 4.654935729439669
+    "DZaQRdmPHNaqNsMVqRU8P4q5f2mErab4GipPghowFvaz": {
+      "symbol": "GIF",
+      "qty": 8364.676927219805,
+      "entry_px": 0.0001376,
+      "cost": 1.194510488438621,
+      "entry_liq": 33865.87,
+      "opened": 1791444567.1807945,
+      "url": "https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r"
     }
   },
   "closed": [
@@ -88,8 +87,15 @@
       "reason": "stop loss",
       "addr": "4QTZ4dR2SmHdP48KAxpqa6edUDc1N4NwZoFnyZHnvnbw",
       "at": 1791443988.5354936
+    },
+    {
+      "symbol": "Organisme",
+      "pnl": 0.4601240097991437,
+      "reason": "take profit",
+      "addr": "7fxxzRh3Sotcto3qduvjFv6jyR3doPRd8vpDeQiUpump",
+      "at": 1791444509.48131
     }
   ],
-  "seen_rejects": 3505,
+  "seen_rejects": 3551,
   "paused_until": 1791443465.1272202
 }
