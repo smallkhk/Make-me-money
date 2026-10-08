@@ -1,5 +1,10 @@
 # make-me-money: paper-trading memecoin crawler
 
+**v2 (Oct 8):** two bots, each with its own paper $10. *Steady* adds RugCheck
+holder checks, 15% bets and a pause after 3 losses in a row. *Degen* buys young
+coins with 50% bets, +100%/−35% exits and a trailing stop. v1's record is kept
+in `state.json` / `journal.md`. The notes below describe v1.
+
 A $10 Solana memecoin desk that **doesn't touch real money**. It:
 
 1. **Watches** new tokens on DexScreener (free public API, no key needed).

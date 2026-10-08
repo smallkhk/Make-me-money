@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Paper-trading memecoin crawler for Solana.
+"""Paper-trading memecoin desk for Solana, v2.
 
-Scans new tokens on DexScreener, throws out the obvious scams, and paper-trades
-the survivors with a $10 bankroll. No wallet, no keys, no real money: it only
-records what it *would* have done, with realistic fees, so you can see whether
-the strategy actually makes money before risking anything.
+Two bots trade side by side, each with its own paper $10:
+
+  steady  strict filters, RugCheck holder checks, small bets, losing-streak brake
+  degen   young coins, big bets, big targets, a trailing stop to ride pumps
+
+No wallet, no keys, no real money: it only records what each bot *would* have
+done, with realistic fees, so you can see which (if either) actually makes money.
 
     python3 crawler.py --once          # one scan + position check
-    python3 crawler.py --interval 60   # keep running, scan every 60s
-    python3 crawler.py --report        # print the scoreboard
+    python3 crawler.py --report        # print both scoreboards
     python3 crawler.py --serve --sync  # server mode: exits checked every 3s,
                                        # trades pushed to GitHub for the dashboard
 """
@@ -22,45 +24,94 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 API = "https://api.dexscreener.com"
+RUGCHECK = "https://api.rugcheck.xyz/v1/tokens/{}/report"
 HERE = Path(__file__).resolve().parent
-STATE_FILE = HERE / "state.json"
-JOURNAL_FILE = HERE / "journal.md"
-
 START_CASH = 10.0
-
-# Hard filters: fail any one and the token is out.
-HARD = {
-    "min_age_minutes": 15,
-    "max_age_hours": 72,
-    "min_liquidity_usd": 12_000,
-    "min_volume_h24": 45_000,
-    "min_mcap_usd": 60_000,
-    "max_mcap_usd": 5_000_000,
-    "min_trades_h24": 150,
-    "max_h1_change_pct": 300,   # momentum already spent
-    "min_buy_sell_ratio": 0.8,  # sellers swamping buyers
-}
-
-# Sizing and exits (plain python, no vibes).
-RISK = {
-    "position_frac": 0.25,     # of equity per trade
-    "max_open": 3,
-    "min_score": 0.6,
-    "take_profit_pct": 50,
-    "stop_loss_pct": -25,
-    "time_stop_hours": 6,
-    "rug_liquidity_drop": 0.5,  # exit if liquidity falls by half
-    "cooldown_hours": 24,       # don't rebuy a coin we just sold
-}
 
 # Cost model for tiny Solana swaps: DEX fee, slippage, network + priority fee.
 SWAP_FEE = 0.01
 BASE_SLIPPAGE = 0.01
 NETWORK_FEE_USD = 0.02
 
+STRATEGIES = {
+    "steady": {
+        "label": "Steady",
+        "state": "steady-state.json",
+        "journal": "steady-journal.md",
+        "hard": {
+            "min_age_minutes": 15,
+            "max_age_hours": 72,
+            "min_liquidity_usd": 12_000,
+            "min_volume_h24": 45_000,
+            "min_mcap_usd": 60_000,
+            "max_mcap_usd": 5_000_000,
+            "min_trades_h24": 150,
+            "max_h1_change_pct": 300,   # momentum already spent
+            "min_buy_sell_ratio": 0.8,  # sellers swamping buyers
+        },
+        "rug": {
+            "max_top10_pct": 35,        # top 10 wallets (pool excluded) own too much
+            "max_insider_pct": 20,      # linked insider wallets own too much
+            "min_lp_locked_pct": 80,    # liquidity can be pulled
+            "allow_warn_only": True,    # "danger" risks always reject
+        },
+        "risk": {
+            "position_frac": 0.15,      # of equity per trade
+            "max_open": 3,
+            "min_score": 0.6,
+            "take_profit_pct": 50,
+            "stop_loss_pct": -25,
+            "trail_after_pct": None,
+            "trail_drop_pct": None,
+            "time_stop_hours": 6,
+            "rug_liquidity_drop": 0.5,  # exit if liquidity falls by half
+            "cooldown_hours": 24,       # don't rebuy a coin we just sold
+            "brake_losses": 3,          # this many losses in a row...
+            "brake_hours": 2,           # ...pauses buying this long
+        },
+    },
+    "degen": {
+        "label": "Degen",
+        "state": "degen-state.json",
+        "journal": "degen-journal.md",
+        "hard": {
+            "min_age_minutes": 3,
+            "max_age_hours": 24,
+            "min_liquidity_usd": 5_000,
+            "min_volume_h24": 10_000,
+            "min_mcap_usd": 15_000,
+            "max_mcap_usd": 1_500_000,
+            "min_trades_h24": 80,
+            "max_h1_change_pct": 1_000,
+            "min_buy_sell_ratio": 1.0,
+        },
+        "rug": {
+            # Only the outright traps: mint/freeze authority and "danger" flags.
+            "max_top10_pct": None,
+            "max_insider_pct": None,
+            "min_lp_locked_pct": None,
+            "allow_warn_only": True,
+        },
+        "risk": {
+            "position_frac": 0.5,
+            "max_open": 2,
+            "min_score": 0.45,
+            "take_profit_pct": 100,
+            "stop_loss_pct": -35,
+            "trail_after_pct": 60,      # once up 60%...
+            "trail_drop_pct": 25,       # ...sell if it falls 25% from its peak
+            "time_stop_hours": 3,
+            "rug_liquidity_drop": 0.5,
+            "cooldown_hours": 24,
+            "brake_losses": None,
+            "brake_hours": None,
+        },
+    },
+}
 
-def get(path):
-    req = urllib.request.Request(API + path, headers={"User-Agent": "paper-crawler/1.0"})
+
+def get(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "paper-crawler/2.0"})
     with urllib.request.urlopen(req, timeout=20) as r:
         return json.load(r)
 
@@ -73,29 +124,217 @@ def stamp():
     return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
 
-def load_state():
-    if STATE_FILE.exists():
-        return json.loads(STATE_FILE.read_text())
-    return {"cash": START_CASH, "positions": {}, "closed": [], "seen_rejects": 0}
+class Bot:
+    def __init__(self, name, cfg):
+        self.name, self.cfg = name, cfg
+        self.hard, self.rug, self.risk = cfg["hard"], cfg["rug"], cfg["risk"]
+        self.state_file = HERE / cfg["state"]
+        self.journal_file = HERE / cfg["journal"]
+        if self.state_file.exists():
+            self.state = json.loads(self.state_file.read_text())
+        else:
+            self.state = {"cash": START_CASH, "positions": {}, "closed": [], "seen_rejects": 0}
+        self.state.setdefault("paused_until", 0)
+
+    def save(self):
+        self.state_file.write_text(json.dumps(self.state, indent=2))
+
+    def journal(self, line):
+        if not self.journal_file.exists():
+            self.journal_file.write_text(f"# {self.cfg['label']} bot trade journal (paper)\n\n")
+        with self.journal_file.open("a") as f:
+            f.write(f"- `{stamp()}` {line}\n")
+        print(f"[{self.name}] {line}")
+
+    def equity(self, prices):
+        return self.state["cash"] + sum(
+            p["qty"] * prices.get(a, p["entry_px"]) for a, p in self.state["positions"].items())
+
+    def check(self, pair):
+        """Return (score, reasons_rejected). Empty reasons means it passed."""
+        h = self.hard
+        liq = (pair.get("liquidity") or {}).get("usd") or 0
+        vol = (pair.get("volume") or {}).get("h24") or 0
+        mcap = pair.get("marketCap") or pair.get("fdv") or 0
+        tx = (pair.get("txns") or {}).get("h24") or {}
+        buys, sells = tx.get("buys", 0), tx.get("sells", 0)
+        h1 = (pair.get("priceChange") or {}).get("h1") or 0
+        age_min = (now() * 1000 - (pair.get("pairCreatedAt") or now() * 1000)) / 60_000
+        ratio = buys / max(sells, 1)
+
+        fails = []
+        if liq == 0:
+            fails.append("no pool liquidity (bonding curve, can't exit)")
+        if age_min < h["min_age_minutes"]:
+            fails.append(f"too new ({age_min:.0f}m)")
+        if age_min > h["max_age_hours"] * 60:
+            fails.append("too old")
+        if liq < h["min_liquidity_usd"]:
+            fails.append(f"liquidity ${liq:,.0f}")
+        if vol < h["min_volume_h24"]:
+            fails.append(f"volume ${vol:,.0f}")
+        if not h["min_mcap_usd"] <= mcap <= h["max_mcap_usd"]:
+            fails.append(f"mcap ${mcap:,.0f}")
+        if buys + sells < h["min_trades_h24"]:
+            fails.append(f"{buys + sells} trades")
+        if h1 > h["max_h1_change_pct"]:
+            fails.append(f"already pumped {h1:.0f}% 1h")
+        if ratio < h["min_buy_sell_ratio"]:
+            fails.append(f"buy/sell {ratio:.2f}")
+
+        info = pair.get("info") or {}
+        socials = len(info.get("socials") or []) + len(info.get("websites") or [])
+        s_liq = min(liq / max(mcap, 1) / 0.3, 1)            # deep pool relative to mcap
+        s_flow = min(max((ratio - 0.8) / 1.2, 0), 1)         # buyers outnumber sellers
+        s_turn = min(vol / max(liq, 1) / 10, 1)              # real trading activity
+        s_mom = 1 - min(max(h1, 0) / h["max_h1_change_pct"], 1)
+        s_soc = min(socials / 2, 1)
+        score = 0.25 * s_liq + 0.25 * s_flow + 0.2 * s_turn + 0.15 * s_mom + 0.15 * s_soc
+        return score, fails
+
+    def rug_fails(self, report):
+        """Reasons the RugCheck report rules this coin out."""
+        if report is None:
+            return ["rugcheck unavailable"]
+        r, fails = self.rug, []
+        if report.get("mintAuthority"):
+            fails.append("creator can mint more")
+        if report.get("freezeAuthority"):
+            fails.append("creator can freeze wallets")
+        if report.get("rugged"):
+            fails.append("already rugged")
+        for risk in report.get("risks") or []:
+            if risk.get("level") == "danger":
+                fails.append(risk.get("name", "danger"))
+        pools = {m.get("pubkey") for m in report.get("markets") or []}
+        holders = [x for x in report.get("topHolders") or [] if x.get("owner") not in pools]
+        if r["max_top10_pct"] is not None:
+            top10 = sum(x.get("pct", 0) for x in holders[:10])
+            if top10 > r["max_top10_pct"]:
+                fails.append(f"top 10 wallets own {top10:.0f}%")
+        if r["max_insider_pct"] is not None:
+            ins = sum(x.get("pct", 0) for x in holders if x.get("insider"))
+            if ins > r["max_insider_pct"]:
+                fails.append(f"insiders own {ins:.0f}%")
+        if r["min_lp_locked_pct"] is not None:
+            markets = sorted(report.get("markets") or [],
+                             key=lambda m: (m.get("lp") or {}).get("quoteUSD") or 0, reverse=True)
+            locked = ((markets[0].get("lp") or {}).get("lpLockedPct") or 0) if markets else 0
+            if locked < r["min_lp_locked_pct"]:
+                fails.append(f"only {locked:.0f}% of liquidity locked")
+        return fails
+
+    def manage(self, pairs):
+        r = self.risk
+        for addr, pos in list(self.state["positions"].items()):
+            pair = pairs.get(addr)
+            if pair is None:
+                continue
+            px = float(pair.get("priceUsd") or 0)
+            liq = (pair.get("liquidity") or {}).get("usd") or 0
+            pnl_pct = (px / pos["entry_px"] - 1) * 100 if pos["entry_px"] else -100
+            pos["peak_pct"] = max(pos.get("peak_pct", 0), pnl_pct)
+            held_h = (now() - pos["opened"]) / 3600
+
+            reason = None
+            if liq < pos["entry_liq"] * r["rug_liquidity_drop"]:
+                reason = "liquidity pulled (rug?)"
+            elif pnl_pct >= r["take_profit_pct"]:
+                reason = "take profit"
+            elif (r["trail_after_pct"] is not None and pos["peak_pct"] >= r["trail_after_pct"]
+                  and (1 + pnl_pct / 100) <= (1 + pos["peak_pct"] / 100) * (1 - r["trail_drop_pct"] / 100)):
+                reason = f"trailing stop (peak +{pos['peak_pct']:.0f}%)"
+            elif pnl_pct <= r["stop_loss_pct"]:
+                reason = "stop loss"
+            elif held_h >= r["time_stop_hours"]:
+                reason = "time stop"
+            if not reason:
+                continue
+
+            gross = pos["qty"] * px
+            proceeds = max(gross * (1 - fill_cost(gross, liq)) - NETWORK_FEE_USD, 0)
+            self.state["cash"] += proceeds
+            pnl = proceeds - pos["cost"]
+            self.state["closed"].append({"symbol": pos["symbol"], "pnl": pnl, "reason": reason,
+                                         "addr": addr, "at": now()})
+            del self.state["positions"][addr]
+            self.journal(f"SELL **{pos['symbol']}** ({reason}) price {pnl_pct:+.1f}%, "
+                         f"net ${pnl:+.2f} after fees. Cash ${self.state['cash']:.2f}")
+            self.maybe_brake()
+
+    def maybe_brake(self):
+        n = self.risk["brake_losses"]
+        if not n:
+            return
+        last = self.state["closed"][-n:]
+        if len(last) == n and all(c["pnl"] < 0 for c in last) and \
+                all(c.get("at", 0) > self.state["paused_until"] for c in last):
+            self.state["paused_until"] = now() + self.risk["brake_hours"] * 3600
+            self.journal(f"PAUSE {n} losses in a row, no new buys for {self.risk['brake_hours']}h")
+
+    def open(self, pairs, rugcheck):
+        r = self.risk
+        if now() < self.state["paused_until"] or len(self.state["positions"]) >= r["max_open"]:
+            return
+        cutoff = now() - r["cooldown_hours"] * 3600
+        recent = {c.get("addr") for c in self.state["closed"] if c.get("at", 0) > cutoff}
+        ranked = []
+        for addr, pair in pairs.items():
+            if addr in self.state["positions"] or addr in recent:
+                continue
+            score, fails = self.check(pair)
+            if fails or score < r["min_score"]:
+                self.state["seen_rejects"] += 1
+                continue
+            ranked.append((score, addr, pair))
+        ranked.sort(key=lambda x: x[0], reverse=True)
+
+        prices = {a: float(p.get("priceUsd") or 0) for a, p in pairs.items()}
+        for score, addr, pair in ranked:
+            if len(self.state["positions"]) >= r["max_open"]:
+                break
+            fails = self.rug_fails(rugcheck(addr))
+            if fails:
+                self.state["seen_rejects"] += 1
+                print(f"[{self.name}] skip {pair['baseToken']['symbol']}: {', '.join(fails)}")
+                continue
+            size = min(self.equity(prices) * r["position_frac"], self.state["cash"])
+            if size < 1:
+                break
+            liq = pair["liquidity"]["usd"]
+            px = float(pair["priceUsd"])
+            spend = size - NETWORK_FEE_USD
+            qty = spend * (1 - fill_cost(spend, liq)) / px
+            self.state["cash"] -= size
+            self.state["positions"][addr] = {
+                "symbol": pair["baseToken"]["symbol"], "qty": qty, "entry_px": px,
+                "cost": size, "entry_liq": liq, "opened": now(), "url": pair.get("url"),
+            }
+            self.journal(f"BUY **{pair['baseToken']['symbol']}** ${size:.2f} @ {px:.8g} "
+                         f"(score {score:.2f}, liq ${liq:,.0f}, mcap ${pair.get('marketCap') or 0:,.0f}) "
+                         f"{pair.get('url')}")
+
+    def report(self, pairs=None):
+        prices = {a: float(p.get("priceUsd") or 0) for a, p in (pairs or {}).items()}
+        eq = self.equity(prices)
+        closed = self.state["closed"]
+        wins = sum(1 for c in closed if c["pnl"] > 0)
+        paused = " | PAUSED" if now() < self.state["paused_until"] else ""
+        print(f"[{self.name}] equity ${eq:.2f} ({(eq / START_CASH - 1) * 100:+.1f}%) | "
+              f"cash ${self.state['cash']:.2f} | open {len(self.state['positions'])} | "
+              f"closed {len(closed)} ({wins} wins){paused}")
 
 
-def save_state(state):
-    STATE_FILE.write_text(json.dumps(state, indent=2))
-
-
-def journal(line):
-    if not JOURNAL_FILE.exists():
-        JOURNAL_FILE.write_text("# Trade journal (paper)\n\n")
-    with JOURNAL_FILE.open("a") as f:
-        f.write(f"- `{stamp()}` {line}\n")
-    print(line)
+def fill_cost(size_usd, liq_usd):
+    """Fraction lost to fees + slippage on one side of a trade."""
+    return SWAP_FEE + BASE_SLIPPAGE + size_usd / max(liq_usd, 1)
 
 
 def candidate_addresses():
     addrs = []
     for path in ("/token-profiles/latest/v1", "/token-boosts/latest/v1", "/token-boosts/top/v1"):
         try:
-            for item in get(path):
+            for item in get(API + path):
                 if item.get("chainId") == "solana" and item["tokenAddress"] not in addrs:
                     addrs.append(item["tokenAddress"])
         except Exception as e:
@@ -109,7 +348,7 @@ def best_pairs(addresses):
     for i in range(0, len(addresses), 30):
         chunk = ",".join(addresses[i:i + 30])
         try:
-            pairs = get(f"/tokens/v1/solana/{chunk}")
+            pairs = get(f"{API}/tokens/v1/solana/{chunk}")
         except Exception as e:
             print(f"warn: pairs: {e}", file=sys.stderr)
             continue
@@ -122,163 +361,42 @@ def best_pairs(addresses):
     return out
 
 
-def check(pair):
-    """Return (score, reasons_rejected). Empty reasons means it passed."""
-    liq = (pair.get("liquidity") or {}).get("usd") or 0
-    vol = (pair.get("volume") or {}).get("h24") or 0
-    mcap = pair.get("marketCap") or pair.get("fdv") or 0
-    tx = (pair.get("txns") or {}).get("h24") or {}
-    buys, sells = tx.get("buys", 0), tx.get("sells", 0)
-    h1 = (pair.get("priceChange") or {}).get("h1") or 0
-    age_min = (now() * 1000 - (pair.get("pairCreatedAt") or now() * 1000)) / 60_000
-    ratio = buys / max(sells, 1)
-
-    fails = []
-    if liq == 0:
-        fails.append("no pool liquidity (bonding curve, can't exit)")
-    if age_min < HARD["min_age_minutes"]:
-        fails.append(f"too new ({age_min:.0f}m)")
-    if age_min > HARD["max_age_hours"] * 60:
-        fails.append("too old")
-    if liq < HARD["min_liquidity_usd"]:
-        fails.append(f"liquidity ${liq:,.0f}")
-    if vol < HARD["min_volume_h24"]:
-        fails.append(f"volume ${vol:,.0f}")
-    if not HARD["min_mcap_usd"] <= mcap <= HARD["max_mcap_usd"]:
-        fails.append(f"mcap ${mcap:,.0f}")
-    if buys + sells < HARD["min_trades_h24"]:
-        fails.append(f"{buys + sells} trades")
-    if h1 > HARD["max_h1_change_pct"]:
-        fails.append(f"already pumped {h1:.0f}% 1h")
-    if ratio < HARD["min_buy_sell_ratio"]:
-        fails.append(f"buy/sell {ratio:.2f}")
-
-    # Soft score in [0, 1].
-    info = pair.get("info") or {}
-    socials = len(info.get("socials") or []) + len(info.get("websites") or [])
-    s_liq = min(liq / max(mcap, 1) / 0.3, 1)          # deep pool relative to mcap
-    s_flow = min(max((ratio - 0.8) / 1.2, 0), 1)       # buyers outnumber sellers
-    s_turn = min(vol / max(liq, 1) / 10, 1)             # real trading activity
-    s_mom = 1 - min(max(h1, 0) / HARD["max_h1_change_pct"], 1)
-    s_soc = min(socials / 2, 1)
-    score = 0.25 * s_liq + 0.25 * s_flow + 0.2 * s_turn + 0.15 * s_mom + 0.15 * s_soc
-    return score, fails
+_rug_cache = {}
 
 
-def fill_cost(size_usd, liq_usd):
-    """Fraction lost to fees + slippage on one side of a trade."""
-    impact = size_usd / max(liq_usd, 1)
-    return SWAP_FEE + BASE_SLIPPAGE + impact
+def rugcheck(addr):
+    """RugCheck report for a token, cached for 15 minutes. None if unavailable."""
+    hit = _rug_cache.get(addr)
+    if hit and now() - hit[0] < 900:
+        return hit[1]
+    try:
+        report = get(RUGCHECK.format(addr))
+    except Exception as e:
+        print(f"warn: rugcheck {addr[:6]}: {e}", file=sys.stderr)
+        report = None
+    _rug_cache[addr] = (now(), report)
+    return report
 
 
-def equity(state, prices):
-    eq = state["cash"]
-    for addr, pos in state["positions"].items():
-        px = prices.get(addr, pos["entry_px"])
-        eq += pos["qty"] * px
-    return eq
+def held(bots):
+    return list(dict.fromkeys(a for b in bots for a in b.state["positions"]))
 
 
-def manage_positions(state, pairs):
-    for addr, pos in list(state["positions"].items()):
-        pair = pairs.get(addr)
-        if pair is None:
-            try:
-                pair = best_pairs([addr]).get(addr)
-            except Exception:
-                pair = None
-        if pair is None:
-            continue
-        px = float(pair.get("priceUsd") or 0)
-        liq = (pair.get("liquidity") or {}).get("usd") or 0
-        pnl_pct = (px / pos["entry_px"] - 1) * 100 if pos["entry_px"] else -100
-        held_h = (now() - pos["opened"]) / 3600
-
-        reason = None
-        if liq < pos["entry_liq"] * RISK["rug_liquidity_drop"]:
-            reason = "liquidity pulled (rug?)"
-        elif pnl_pct >= RISK["take_profit_pct"]:
-            reason = "take profit"
-        elif pnl_pct <= RISK["stop_loss_pct"]:
-            reason = "stop loss"
-        elif held_h >= RISK["time_stop_hours"]:
-            reason = "time stop"
-        if not reason:
-            continue
-
-        gross = pos["qty"] * px
-        proceeds = max(gross * (1 - fill_cost(gross, liq)) - NETWORK_FEE_USD, 0)
-        state["cash"] += proceeds
-        pnl = proceeds - pos["cost"]
-        state["closed"].append({"symbol": pos["symbol"], "pnl": pnl, "reason": reason,
-                                "addr": addr, "at": now()})
-        del state["positions"][addr]
-        journal(f"SELL **{pos['symbol']}** ({reason}) price {pnl_pct:+.1f}%, "
-                f"net ${pnl:+.2f} after fees. Cash ${state['cash']:.2f}")
-
-
-def open_positions(state, pairs):
-    cutoff = now() - RISK["cooldown_hours"] * 3600
-    recent = {c.get("addr") for c in state["closed"] if c.get("at", 0) > cutoff}
-    ranked = []
-    for addr, pair in pairs.items():
-        if addr in state["positions"] or addr in recent:
-            continue
-        score, fails = check(pair)
-        if fails:
-            state["seen_rejects"] += 1
-            continue
-        if score >= RISK["min_score"]:
-            ranked.append((score, addr, pair))
-    ranked.sort(reverse=True)
-
-    for score, addr, pair in ranked:
-        if len(state["positions"]) >= RISK["max_open"]:
-            break
-        prices = {a: float(p.get("priceUsd") or 0) for a, p in pairs.items()}
-        size = min(equity(state, prices) * RISK["position_frac"], state["cash"])
-        if size < 1:
-            break
-        liq = pair["liquidity"]["usd"]
-        px = float(pair["priceUsd"])
-        spend = size - NETWORK_FEE_USD
-        qty = spend * (1 - fill_cost(spend, liq)) / px
-        state["cash"] -= size
-        state["positions"][addr] = {
-            "symbol": pair["baseToken"]["symbol"], "qty": qty, "entry_px": px,
-            "cost": size, "entry_liq": liq, "opened": now(), "url": pair.get("url"),
-        }
-        journal(f"BUY **{pair['baseToken']['symbol']}** ${size:.2f} @ {px:.8g} "
-                f"(score {score:.2f}, liq ${liq:,.0f}, mcap ${pair.get('marketCap') or 0:,.0f}) "
-                f"{pair.get('url')}")
-
-
-def report(state, pairs=None):
-    prices = {a: float(p.get("priceUsd") or 0) for a, p in (pairs or {}).items()}
-    eq = equity(state, prices)
-    wins = sum(1 for c in state["closed"] if c["pnl"] > 0)
-    n = len(state["closed"])
-    print(f"\nEquity ${eq:.2f} (started ${START_CASH:.2f}, {(eq / START_CASH - 1) * 100:+.1f}%)")
-    print(f"Cash ${state['cash']:.2f} | open {len(state['positions'])} | "
-          f"closed {n} ({wins} wins) | tokens rejected so far {state['seen_rejects']}")
-    for pos in state["positions"].values():
-        print(f"  holding {pos['symbol']}: cost ${pos['cost']:.2f}  {pos['url']}")
-
-
-def tick(state):
-    addrs = candidate_addresses() + list(state["positions"])
-    pairs = best_pairs(list(dict.fromkeys(addrs)))
-    manage_positions(state, pairs)
-    open_positions(state, pairs)
-    save_state(state)
-    report(state, pairs)
+def tick(bots):
+    pairs = best_pairs(list(dict.fromkeys(candidate_addresses() + held(bots))))
+    for b in bots:
+        b.manage(pairs)
+        b.open(pairs, rugcheck)
+        b.save()
+        b.report(pairs)
 
 
 def sync(reason):
-    """Commit state + journal and push, so the dashboard sees them."""
+    """Commit state + journals and push, so the dashboard sees them."""
     def git(*a):
         return subprocess.run(["git", "-C", str(HERE), *a], capture_output=True, text=True, timeout=60)
-    git("add", "state.json", "journal.md")
+    files = [f for cfg in STRATEGIES.values() for f in (cfg["state"], cfg["journal"]) if (HERE / f).exists()]
+    git("add", *files)
     if git("diff", "--cached", "--quiet").returncode == 0:
         return
     git("commit", "-qm", f"crawler: {reason} {datetime.now(timezone.utc):%H:%M}")
@@ -294,21 +412,24 @@ def sync(reason):
     print("warn: push failed, will retry on next sync", file=sys.stderr)
 
 
-def serve(state, scan_every, exit_every, do_sync):
+def serve(bots, scan_every, exit_every, do_sync):
     """Scan for new coins every scan_every s; check held coins every exit_every s."""
     last_scan = last_sync = 0.0
     while True:
-        trades_before = len(state["closed"]) + len(state["positions"])
+        count = lambda: sum(len(b.state["closed"]) + len(b.state["positions"]) for b in bots)
+        before = count()
         try:
             if now() - last_scan >= scan_every:
-                tick(state)
+                tick(bots)
                 last_scan = now()
-            elif state["positions"]:
-                manage_positions(state, best_pairs(list(state["positions"])))
-                save_state(state)
+            elif held(bots):
+                pairs = best_pairs(held(bots))
+                for b in bots:
+                    b.manage(pairs)
+                    b.save()
         except Exception as e:
             print(f"warn: {e}", file=sys.stderr)
-        traded = len(state["closed"]) + len(state["positions"]) != trades_before
+        traded = count() != before
         if do_sync and (traded or now() - last_sync >= 600):
             try:
                 sync("trade" if traded else "scan")
@@ -322,21 +443,23 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--once", action="store_true", help="run a single scan")
     ap.add_argument("--interval", type=int, default=60, help="seconds between scans")
-    ap.add_argument("--report", action="store_true", help="print the scoreboard and exit")
+    ap.add_argument("--report", action="store_true", help="print the scoreboards and exit")
     ap.add_argument("--serve", action="store_true", help="run nonstop with fast exit checks")
     ap.add_argument("--exit-every", type=float, default=3, help="seconds between exit checks in --serve")
     ap.add_argument("--sync", action="store_true", help="push trades to GitHub in --serve")
+    ap.add_argument("--only", choices=sorted(STRATEGIES), help="run just one bot")
     args = ap.parse_args()
 
-    state = load_state()
+    bots = [Bot(n, c) for n, c in STRATEGIES.items() if not args.only or n == args.only]
     if args.report:
-        report(state)
+        for b in bots:
+            b.report()
         return
     if args.serve:
-        serve(state, args.interval, args.exit_every, args.sync)
+        serve(bots, args.interval, args.exit_every, args.sync)
         return
     while True:
-        tick(state)
+        tick(bots)
         if args.once:
             return
         time.sleep(args.interval)

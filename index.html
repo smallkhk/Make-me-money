@@ -43,6 +43,12 @@ button { font: 600 13px var(--body); color: var(--fg); background: var(--panel);
   border-radius: 8px; padding: 6px 12px; cursor: pointer; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.tab { display: grid; gap: 2px; text-align: left; padding: 10px 14px; border-radius: 10px; min-width: 0; flex: 1 1 0; }
+.tab .t { font: 700 15px var(--display); }
+.tab .v { font: 600 13px var(--mono); }
+.tab[aria-selected="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.rules { font-size: 13px; color: var(--muted); margin: 0; }
 .hero { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; }
 .label { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 .equity { font: 800 clamp(40px, 12vw, 60px)/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
@@ -97,6 +103,9 @@ h2 small { font: 400 13px var(--body); color: var(--muted); }
       <button id="refresh" type="button">Refresh</button></div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Bots" id="tabs"></nav>
+  <p class="rules" id="rules"></p>
+
   <section class="hero" aria-label="Account">
     <div class="label">Paper equity · live prices</div>
     <div class="equity num" id="equity">$—</div>
@@ -119,16 +128,25 @@ h2 small { font: 400 13px var(--body); color: var(--muted); }
     <div class="tape"><ol id="tape"><li class="empty">Loading trades…</li></ol></div>
   </section>
 
-  <p class="note">Paper money only. The bot sells at +50%, −25%, after 6 hours, or if liquidity is pulled.
-    "If sold now" subtracts about 2% each for fees and slippage. Prices refresh every 30 seconds; the bot's files update when it trades.
-    <a href="https://github.com/smallkhk/Make-me-money/actions" target="_blank" rel="noopener">Bot runs on GitHub</a></p>
+  <p class="note">Paper money only. "If sold now" subtracts about 2% each for fees and slippage. Prices refresh every 30 seconds; the bot's files update when it trades.
+    <a href="https://github.com/smallkhk/Make-me-money" target="_blank" rel="noopener">Code on GitHub</a></p>
 </div>
 
 <script>
 const REPO = "smallkhk/Make-me-money";
 const BRANCH = "claude/paper-trading-crawler";
 const RAW = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/`;
-const START = 10, TP = 50, SL = -25, SELL_COST = 0.02;
+const START = 10, SELL_COST = 0.02;
+const BOTS = {
+  steady: { label: "Steady", state: "steady-state.json", journal: "steady-journal.md", tp: 50, sl: -25, hours: 6, slots: 3,
+    rules: "Strict filters plus RugCheck holder checks. Bets 15% per trade. Sells at +50%, −25% or after 6h. Pauses 2h after 3 losses in a row." },
+  degen: { label: "Degen", state: "degen-state.json", journal: "degen-journal.md", tp: 100, sl: -35, hours: 3, slots: 2,
+    rules: "Young coins, 50% of the money per trade. Sells at +100% or −35%, rides pumps with a trailing stop (sells after a 25% drop from a +60% peak), gives up after 3h." },
+  v1: { label: "v1 (retired)", state: "state.json", journal: "journal.md", tp: 50, sl: -25, hours: 6, slots: 3,
+    rules: "The first version, retired on Oct 8 after two rugs and a cold evening. Kept for comparison." },
+};
+let current = "steady";
+try { const h = location.hash.slice(1) || localStorage.getItem("bot"); if (BOTS[h]) current = h; } catch (e) {}
 const $ = id => document.getElementById(id);
 const usd = v => (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
 const pct = v => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + "%";
@@ -136,15 +154,17 @@ const cls = v => v > 0 ? "up" : v < 0 ? "down" : "";
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const ago = sec => sec < 90 ? `${Math.round(sec)}s ago` : sec < 5400 ? `${Math.round(sec / 60)}m ago` : `${(sec / 3600).toFixed(1)}h ago`;
 
-let state = null, journal = "", lastBot = null, prices = {};
+let states = {}, journals = {}, lastBot = null, prices = {};
 
 async function loadFiles() {
   const t = Date.now();
-  const [s, j] = await Promise.all([
-    fetch(RAW + "state.json?t=" + t, { cache: "no-store" }).then(r => r.json()),
-    fetch(RAW + "journal.md?t=" + t, { cache: "no-store" }).then(r => r.text()),
-  ]);
-  state = s; journal = j;
+  await Promise.all(Object.entries(BOTS).map(async ([k, b]) => {
+    const [s, j] = await Promise.all([
+      fetch(RAW + b.state + "?t=" + t, { cache: "no-store" }).then(r => r.ok ? r.json() : null),
+      fetch(RAW + b.journal + "?t=" + t, { cache: "no-store" }).then(r => r.ok ? r.text() : ""),
+    ]);
+    states[k] = s; journals[k] = j;
+  }));
 }
 
 async function loadBotTime() {
@@ -155,7 +175,7 @@ async function loadBotTime() {
 }
 
 async function loadPrices() {
-  const addrs = Object.keys(state?.positions || {});
+  const addrs = [...new Set(Object.values(states).flatMap(s => Object.keys(s?.positions || {})))].slice(0, 30);
   if (!addrs.length) return;
   const pairs = await fetch(`https://api.dexscreener.com/tokens/v1/solana/${addrs.join(",")}`).then(r => r.json());
   const best = {};
@@ -168,6 +188,8 @@ async function loadPrices() {
 
 function parseTape(md) {
   return md.split("\n").filter(l => l.startsWith("- `")).map(l => {
+    const p = l.match(/^- `([^`]+)` PAUSE (.*)$/);
+    if (p) return { time: p[1].slice(11, 16), side: "PAUSE", sym: "", amount: "", why: p[2] };
     const m = l.match(/^- `([^`]+)` (BUY|SELL) \*\*([^*]+)\*\* (.*)$/);
     if (!m) return null;
     const [, when, side, sym, rest] = m;
@@ -178,8 +200,33 @@ function parseTape(md) {
   }).filter(Boolean).reverse();
 }
 
+function equityOf(st) {
+  if (!st) return null;
+  return st.cash + Object.entries(st.positions || {}).reduce((v, [a, p]) => v + p.qty * (prices[a]?.px ?? p.entry_px), 0);
+}
+
+function renderTabs() {
+  $("tabs").innerHTML = Object.entries(BOTS).map(([k, b]) => {
+    const eq = equityOf(states[k]);
+    const v = eq == null ? "starting…" : `${usd(eq)} <span class="${cls(eq - START)}">${pct((eq / START - 1) * 100)}</span>`;
+    return `<button type="button" class="tab" role="tab" id="tab-${k}" aria-selected="${k === current}" data-bot="${k}">
+      <span class="t">${b.label}</span><span class="v">${v}</span></button>`;
+  }).join("");
+  $("rules").textContent = BOTS[current].rules;
+}
+
 function render() {
-  if (!state) return;
+  renderTabs();
+  const bot = BOTS[current], state = states[current], journal = journals[current] || "";
+  const TP = bot.tp, SL = bot.sl;
+  if (!state) {
+    $("equity").textContent = "$10.00"; $("equity").className = "equity num";
+    $("pnl").innerHTML = '<span class="muted">Waiting for this bot\'s first scan</span>';
+    ["cash", "net", "closed", "rejects"].forEach(id => $(id).textContent = "—");
+    $("positions").innerHTML = '<div class="card muted">No trades yet. The bot saves its first scan within a few minutes of starting.</div>';
+    $("poscount").textContent = ""; $("tape").innerHTML = '<li class="empty">No trades yet.</li>';
+    return;
+  }
   const pos = Object.entries(state.positions || {});
   let value = 0, cards = [];
   for (const [addr, p] of pos) {
@@ -202,12 +249,13 @@ function render() {
         <div class="zero"></div><div class="mark" style="left:${at}%;background:${color}"></div></div>
       <div class="ends"><span>stop ${SL}%</span><span>entry</span><span>take +${TP}%</span></div>
       <div class="meta"><span>Paid <b>${usd(p.cost)}</b></span><span>Now <b>${usd(now)}</b></span>
-        <span>Held <b>${held.toFixed(1)}h</b> of 6h</span>${live ? `<span>Liquidity <b>$${Math.round(live.liq).toLocaleString()}</b></span>` : ""}</div>
+        <span>Held <b>${held.toFixed(1)}h</b> of ${bot.hours}h</span>${live ? `<span>Liquidity <b>$${Math.round(live.liq).toLocaleString()}</b></span>` : ""}</div>
       ${near || rug ? `<div class="row" style="justify-content:flex-start">${near}${rug}</div>` : ""}
     </article>`);
   }
   $("positions").innerHTML = cards.join("") || '<div class="card muted">No open trades. The bot is scanning for coins that pass its filters.</div>';
-  $("poscount").textContent = `${pos.length} of 3 slots`;
+  const paused = (state.paused_until || 0) * 1000 > Date.now();
+  $("poscount").textContent = `${pos.length} of ${bot.slots} slots` + (paused ? " · paused after a losing streak" : "");
 
   const equity = state.cash + value, net = state.cash + value * (1 - SELL_COST);
   const diff = equity - START;
@@ -225,7 +273,7 @@ function render() {
   const tape = parseTape(journal);
   $("tape").innerHTML = tape.length ? tape.map(t => `<li>
       <span class="num muted">${esc(t.time)}</span>
-      <span class="side ${t.side === "BUY" ? "" : cls(parseFloat(t.amount))}">${t.side}</span>
+      <span class="side ${t.side === "SELL" ? cls(parseFloat(t.amount)) : t.side === "PAUSE" ? "muted" : ""}">${t.side}</span>
       <span><b>${esc(t.sym)}</b> <span class="why">${esc(t.why)}</span></span>
       <span class="num ${t.side === "SELL" ? cls(parseFloat(t.amount)) : ""}">${t.side === "SELL" ? (t.amount.startsWith("-") ? "−$" + t.amount.slice(1) : "+$" + t.amount.slice(1)) : esc(t.amount)}</span>
     </li>`).join("") : '<li class="empty">No trades yet.</li>';
@@ -248,6 +296,12 @@ async function refreshPrices() {
 }
 
 $("refresh").addEventListener("click", refreshAll);
+$("tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-bot]"); if (!b) return;
+  current = b.dataset.bot;
+  try { localStorage.setItem("bot", current); } catch (err) {}
+  render();
+});
 refreshAll();
 setInterval(refreshPrices, 30_000);
 setInterval(refreshAll, 120_000);
