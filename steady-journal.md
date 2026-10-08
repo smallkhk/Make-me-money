@@ -32,3 +32,4 @@
 - `2026-10-08 08:08 UTC` SELL **URI-M** (take profit) price +62.4%, net $+0.61 after fees. Cash $5.87
 - `2026-10-08 08:19 UTC` SELL **Playground ** (stop loss) price -43.9%, net $-0.55 after fees. Cash $6.44
 - `2026-10-08 08:29 UTC` BUY **wrld** $1.19 @ 9.019e-05 (score 0.80, liq $25,509, mcap $90,196) https://dexscreener.com/solana/dxodbovsrkxs1up1s4pk5uktkqmqr23gxhfgpnaobfvf
+- `2026-10-08 08:30 UTC` SELL **wrld** (stop loss) price -27.2%, net $-0.39 after fees. Cash $6.04

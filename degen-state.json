@@ -1,5 +1,5 @@
 {
-  "cash": 0.027745911612377272,
+  "cash": 0.0,
   "positions": {
     "4zHofAZWJxqB5zrQrPZ8yh4FWxi7TCXQTM9gLv9STUK4": {
       "symbol": "C3PO",
@@ -11,15 +11,14 @@
       "url": "https://dexscreener.com/solana/gb79zgp981qtyswj8py3lquegt2tcqeeenve3brqad5r",
       "peak_pct": 47.60926958052214
     },
-    "6x36m5J2VxRPpWBV3MEZq15oe5Tq8ahR7qSCdA7pump": {
-      "symbol": "iCoin",
-      "qty": 31489.495029772563,
-      "entry_px": 5.403e-05,
-      "cost": 1.7562520714553882,
-      "entry_liq": 20149.05,
-      "opened": 1791444322.4978917,
-      "url": "https://dexscreener.com/solana/7ohdsl98qr5euomahubiciun8dyyrdsmsm8dpeesvvsw",
-      "peak_pct": 48.3990375717194
+    "Ebugdjc8mh84WakL8n4cd1nnuAW2R2beeTiZoBK5pump": {
+      "symbol": "wrld",
+      "qty": 12592.963263431728,
+      "entry_px": 8.177e-05,
+      "cost": 1.070787884117046,
+      "entry_liq": 24256.28,
+      "opened": 1791448287.0506818,
+      "url": "https://dexscreener.com/solana/dxodbovsrkxs1up1s4pk5uktkqmqr23gxhfgpnaobfvf"
     }
   },
   "closed": [
@@ -85,8 +84,15 @@
       "reason": "time stop",
       "addr": "2LMiWGyNjGKyUkH2oFYmMxzwLzUY84dHZf6DUUZFpump",
       "at": 1791444322.2355251
+    },
+    {
+      "symbol": "iCoin",
+      "pnl": -0.7132100989507195,
+      "reason": "stop loss",
+      "addr": "6x36m5J2VxRPpWBV3MEZq15oe5Tq8ahR7qSCdA7pump",
+      "at": 1791448287.0499768
     }
   ],
-  "seen_rejects": 3632,
+  "seen_rejects": 3673,
   "paused_until": 0
 }

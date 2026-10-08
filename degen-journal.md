@@ -20,3 +20,5 @@
 - `2026-10-08 07:25 UTC` SELL **FEEBIE** (time stop) price -10.2%, net $-0.53 after fees. Cash $3.57
 - `2026-10-08 07:25 UTC` BUY **C3PO** $1.78 @ 3.409e-05 (score 0.87, liq $14,687, mcap $33,070) https://dexscreener.com/solana/gb79zgp981qtyswj8py3lquegt2tcqeeenve3brqad5r
 - `2026-10-08 07:25 UTC` BUY **iCoin** $1.76 @ 5.403e-05 (score 0.86, liq $20,149, mcap $51,358) https://dexscreener.com/solana/7ohdsl98qr5euomahubiciun8dyyrdsmsm8dpeesvvsw
+- `2026-10-08 08:31 UTC` SELL **iCoin** (stop loss) price -36.2%, net $-0.71 after fees. Cash $1.07
+- `2026-10-08 08:31 UTC` BUY **wrld** $1.07 @ 8.177e-05 (score 0.85, liq $24,256, mcap $81,772) https://dexscreener.com/solana/dxodbovsrkxs1up1s4pk5uktkqmqr23gxhfgpnaobfvf

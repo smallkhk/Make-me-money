@@ -1,5 +1,5 @@
 {
-  "cash": 5.246366581621008,
+  "cash": 6.044747182209846,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -10,15 +10,6 @@
       "opened": 1791432847.6664367,
       "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg",
       "peak_pct": 32.419011586663515
-    },
-    "Ebugdjc8mh84WakL8n4cd1nnuAW2R2beeTiZoBK5pump": {
-      "symbol": "wrld",
-      "qty": 12722.659060892021,
-      "entry_px": 9.019e-05,
-      "cost": 1.1909289473836904,
-      "entry_liq": 25509.44,
-      "opened": 1791448164.1306117,
-      "url": "https://dexscreener.com/solana/dxodbovsrkxs1up1s4pk5uktkqmqr23gxhfgpnaobfvf"
     }
   },
   "closed": [
@@ -119,8 +110,15 @@
       "reason": "stop loss",
       "addr": "cnNgFYRS26pKHstKvfzQXEDQuvuMfUNzTB2AMZypump",
       "at": 1791447591.3179505
+    },
+    {
+      "symbol": "wrld",
+      "pnl": -0.3925483467948526,
+      "reason": "stop loss",
+      "addr": "Ebugdjc8mh84WakL8n4cd1nnuAW2R2beeTiZoBK5pump",
+      "at": 1791448229.5264919
     }
   ],
-  "seen_rejects": 4755,
+  "seen_rejects": 4847,
   "paused_until": 1791443465.1272202
 }
