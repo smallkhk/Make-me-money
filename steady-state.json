@@ -1,5 +1,5 @@
 {
-  "cash": 4.090093914411112,
+  "cash": 5.867803057018765,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -20,15 +20,6 @@
       "opened": 1791445053.0681438,
       "url": "https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg",
       "peak_pct": 6.045726561301201
-    },
-    "DS2aUr4mro9rBTs119eFXc2UR8VpqTo9mmmqCQUunw1A": {
-      "symbol": "URI-M",
-      "qty": 17605.77721830785,
-      "entry_px": 6.416e-05,
-      "cost": 1.1727038314396165,
-      "entry_liq": 21061.31,
-      "opened": 1791446334.856054,
-      "url": "https://dexscreener.com/solana/abuavqyjfwrsxnqtjjyzuuedurgtc7rrhxcnjhfesyv5"
     }
   },
   "closed": [
@@ -115,6 +106,13 @@
       "reason": "take profit",
       "addr": "agYKZgcBE2XUzTypkkdJqvwPbu7k5CUZjA6Cm3jpump",
       "at": 1791446184.4603784
+    },
+    {
+      "symbol": "URI-M",
+      "pnl": 0.6050053111680374,
+      "reason": "take profit",
+      "addr": "DS2aUr4mro9rBTs119eFXc2UR8VpqTo9mmmqCQUunw1A",
+      "at": 1791446916.8368669
     }
   ],
   "seen_rejects": 3791,
