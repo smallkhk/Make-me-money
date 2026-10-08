@@ -9,7 +9,7 @@
       "entry_liq": 13735.9,
       "opened": 1791453026.6127217,
       "url": "https://dexscreener.com/solana/ekejcolc4fx6rsvez9nxvyra4hjucre8kqqpusgfbmvy",
-      "peak_pct": 21.97802197802199
+      "peak_pct": 43.85614385614387
     },
     "2WNiZqRefcndEA9c1T6A1bdie31pbBGdFQpyR52h9TWr": {
       "symbol": "BUNKER",
@@ -18,7 +18,8 @@
       "cost": 1.7752278733749438,
       "entry_liq": 17902.43,
       "opened": 1791459911.2782502,
-      "url": "https://dexscreener.com/solana/3ugevumzwajsxnhfznqefbcvizczxxbgevtdszcf5aqu"
+      "url": "https://dexscreener.com/solana/3ugevumzwajsxnhfznqefbcvizczxxbgevtdszcf5aqu",
+      "peak_pct": 24.601510067114106
     }
   },
   "closed": [
