@@ -42,3 +42,5 @@
 - `2026-10-08 14:02 UTC` BUY **uBTC** $3.00 @ 2.919e-05 (score 0.84, liq $16,000, mcap $29,192) https://dexscreener.com/solana/h4v5dtvggruoztf26uwtzlcpvqhsgqtzwdy46w5xda92
 - `2026-10-08 14:03 UTC` SELL **uBTC** (stop loss) price -46.7%, net $-1.49 after fees. Cash $2.90
 - `2026-10-08 14:03 UTC` BUY **PLAY** $2.20 @ 0.0001699 (score 0.78, liq $35,252, mcap $169,952) https://dexscreener.com/solana/2jt75f3jpm8vynwu5vixmruwkwf6qulursesfh7hkplg
+- `2026-10-08 15:06 UTC` SELL **SPAWN** (time stop) price -5.8%, net $-0.17 after fees. Cash $1.93
+- `2026-10-08 15:06 UTC` BUY **Gary** $1.93 @ 0.0005812 (score 0.83, liq $67,680, mcap $577,792) https://dexscreener.com/solana/2uzutqejcxcr1eswmdgtpqewm5pcekewrsnvrpc1ehs1

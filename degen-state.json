@@ -1,16 +1,6 @@
 {
-  "cash": 0.7057975438346449,
+  "cash": 0.0,
   "positions": {
-    "FvfX6xmM8UPmbmQJaFpDfuz5kqnbe2pB75c4xdKLpump": {
-      "symbol": "SPAWN",
-      "qty": 16052.552282115295,
-      "entry_px": 8.378e-05,
-      "cost": 1.392404828260788,
-      "entry_liq": 25486.56,
-      "opened": 1791461160.2414627,
-      "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka",
-      "peak_pct": 31.534972547147277
-    },
     "AW1uyuM7hxzwqBoes88BbWKJPF3Sg7Kbu3TqR42spump": {
       "symbol": "PLAY",
       "qty": 12555.893533506382,
@@ -20,6 +10,15 @@
       "opened": 1791468209.993833,
       "url": "https://dexscreener.com/solana/2jt75f3jpm8vynwu5vixmruwkwf6qulursesfh7hkplg",
       "peak_pct": 60.211889346674496
+    },
+    "8ZCmwpW3MtC5UpNcZf7U4HMvRNTo71syU11BDiAFpump": {
+      "symbol": "Gary",
+      "qty": 3214.808920192988,
+      "entry_px": 0.0005812,
+      "cost": 1.9266333234715622,
+      "entry_liq": 67679.68,
+      "opened": 1791471976.0244908,
+      "url": "https://dexscreener.com/solana/2uzutqejcxcr1eswmdgtpqewm5pcekewrsnvrpc1ehs1"
     }
   },
   "closed": [
@@ -162,8 +161,15 @@
       "reason": "stop loss",
       "addr": "7NUqX7ir3jxA4KVMwrjJCQMFcP4hWTG7PxmVAzUKSTNK",
       "at": 1791468209.9931061
+    },
+    {
+      "symbol": "SPAWN",
+      "pnl": -0.17156904862387057,
+      "reason": "time stop",
+      "addr": "FvfX6xmM8UPmbmQJaFpDfuz5kqnbe2pB75c4xdKLpump",
+      "at": 1791471960.6335444
     }
   ],
-  "seen_rejects": 4081,
+  "seen_rejects": 4118,
   "paused_until": 0
 }
