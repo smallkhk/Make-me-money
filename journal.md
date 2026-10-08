@@ -37,3 +37,5 @@
 - `2026-10-07 21:18 UTC` BUY **JET** $2.31 @ 0.0001557 (score 0.66, liq $38,351, mcap $152,100) https://dexscreener.com/solana/3ehu5cgugq7iurpzqbowpyxbwatothewudvbacducabr
 - `2026-10-07 21:20 UTC` SELL **JET** (stop loss) price -35.8%, net $-0.92 after fees. Cash $1.56
 - `2026-10-07 21:20 UTC` BUY **Frank** $1.56 @ 0.000632 (score 0.66, liq $79,063, mcap $600,783) https://dexscreener.com/solana/745atasswxvry5qt1xvv9exug884hdvnjfva2o82dnbi
+- `2026-10-08 01:09 UTC` SELL **BULLCRAFT** (liquidity pulled (rug?)) price -96.5%, net $-3.62 after fees. Cash $0.10
+- `2026-10-08 01:09 UTC` SELL **SPAWN** (stop loss) price -36.6%, net $-1.73 after fees. Cash $2.71
