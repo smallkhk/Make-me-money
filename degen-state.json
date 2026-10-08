@@ -1,0 +1,26 @@
+{
+  "cash": 0.060234456619154386,
+  "positions": {
+    "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
+      "symbol": "ECSTASY",
+      "qty": 45390.98685359712,
+      "entry_px": 0.0001075,
+      "cost": 5.0,
+      "entry_liq": 28541.86,
+      "opened": 1791422676.246789,
+      "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1"
+    },
+    "Aov3BtQvrGXM5V9oiHu8PKJWeV8a2rFnr24fwWcNpump": {
+      "symbol": "HNET",
+      "qty": 130653.5771835694,
+      "entry_px": 3.689e-05,
+      "cost": 4.939765543380846,
+      "entry_liq": 15517.73,
+      "opened": 1791422676.5802288,
+      "url": "https://dexscreener.com/solana/hglsak3nvlzazpbmiqrkv52cmzhnvrwvquzpsncsyakw"
+    }
+  },
+  "closed": [],
+  "seen_rejects": 49,
+  "paused_until": 0
+}

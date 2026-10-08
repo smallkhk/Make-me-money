@@ -1,0 +1,35 @@
+{
+  "cash": 5.522325574282011,
+  "positions": {
+    "2T6Wg3urxPQHaoGh4gqNHyYL6FAfyWA5BaH6Lo37pump": {
+      "symbol": "MINER",
+      "qty": 7968.928147842906,
+      "entry_px": 0.000182,
+      "cost": 1.5,
+      "entry_liq": 39769.71,
+      "opened": 1791422675.5971622,
+      "url": "https://dexscreener.com/solana/8j42or3k3kbgnguqr2rbzcrweta7jhrnscjmscipv8in"
+    },
+    "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
+      "symbol": "ECSTASY",
+      "qty": 13423.48586736023,
+      "entry_px": 0.0001075,
+      "cost": 1.4925517384361113,
+      "entry_liq": 28541.86,
+      "opened": 1791422675.9133599,
+      "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1"
+    },
+    "CioPfvQWpVF2eTzpBj72x2zPyqgJRgvi36PqdLCCpump": {
+      "symbol": "TON618",
+      "qty": 6487.8936944411535,
+      "entry_px": 0.0002213,
+      "cost": 1.4851226872818784,
+      "entry_liq": 43489.26,
+      "opened": 1791422676.24582,
+      "url": "https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx"
+    }
+  },
+  "closed": [],
+  "seen_rejects": 50,
+  "paused_until": 0
+}
