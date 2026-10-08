@@ -1,5 +1,5 @@
 {
-  "cash": 3.8197614337203376,
+  "cash": 4.6301313875274115,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -11,16 +11,6 @@
       "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg",
       "peak_pct": 32.419011586663515
     },
-    "DZaQRdmPHNaqNsMVqRU8P4q5f2mErab4GipPghowFvaz": {
-      "symbol": "GIF",
-      "qty": 8364.676927219805,
-      "entry_px": 0.0001376,
-      "cost": 1.194510488438621,
-      "entry_liq": 33865.87,
-      "opened": 1791444567.1807945,
-      "url": "https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r",
-      "peak_pct": 3.125
-    },
     "cnNgFYRS26pKHstKvfzQXEDQuvuMfUNzTB2AMZypump": {
       "symbol": "Playground ",
       "qty": 16458.204231442745,
@@ -28,7 +18,8 @@
       "cost": 1.1145293509266436,
       "entry_liq": 20800.63,
       "opened": 1791445053.0681438,
-      "url": "https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg"
+      "url": "https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg",
+      "peak_pct": 3.007518796992481
     }
   },
   "closed": [
@@ -101,6 +92,13 @@
       "reason": "stop loss",
       "addr": "2hP1kwKtPyTW1uBs1u3Aoxu83c8ucKwe7rRGqS2epump",
       "at": 1791445028.578425
+    },
+    {
+      "symbol": "GIF",
+      "pnl": -0.38414053463154685,
+      "reason": "stop loss",
+      "addr": "DZaQRdmPHNaqNsMVqRU8P4q5f2mErab4GipPghowFvaz",
+      "at": 1791445634.4010975
     }
   ],
   "seen_rejects": 3597,

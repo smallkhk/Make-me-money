@@ -25,3 +25,4 @@
 - `2026-10-08 07:29 UTC` BUY **GIF** $1.19 @ 0.0001376 (score 0.77, liq $33,866, mcap $135,106) https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r
 - `2026-10-08 07:37 UTC` SELL **FIX** (stop loss) price -40.8%, net $-0.56 after fees. Cash $4.93
 - `2026-10-08 07:37 UTC` BUY **Playground ** $1.11 @ 6.517e-05 (score 0.69, liq $20,801, mcap $62,848) https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg
+- `2026-10-08 07:47 UTC` SELL **GIF** (stop loss) price -26.4%, net $-0.38 after fees. Cash $4.63
