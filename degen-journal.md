@@ -40,3 +40,5 @@
 - `2026-10-08 13:57 UTC` BUY **SKY** $3.72 @ 2.698e-05 (score 0.82, liq $12,724, mcap $26,138) https://dexscreener.com/solana/eykdaqgko58cpaypukcdthq9psenqa14j9eey5t3dgj3
 - `2026-10-08 14:01 UTC` SELL **SKY** (stop loss) price -39.7%, net $-1.60 after fees. Cash $4.40
 - `2026-10-08 14:02 UTC` BUY **uBTC** $3.00 @ 2.919e-05 (score 0.84, liq $16,000, mcap $29,192) https://dexscreener.com/solana/h4v5dtvggruoztf26uwtzlcpvqhsgqtzwdy46w5xda92
+- `2026-10-08 14:03 UTC` SELL **uBTC** (stop loss) price -46.7%, net $-1.49 after fees. Cash $2.90
+- `2026-10-08 14:03 UTC` BUY **PLAY** $2.20 @ 0.0001699 (score 0.78, liq $35,252, mcap $169,952) https://dexscreener.com/solana/2jt75f3jpm8vynwu5vixmruwkwf6qulursesfh7hkplg

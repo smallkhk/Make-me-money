@@ -1,5 +1,5 @@
 {
-  "cash": 1.3973477703517747,
+  "cash": 0.7057975438346449,
   "positions": {
     "FvfX6xmM8UPmbmQJaFpDfuz5kqnbe2pB75c4xdKLpump": {
       "symbol": "SPAWN",
@@ -11,14 +11,14 @@
       "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka",
       "peak_pct": 31.534972547147277
     },
-    "7NUqX7ir3jxA4KVMwrjJCQMFcP4hWTG7PxmVAzUKSTNK": {
-      "symbol": "uBTC",
-      "qty": 99981.62307791365,
-      "entry_px": 2.919e-05,
-      "cost": 2.998589860492775,
-      "entry_liq": 16000.41,
-      "opened": 1791468146.0985603,
-      "url": "https://dexscreener.com/solana/h4v5dtvggruoztf26uwtzlcpvqhsgqtzwdy46w5xda92"
+    "AW1uyuM7hxzwqBoes88BbWKJPF3Sg7Kbu3TqR42spump": {
+      "symbol": "PLAY",
+      "qty": 12555.893533506382,
+      "entry_px": 0.0001699,
+      "cost": 2.1969191253203344,
+      "entry_liq": 35251.99,
+      "opened": 1791468209.993833,
+      "url": "https://dexscreener.com/solana/2jt75f3jpm8vynwu5vixmruwkwf6qulursesfh7hkplg"
     }
   },
   "closed": [
@@ -154,8 +154,15 @@
       "reason": "stop loss",
       "addr": "5zmavc3k69CCvkzMjcSrbuM9Tcv1tm8NumeoVbytPEAx",
       "at": 1791468118.015708
+    },
+    {
+      "symbol": "uBTC",
+      "pnl": -1.4932209616895706,
+      "reason": "stop loss",
+      "addr": "7NUqX7ir3jxA4KVMwrjJCQMFcP4hWTG7PxmVAzUKSTNK",
+      "at": 1791468209.9931061
     }
   ],
-  "seen_rejects": 4042,
+  "seen_rejects": 4081,
   "paused_until": 0
 }
