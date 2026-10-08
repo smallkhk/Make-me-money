@@ -23,3 +23,5 @@
 - `2026-10-08 07:24 UTC` BUY **Organisme** $1.13 @ 8.013e-05 (score 0.72, liq $23,736, mcap $80,140) https://dexscreener.com/solana/52qg1opv3yuscwk8z4887fwurwrgr1h2xtcpvetfycbt
 - `2026-10-08 07:28 UTC` SELL **Organisme** (take profit) price +50.9%, net $+0.46 after fees. Cash $5.46
 - `2026-10-08 07:29 UTC` BUY **GIF** $1.19 @ 0.0001376 (score 0.77, liq $33,866, mcap $135,106) https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r
+- `2026-10-08 07:37 UTC` SELL **FIX** (stop loss) price -40.8%, net $-0.56 after fees. Cash $4.93
+- `2026-10-08 07:37 UTC` BUY **Playground ** $1.11 @ 6.517e-05 (score 0.69, liq $20,801, mcap $62,848) https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg
