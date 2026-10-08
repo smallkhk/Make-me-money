@@ -1,5 +1,5 @@
 {
-  "cash": 7.631448661109488,
+  "cash": 4.9541417346255265,
   "positions": {
     "0xdf536d8c1c258b3f13410567c1b37cf1389b9846": {
       "symbol": "DOOM FLY",
@@ -10,6 +10,24 @@
       "opened": 1791480668.950171,
       "url": "https://dexscreener.com/base/0xfeda450e83d21279973380c6466b1dbf1cce359d939e439c27301a254c9058dd",
       "peak_pct": 0
+    },
+    "0x78b56f3f0a33548c681d1ab1ab0a8c8546da2e38": {
+      "symbol": "403",
+      "qty": 4682.092192095455,
+      "entry_px": 0.0002767,
+      "cost": 1.342149562189751,
+      "entry_liq": 10183.3,
+      "opened": 1791488096.061739,
+      "url": "https://dexscreener.com/base/0x29f685d7aa62fce43ace69e3ae034fbc767be09e1a6f858f0ea6fd0d9160d9ba"
+    },
+    "0xcab37616207e0c3072500007689e133db3ffb988": {
+      "symbol": "OMARCHY",
+      "qty": 4346.351735847093,
+      "entry_px": 0.0002965,
+      "cost": 1.3351573642942107,
+      "entry_liq": 10747.95,
+      "opened": 1791488096.3823798,
+      "url": "https://dexscreener.com/base/0x20935e7dff1e901f3e8b70af9ecdccf21bb1a8ba6b42e590b90c02928d1c3290"
     }
   },
   "closed": [
@@ -42,6 +60,6 @@
       "at": 1791481203.844029
     }
   ],
-  "seen_rejects": 24196,
+  "seen_rejects": 24510,
   "paused_until": 1791488093.4928699
 }
