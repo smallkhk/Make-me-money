@@ -9,7 +9,7 @@
       "entry_liq": 14974.5,
       "opened": 1791481608.5083916,
       "url": "https://dexscreener.com/solana/aukv5bh8ewvsszhbchiop92rwl4z4bclaldyhbueeh5",
-      "peak_pct": 3.208556149732611
+      "peak_pct": 3.9928698752228042
     }
   },
   "closed": [
@@ -203,6 +203,6 @@
       "at": 1791481644.699596
     }
   ],
-  "seen_rejects": 9980,
+  "seen_rejects": 10427,
   "paused_until": 0
 }
