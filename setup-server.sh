@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# One-command install for an Ubuntu server (e.g. Oracle Cloud Always Free).
+# One-command install for a Linux server: Ubuntu/Debian (Oracle, EC2 Ubuntu)
+# or Amazon Linux / RHEL-style (EC2 default image).
 #   bash <(curl -fsSL https://raw.githubusercontent.com/smallkhk/Make-me-money/claude/paper-trading-crawler/setup-server.sh)
 # Runs the bot nonstop as a service: restarts on crash and on reboot.
 set -euo pipefail
@@ -13,8 +14,17 @@ echo
 [ -n "$TOKEN" ] || { echo "No token given, stopping."; exit 1; }
 
 echo "Installing git and python..."
-sudo apt-get update -qq
-sudo apt-get install -y -qq git python3 > /dev/null
+if command -v apt-get > /dev/null; then
+  sudo apt-get update -qq
+  sudo apt-get install -y -qq git python3 > /dev/null
+elif command -v dnf > /dev/null; then
+  sudo dnf install -y -q git python3 > /dev/null
+elif command -v yum > /dev/null; then
+  sudo yum install -y -q git python3 > /dev/null
+else
+  echo "Unknown Linux: install git and python3 yourself, then rerun."; exit 1
+fi
+PY="$(command -v python3)"
 
 if [ -d "$DIR/.git" ]; then
   git -C "$DIR" remote set-url origin "https://x-access-token:$TOKEN@github.com/$REPO.git"
@@ -35,7 +45,7 @@ Wants=network-online.target
 [Service]
 User=$USER
 WorkingDirectory=$DIR
-ExecStart=/usr/bin/python3 -u crawler.py --serve --sync
+ExecStart=$PY -u crawler.py --serve --sync
 Restart=always
 RestartSec=10
 
