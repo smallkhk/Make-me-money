@@ -55,3 +55,4 @@
 - `2026-10-08 17:46 UTC` BUY **BCAT** $1.14 @ 0.0001721 (score 0.92, liq $35,073, mcap $172,105) https://dexscreener.com/solana/aeznpgyspr9mbhqhpmu2gwejf6rvcanf2jd1jmgnlkcp
 - `2026-10-08 17:46 UTC` BUY **BEARY** $1.12 @ 2.805e-05 (score 0.73, liq $14,974, mcap $28,055) https://dexscreener.com/solana/aukv5bh8ewvsszhbchiop92rwl4z4bclaldyhbueeh5
 - `2026-10-08 17:47 UTC` SELL **BCAT** (liquidity pulled (rug?)) price -98.8%, net $-1.14 after fees. Cash $0.02
+- `2026-10-08 20:46 UTC` SELL **BEARY** (time stop) price +4.9%, net $-0.03 after fees. Cash $1.11

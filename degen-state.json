@@ -1,17 +1,6 @@
 {
-  "cash": 0.021198980910406506,
-  "positions": {
-    "5Qp2CwEHHNgjvuCEcqFsCfPq2C5beGpMSYgNFoBdY3Jx": {
-      "symbol": "BEARY",
-      "qty": 38320.79074193323,
-      "entry_px": 2.805e-05,
-      "cost": 1.116916869405122,
-      "entry_liq": 14974.5,
-      "opened": 1791481608.5083916,
-      "url": "https://dexscreener.com/solana/aukv5bh8ewvsszhbchiop92rwl4z4bclaldyhbueeh5",
-      "peak_pct": 5.525846702317283
-    }
-  },
+  "cash": 1.106342755384603,
+  "positions": {},
   "closed": [
     {
       "symbol": "HNET",
@@ -201,8 +190,15 @@
       "reason": "liquidity pulled (rug?)",
       "addr": "4QdbyFbAWvRQSz8qrxB5pZiS9BXUqmPKYCSkTu2Fpump",
       "at": 1791481644.699596
+    },
+    {
+      "symbol": "BEARY",
+      "pnl": -0.031773094930925394,
+      "reason": "time stop",
+      "addr": "5Qp2CwEHHNgjvuCEcqFsCfPq2C5beGpMSYgNFoBdY3Jx",
+      "at": 1791492410.303283
     }
   ],
-  "seen_rejects": 12426,
+  "seen_rejects": 12820,
   "paused_until": 0
 }
