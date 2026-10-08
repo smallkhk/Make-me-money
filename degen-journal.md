@@ -24,3 +24,5 @@
 - `2026-10-08 08:31 UTC` BUY **wrld** $1.07 @ 8.177e-05 (score 0.85, liq $24,256, mcap $81,772) https://dexscreener.com/solana/dxodbovsrkxs1up1s4pk5uktkqmqr23gxhfgpnaobfvf
 - `2026-10-08 08:44 UTC` SELL **wrld** (take profit) price +166.5%, net $+1.60 after fees. Cash $2.67
 - `2026-10-08 08:44 UTC` BUY **GIF** $2.32 @ 8.888e-05 (score 0.84, liq $26,750, mcap $87,246) https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r
+- `2026-10-08 09:49 UTC` SELL **C3PO** (stop loss) price -40.4%, net $-0.79 after fees. Cash $1.34
+- `2026-10-08 09:50 UTC` BUY **Bilbo** $1.34 @ 3.003e-05 (score 0.85, liq $13,736, mcap $28,450) https://dexscreener.com/solana/ekejcolc4fx6rsvez9nxvyra4hjucre8kqqpusgfbmvy

@@ -1,16 +1,6 @@
 {
-  "cash": 0.34650062261938164,
+  "cash": 0.0,
   "positions": {
-    "4zHofAZWJxqB5zrQrPZ8yh4FWxi7TCXQTM9gLv9STUK4": {
-      "symbol": "C3PO",
-      "qty": 50704.19946738078,
-      "entry_px": 3.409e-05,
-      "cost": 1.7839979830677655,
-      "entry_liq": 14687.23,
-      "opened": 1791444322.4976676,
-      "url": "https://dexscreener.com/solana/gb79zgp981qtyswj8py3lquegt2tcqeeenve3brqad5r",
-      "peak_pct": 47.60926958052214
-    },
     "DZaQRdmPHNaqNsMVqRU8P4q5f2mErab4GipPghowFvaz": {
       "symbol": "GIF",
       "qty": 25384.74608125421,
@@ -20,6 +10,15 @@
       "opened": 1791449081.0162392,
       "url": "https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r",
       "peak_pct": 39.85148514851487
+    },
+    "BEkw54ZMNfiQoS4PSxs1Bwrzjeu3bCrWtDGUNzKoojbN": {
+      "symbol": "Bilbo",
+      "qty": 42945.67174954691,
+      "entry_px": 3.003e-05,
+      "cost": 1.336106760767466,
+      "entry_liq": 13735.9,
+      "opened": 1791453026.6127217,
+      "url": "https://dexscreener.com/solana/ekejcolc4fx6rsvez9nxvyra4hjucre8kqqpusgfbmvy"
     }
   },
   "closed": [
@@ -99,8 +98,15 @@
       "reason": "take profit",
       "addr": "Ebugdjc8mh84WakL8n4cd1nnuAW2R2beeTiZoBK5pump",
       "at": 1791449053.4479437
+    },
+    {
+      "symbol": "C3PO",
+      "pnl": -0.7943918449196812,
+      "reason": "stop loss",
+      "addr": "4zHofAZWJxqB5zrQrPZ8yh4FWxi7TCXQTM9gLv9STUK4",
+      "at": 1791452998.9403641
     }
   ],
-  "seen_rejects": 3714,
+  "seen_rejects": 3755,
   "paused_until": 0
 }
