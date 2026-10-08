@@ -1,5 +1,5 @@
 {
-  "cash": 0.0,
+  "cash": 0.681960329069583,
   "positions": {
     "29Vp6MThvxvSNuwtii3agTwaXcC4NGqqekAoYAX657E4": {
       "symbol": "[cat]",
@@ -10,16 +10,6 @@
       "opened": 1791474369.216833,
       "url": "https://dexscreener.com/solana/4fpntql4kqkjzfkvujtmosj7apmens5ck51girr3azo7",
       "peak_pct": 14.293448835950183
-    },
-    "9s6tPxbG3CGJQK1nD1SnwrmxWbYkm8jYaQ8c9vrApump": {
-      "symbol": "swordowl",
-      "qty": 2899.9932899703326,
-      "entry_px": 0.0004603,
-      "cost": 1.382141290420686,
-      "entry_liq": 58803.12,
-      "opened": 1791479410.297711,
-      "url": "https://dexscreener.com/solana/9nafeejhddnajifzctbriwhjdhrgyjtegwk35c7gr6xf",
-      "peak_pct": 0
     }
   },
   "closed": [
@@ -190,8 +180,15 @@
       "reason": "trailing stop (peak +74%)",
       "addr": "8ZCmwpW3MtC5UpNcZf7U4HMvRNTo71syU11BDiAFpump",
       "at": 1791479352.1290326
+    },
+    {
+      "symbol": "swordowl",
+      "pnl": -0.700180961351103,
+      "reason": "stop loss",
+      "addr": "9s6tPxbG3CGJQK1nD1SnwrmxWbYkm8jYaQ8c9vrApump",
+      "at": 1791480107.8236227
     }
   ],
-  "seen_rejects": 4242,
+  "seen_rejects": 4587,
   "paused_until": 0
 }
