@@ -18,7 +18,8 @@
       "cost": 1.126796716526171,
       "entry_liq": 65614.13,
       "opened": 1791449018.712903,
-      "url": "https://dexscreener.com/solana/3dzhwuobqkh7vmtj29oqa5mpf1cppnzpsdfprtci8kip"
+      "url": "https://dexscreener.com/solana/3dzhwuobqkh7vmtj29oqa5mpf1cppnzpsdfprtci8kip",
+      "peak_pct": 0
     }
   },
   "closed": [
@@ -128,6 +129,6 @@
       "at": 1791448229.5264919
     }
   ],
-  "seen_rejects": 5396,
+  "seen_rejects": 5442,
   "paused_until": 1791443465.1272202
 }

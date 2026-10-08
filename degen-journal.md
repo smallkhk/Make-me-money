@@ -22,3 +22,5 @@
 - `2026-10-08 07:25 UTC` BUY **iCoin** $1.76 @ 5.403e-05 (score 0.86, liq $20,149, mcap $51,358) https://dexscreener.com/solana/7ohdsl98qr5euomahubiciun8dyyrdsmsm8dpeesvvsw
 - `2026-10-08 08:31 UTC` SELL **iCoin** (stop loss) price -36.2%, net $-0.71 after fees. Cash $1.07
 - `2026-10-08 08:31 UTC` BUY **wrld** $1.07 @ 8.177e-05 (score 0.85, liq $24,256, mcap $81,772) https://dexscreener.com/solana/dxodbovsrkxs1up1s4pk5uktkqmqr23gxhfgpnaobfvf
+- `2026-10-08 08:44 UTC` SELL **wrld** (take profit) price +166.5%, net $+1.60 after fees. Cash $2.67
+- `2026-10-08 08:44 UTC` BUY **GIF** $2.32 @ 8.888e-05 (score 0.84, liq $26,750, mcap $87,246) https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r
