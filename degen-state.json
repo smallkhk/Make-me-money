@@ -9,7 +9,7 @@
       "entry_liq": 28541.86,
       "opened": 1791422676.246789,
       "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1",
-      "peak_pct": 0
+      "peak_pct": 0.6511627906976791
     },
     "Aov3BtQvrGXM5V9oiHu8PKJWeV8a2rFnr24fwWcNpump": {
       "symbol": "HNET",
@@ -19,7 +19,7 @@
       "entry_liq": 15517.73,
       "opened": 1791422676.5802288,
       "url": "https://dexscreener.com/solana/hglsak3nvlzazpbmiqrkv52cmzhnvrwvquzpsncsyakw",
-      "peak_pct": 0
+      "peak_pct": 2.304147465437789
     }
   },
   "closed": [],
