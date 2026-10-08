@@ -1,17 +1,6 @@
 {
-  "cash": 5.829890091186393,
-  "positions": {
-    "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
-      "symbol": "SI276",
-      "qty": 3070.1630633283685,
-      "entry_px": 0.0004229,
-      "cost": 1.3448991649831352,
-      "entry_liq": 60069.32,
-      "opened": 1791432847.6664367,
-      "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg",
-      "peak_pct": 32.419011586663515
-    }
-  },
+  "cash": 6.494372372404255,
+  "positions": {},
   "closed": [
     {
       "symbol": "TON618",
@@ -131,6 +120,13 @@
       "reason": "take profit",
       "addr": "9U1TqP5HMmsBnKnHhjish9Q7gEYViQrgUJ567mB5pump",
       "at": 1791451011.9546773
+    },
+    {
+      "symbol": "SI276",
+      "pnl": -0.6804168837652737,
+      "reason": "stop loss",
+      "addr": "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump",
+      "at": 1791452172.1965227
     }
   ],
   "seen_rejects": 5532,

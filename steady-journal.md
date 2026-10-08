@@ -38,3 +38,4 @@
 - `2026-10-08 08:50 UTC` SELL **BUNBARA** (stop loss) price -56.1%, net $-0.68 after fees. Cash $4.24
 - `2026-10-08 08:50 UTC` PAUSE 3 losses in a row, no new buys for 2h
 - `2026-10-08 09:16 UTC` SELL **FPES** (take profit) price +51.3%, net $+0.46 after fees. Cash $5.83
+- `2026-10-08 09:36 UTC` SELL **SI276** (stop loss) price -46.2%, net $-0.68 after fees. Cash $6.49
