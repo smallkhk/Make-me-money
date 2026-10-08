@@ -1,5 +1,5 @@
 {
-  "cash": 5.262797745850729,
+  "cash": 4.090093914411112,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -19,7 +19,16 @@
       "entry_liq": 20800.63,
       "opened": 1791445053.0681438,
       "url": "https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg",
-      "peak_pct": 5.61608101887372
+      "peak_pct": 6.045726561301201
+    },
+    "DS2aUr4mro9rBTs119eFXc2UR8VpqTo9mmmqCQUunw1A": {
+      "symbol": "URI-M",
+      "qty": 17605.77721830785,
+      "entry_px": 6.416e-05,
+      "cost": 1.1727038314396165,
+      "entry_liq": 21061.31,
+      "opened": 1791446334.856054,
+      "url": "https://dexscreener.com/solana/abuavqyjfwrsxnqtjjyzuuedurgtc7rrhxcnjhfesyv5"
     }
   },
   "closed": [
@@ -108,6 +117,6 @@
       "at": 1791446184.4603784
     }
   ],
-  "seen_rejects": 3694,
+  "seen_rejects": 3791,
   "paused_until": 1791443465.1272202
 }

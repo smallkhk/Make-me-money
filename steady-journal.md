@@ -28,3 +28,4 @@
 - `2026-10-08 07:47 UTC` SELL **GIF** (stop loss) price -26.4%, net $-0.38 after fees. Cash $4.63
 - `2026-10-08 07:47 UTC` BUY **$BITFOOTS** $1.05 @ 0.0001274 (score 0.69, liq $30,651, mcap $119,958) https://dexscreener.com/solana/koqr2pvcyfiwvidqtbxakcmgqqjwanw4oed9cljflna
 - `2026-10-08 07:56 UTC` SELL **$BITFOOTS** (take profit) price +72.1%, net $+0.63 after fees. Cash $5.26
+- `2026-10-08 07:58 UTC` BUY **URI-M** $1.17 @ 6.416e-05 (score 0.82, liq $21,061, mcap $61,330) https://dexscreener.com/solana/abuavqyjfwrsxnqtjjyzuuedurgtc7rrhxcnjhfesyv5
