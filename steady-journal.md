@@ -33,3 +33,4 @@
 - `2026-10-08 08:19 UTC` SELL **Playground ** (stop loss) price -43.9%, net $-0.55 after fees. Cash $6.44
 - `2026-10-08 08:29 UTC` BUY **wrld** $1.19 @ 9.019e-05 (score 0.80, liq $25,509, mcap $90,196) https://dexscreener.com/solana/dxodbovsrkxs1up1s4pk5uktkqmqr23gxhfgpnaobfvf
 - `2026-10-08 08:30 UTC` SELL **wrld** (stop loss) price -27.2%, net $-0.39 after fees. Cash $6.04
+- `2026-10-08 08:43 UTC` BUY **FPES** $1.13 @ 0.0004442 (score 0.61, liq $65,614, mcap $437,359) https://dexscreener.com/solana/3dzhwuobqkh7vmtj29oqa5mpf1cppnzpsdfprtci8kip
