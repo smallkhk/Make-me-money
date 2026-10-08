@@ -1,5 +1,5 @@
 {
-  "cash": 4.917950465683676,
+  "cash": 3.798448088245554,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -20,6 +20,15 @@
       "opened": 1791449018.712903,
       "url": "https://dexscreener.com/solana/3dzhwuobqkh7vmtj29oqa5mpf1cppnzpsdfprtci8kip",
       "peak_pct": 0
+    },
+    "FmAJsXEkq5qBRtdTCXon2LbYW6aznKyZsYQsLqvvpump": {
+      "symbol": "BUNBARA",
+      "qty": 3144.1174940386986,
+      "entry_px": 0.0003427,
+      "cost": 1.1195023774381219,
+      "entry_liq": 51963.12,
+      "opened": 1791449204.5209858,
+      "url": "https://dexscreener.com/solana/hdl6pighxbcqhvsvwtnwp2gtwpqrgdy91qcczcrntz76"
     }
   },
   "closed": [
@@ -129,6 +138,6 @@
       "at": 1791448229.5264919
     }
   ],
-  "seen_rejects": 5442,
+  "seen_rejects": 5532,
   "paused_until": 1791443465.1272202
 }
