@@ -282,8 +282,12 @@ def sync(reason):
     if git("diff", "--cached", "--quiet").returncode == 0:
         return
     git("commit", "-qm", f"crawler: {reason} {datetime.now(timezone.utc):%H:%M}")
+    branch = git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
     for _ in range(3):
-        if git("pull", "-q", "--rebase").returncode == 0 and git("push", "-q").returncode == 0:
+        # On a conflict this bot's own state wins (-X theirs = the commits being replayed).
+        ok = (git("fetch", "-q", "origin", branch).returncode == 0 and
+              git("rebase", "-q", "-X", "theirs", "--autostash", f"origin/{branch}").returncode == 0)
+        if ok and git("push", "-q", "origin", f"HEAD:{branch}").returncode == 0:
             return
         git("rebase", "--abort")
         time.sleep(5)
