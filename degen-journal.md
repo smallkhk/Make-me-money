@@ -26,3 +26,5 @@
 - `2026-10-08 08:44 UTC` BUY **GIF** $2.32 @ 8.888e-05 (score 0.84, liq $26,750, mcap $87,246) https://dexscreener.com/solana/ecwdquheqbdccblecte2drfzqxfcnomre8gzdb8qs52r
 - `2026-10-08 09:49 UTC` SELL **C3PO** (stop loss) price -40.4%, net $-0.79 after fees. Cash $1.34
 - `2026-10-08 09:50 UTC` BUY **Bilbo** $1.34 @ 3.003e-05 (score 0.85, liq $13,736, mcap $28,450) https://dexscreener.com/solana/ekejcolc4fx6rsvez9nxvyra4hjucre8kqqpusgfbmvy
+- `2026-10-08 11:44 UTC` SELL **GIF** (time stop) price +0.5%, net $-0.12 after fees. Cash $2.20
+- `2026-10-08 11:45 UTC` BUY **BUNKER** $1.78 @ 4.768e-05 (score 0.87, liq $17,902, mcap $45,316) https://dexscreener.com/solana/3ugevumzwajsxnhfznqefbcvizczxxbgevtdszcf5aqu
