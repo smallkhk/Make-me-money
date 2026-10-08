@@ -1,5 +1,5 @@
 {
-  "cash": 3.798448088245554,
+  "cash": 4.241859234753859,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -19,16 +19,7 @@
       "entry_liq": 65614.13,
       "opened": 1791449018.712903,
       "url": "https://dexscreener.com/solana/3dzhwuobqkh7vmtj29oqa5mpf1cppnzpsdfprtci8kip",
-      "peak_pct": 0
-    },
-    "FmAJsXEkq5qBRtdTCXon2LbYW6aznKyZsYQsLqvvpump": {
-      "symbol": "BUNBARA",
-      "qty": 3144.1174940386986,
-      "entry_px": 0.0003427,
-      "cost": 1.1195023774381219,
-      "entry_liq": 51963.12,
-      "opened": 1791449204.5209858,
-      "url": "https://dexscreener.com/solana/hdl6pighxbcqhvsvwtnwp2gtwpqrgdy91qcczcrntz76"
+      "peak_pct": 44.73210265646104
     }
   },
   "closed": [
@@ -136,8 +127,15 @@
       "reason": "stop loss",
       "addr": "Ebugdjc8mh84WakL8n4cd1nnuAW2R2beeTiZoBK5pump",
       "at": 1791448229.5264919
+    },
+    {
+      "symbol": "BUNBARA",
+      "pnl": -0.6760912309298174,
+      "reason": "stop loss",
+      "addr": "FmAJsXEkq5qBRtdTCXon2LbYW6aznKyZsYQsLqvvpump",
+      "at": 1791449421.4978375
     }
   ],
   "seen_rejects": 5532,
-  "paused_until": 1791443465.1272202
+  "paused_until": 1791456621.4980168
 }

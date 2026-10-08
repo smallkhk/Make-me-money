@@ -35,3 +35,5 @@
 - `2026-10-08 08:30 UTC` SELL **wrld** (stop loss) price -27.2%, net $-0.39 after fees. Cash $6.04
 - `2026-10-08 08:43 UTC` BUY **FPES** $1.13 @ 0.0004442 (score 0.61, liq $65,614, mcap $437,359) https://dexscreener.com/solana/3dzhwuobqkh7vmtj29oqa5mpf1cppnzpsdfprtci8kip
 - `2026-10-08 08:46 UTC` BUY **BUNBARA** $1.12 @ 0.0003427 (score 0.86, liq $51,963, mcap $339,854) https://dexscreener.com/solana/hdl6pighxbcqhvsvwtnwp2gtwpqrgdy91qcczcrntz76
+- `2026-10-08 08:50 UTC` SELL **BUNBARA** (stop loss) price -56.1%, net $-0.68 after fees. Cash $4.24
+- `2026-10-08 08:50 UTC` PAUSE 3 losses in a row, no new buys for 2h
