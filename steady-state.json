@@ -1,5 +1,5 @@
 {
-  "cash": 5.522325574282011,
+  "cash": 5.1207023416032005,
   "positions": {
     "2T6Wg3urxPQHaoGh4gqNHyYL6FAfyWA5BaH6Lo37pump": {
       "symbol": "MINER",
@@ -21,18 +21,25 @@
       "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1",
       "peak_pct": 1.023255813953483
     },
-    "CioPfvQWpVF2eTzpBj72x2zPyqgJRgvi36PqdLCCpump": {
-      "symbol": "TON618",
-      "qty": 6487.8936944411535,
-      "entry_px": 0.0002213,
-      "cost": 1.4851226872818784,
-      "entry_liq": 43489.26,
-      "opened": 1791422676.24582,
-      "url": "https://dexscreener.com/solana/34w9reb7ax8dsv3hizt28nxztkfwwttarw2nwcsxyqrx",
-      "peak_pct": 6.100316312697673
+    "HXqxTwCzREUXNK4CbNDgNEUEh2jLzFKdC4tvTuojpump": {
+      "symbol": "ZKDARK",
+      "qty": 3397.7461544877724,
+      "entry_px": 0.0003977,
+      "cost": 1.3988955577467725,
+      "entry_liq": 55920.58,
+      "opened": 1791424849.3096945,
+      "url": "https://dexscreener.com/solana/cr5dtgvtddgaqdjp8dghtl51n6pkraxqxfbp9fq5prkn"
     }
   },
-  "closed": [],
-  "seen_rejects": 50,
+  "closed": [
+    {
+      "symbol": "TON618",
+      "pnl": -0.48785036221391587,
+      "reason": "stop loss",
+      "addr": "CioPfvQWpVF2eTzpBj72x2zPyqgJRgvi36PqdLCCpump",
+      "at": 1791424849.0213141
+    }
+  ],
+  "seen_rejects": 97,
   "paused_until": 0
 }
