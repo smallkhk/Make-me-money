@@ -7,3 +7,6 @@
 - `2026-10-08 11:40 UTC` BUY **PumpSocks** $1.38 @ 0.0002924 (score 0.50, liq $10,718, mcap $292,424) https://dexscreener.com/base/0xa19f9dc05be35c54967fddf5fde531f81d5dfc44c91e3710e2b7f2a588540c9c
 - `2026-10-08 17:30 UTC` SELL **BULLCRAFT** (time stop) price +0.0%, net $-0.09 after fees. Cash $6.42
 - `2026-10-08 17:31 UTC` BUY **DOOM FLY** $1.36 @ 0.0002703 (score 0.52, liq $10,259, mcap $270,394) https://dexscreener.com/base/0xfeda450e83d21279973380c6466b1dbf1cce359d939e439c27301a254c9058dd
+- `2026-10-08 17:34 UTC` SELL **WHO** (time stop) price +0.0%, net $-0.09 after fees. Cash $6.35
+- `2026-10-08 17:34 UTC` PAUSE 3 losses in a row, no new buys for 2h
+- `2026-10-08 17:40 UTC` SELL **PumpSocks** (time stop) price +0.0%, net $-0.09 after fees. Cash $7.63

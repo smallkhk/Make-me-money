@@ -1,26 +1,6 @@
 {
-  "cash": 5.057955214626133,
+  "cash": 7.631448661109488,
   "positions": {
-    "0x42b5a5b61448530da12a5d2989e851fb0a571d6a": {
-      "symbol": "WHO",
-      "qty": 4252.7724983974695,
-      "entry_px": 0.0003144,
-      "cost": 1.384529777926543,
-      "entry_liq": 11115.48,
-      "opened": 1791459293.3094034,
-      "url": "https://dexscreener.com/base/0x5138c9d2a1ef3995314bbc445b4b335f8a20a63a661076510a5feecf2880a698",
-      "peak_pct": 0
-    },
-    "0x351a15cefda47d938d6fecb5e3d1b629b3c2ba7b": {
-      "symbol": "PumpSocks",
-      "qty": 4548.874573642249,
-      "entry_px": 0.0002924,
-      "cost": 1.377411062261986,
-      "entry_liq": 10717.84,
-      "opened": 1791459603.0780919,
-      "url": "https://dexscreener.com/base/0xa19f9dc05be35c54967fddf5fde531f81d5dfc44c91e3710e2b7f2a588540c9c",
-      "peak_pct": 0
-    },
     "0xdf536d8c1c258b3f13410567c1b37cf1389b9846": {
       "symbol": "DOOM FLY",
       "qty": 4869.4601806222245,
@@ -28,7 +8,8 @@
       "cost": 1.3632560847274042,
       "entry_liq": 10259.13,
       "opened": 1791480668.950171,
-      "url": "https://dexscreener.com/base/0xfeda450e83d21279973380c6466b1dbf1cce359d939e439c27301a254c9058dd"
+      "url": "https://dexscreener.com/base/0xfeda450e83d21279973380c6466b1dbf1cce359d939e439c27301a254c9058dd",
+      "peak_pct": 0
     }
   },
   "closed": [
@@ -45,8 +26,22 @@
       "reason": "time stop",
       "addr": "0xf0b38290af70e2cb9850c1cdbe9c8441cb2a8889",
       "at": 1791480645.3346364
+    },
+    {
+      "symbol": "WHO",
+      "pnl": -0.0943603731192999,
+      "reason": "time stop",
+      "addr": "0x42b5a5b61448530da12a5d2989e851fb0a571d6a",
+      "at": 1791480893.4926503
+    },
+    {
+      "symbol": "PumpSocks",
+      "pnl": -0.09408702058587415,
+      "reason": "time stop",
+      "addr": "0x351a15cefda47d938d6fecb5e3d1b629b3c2ba7b",
+      "at": 1791481203.844029
     }
   ],
   "seen_rejects": 24196,
-  "paused_until": 0
+  "paused_until": 1791488093.4928699
 }
