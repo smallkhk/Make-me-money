@@ -1,16 +1,6 @@
 {
-  "cash": 5.1207023416032005,
+  "cash": 4.806970277232722,
   "positions": {
-    "2T6Wg3urxPQHaoGh4gqNHyYL6FAfyWA5BaH6Lo37pump": {
-      "symbol": "MINER",
-      "qty": 7968.928147842906,
-      "entry_px": 0.000182,
-      "cost": 1.5,
-      "entry_liq": 39769.71,
-      "opened": 1791422675.5971622,
-      "url": "https://dexscreener.com/solana/8j42or3k3kbgnguqr2rbzcrweta7jhrnscjmscipv8in",
-      "peak_pct": 9.395604395604384
-    },
     "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
       "symbol": "ECSTASY",
       "qty": 13423.48586736023,
@@ -29,7 +19,16 @@
       "entry_liq": 55920.58,
       "opened": 1791424849.3096945,
       "url": "https://dexscreener.com/solana/cr5dtgvtddgaqdjp8dghtl51n6pkraxqxfbp9fq5prkn",
-      "peak_pct": 3.117928086497357
+      "peak_pct": 3.8974101081217016
+    },
+    "5xTqC8MhGcgnWTM8cdxgJLfV2KAbSqMMT4KeA4hrpump": {
+      "symbol": "HUMAN",
+      "qty": 14780.519378039666,
+      "entry_px": 8.701e-05,
+      "cost": 1.3323688122011261,
+      "entry_liq": 25163.49,
+      "opened": 1791425523.1688762,
+      "url": "https://dexscreener.com/solana/fkcnmnnndzuwb83ris9ustmf4k5ehhsafzv9fcsnta6e"
     }
   },
   "closed": [
@@ -39,8 +38,15 @@
       "reason": "stop loss",
       "addr": "CioPfvQWpVF2eTzpBj72x2zPyqgJRgvi36PqdLCCpump",
       "at": 1791424849.0213141
+    },
+    {
+      "symbol": "MINER",
+      "pnl": -0.48136325216935316,
+      "reason": "stop loss",
+      "addr": "2T6Wg3urxPQHaoGh4gqNHyYL6FAfyWA5BaH6Lo37pump",
+      "at": 1791425465.2169175
     }
   ],
-  "seen_rejects": 97,
+  "seen_rejects": 144,
   "paused_until": 0
 }
