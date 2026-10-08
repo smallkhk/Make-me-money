@@ -1,5 +1,5 @@
 {
-  "cash": 0.0,
+  "cash": 0.4403993195372742,
   "positions": {
     "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
       "symbol": "ECSTASY",
@@ -11,15 +11,14 @@
       "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1",
       "peak_pct": 9.395348837209294
     },
-    "HXqxTwCzREUXNK4CbNDgNEUEh2jLzFKdC4tvTuojpump": {
-      "symbol": "ZKDARK",
-      "qty": 7861.99825072414,
-      "entry_px": 0.0003738,
-      "cost": 3.018960173241853,
-      "entry_liq": 54171.57,
-      "opened": 1791423777.5804994,
-      "url": "https://dexscreener.com/solana/cr5dtgvtddgaqdjp8dghtl51n6pkraxqxfbp9fq5prkn",
-      "peak_pct": 83.09256286784378
+    "AHmD5jaFKqWMGswNkTSwAfvaWNHVY8m6JJro9LFppump": {
+      "symbol": "FLY",
+      "qty": 293162.3935708404,
+      "entry_px": 1.783e-05,
+      "cost": 5.356243195781842,
+      "entry_liq": 11704.56,
+      "opened": 1791428639.1853254,
+      "url": "https://dexscreener.com/solana/j4azhntuxg1nu4boja42kc7rnohqote6epxbauvqzdiy"
     }
   },
   "closed": [
@@ -29,8 +28,15 @@
       "reason": "stop loss",
       "addr": "Aov3BtQvrGXM5V9oiHu8PKJWeV8a2rFnr24fwWcNpump",
       "at": 1791423743.9488287
+    },
+    {
+      "symbol": "ZKDARK",
+      "pnl": 2.7776823420772634,
+      "reason": "take profit",
+      "addr": "HXqxTwCzREUXNK4CbNDgNEUEh2jLzFKdC4tvTuojpump",
+      "at": 1791428638.8404813
     }
   ],
-  "seen_rejects": 94,
+  "seen_rejects": 145,
   "paused_until": 0
 }
