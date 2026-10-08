@@ -9,3 +9,4 @@
 - `2026-10-08 02:12 UTC` BUY **HUMAN** $1.33 @ 8.701e-05 (score 0.99, liq $25,163, mcap $87,017) https://dexscreener.com/solana/fkcnmnnndzuwb83ris9ustmf4k5ehhsafzv9fcsnta6e
 - `2026-10-08 02:13 UTC` SELL **HUMAN** (stop loss) price -31.4%, net $-0.49 after fees. Cash $5.65
 - `2026-10-08 02:13 UTC` PAUSE 3 losses in a row, no new buys for 2h
+- `2026-10-08 03:01 UTC` SELL **ZKDARK** (take profit) price +67.2%, net $+0.79 after fees. Cash $7.85
