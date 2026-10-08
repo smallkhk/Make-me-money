@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Paper-trading memecoin desk for Solana, v2.
 
-Two bots trade side by side, each with its own paper $10:
+Three bots trade side by side, each with its own paper $10:
 
   steady  strict filters, RugCheck holder checks, small bets, losing-streak brake
   degen   young coins, big bets, big targets, a trailing stop to ride pumps
+  base    the steady rules on Base instead of Solana, with GoPlus rug checks
 
 No wallet, no keys, no real money: it only records what each bot *would* have
 done, with realistic fees, so you can see which (if either) actually makes money.
@@ -25,6 +26,8 @@ from pathlib import Path
 
 API = "https://api.dexscreener.com"
 RUGCHECK = "https://api.rugcheck.xyz/v1/tokens/{}/report"
+GOPLUS = "https://api.gopluslabs.io/api/v1/token_security/8453?contract_addresses={}"
+GECKO = "https://api.geckoterminal.com/api/v2/networks/base/{}?page=1"
 HERE = Path(__file__).resolve().parent
 START_CASH = 10.0
 
@@ -36,6 +39,7 @@ NETWORK_FEE_USD = 0.02
 STRATEGIES = {
     "steady": {
         "label": "Steady",
+        "chain": "solana",
         "state": "steady-state.json",
         "journal": "steady-journal.md",
         "hard": {
@@ -72,6 +76,7 @@ STRATEGIES = {
     },
     "degen": {
         "label": "Degen",
+        "chain": "solana",
         "state": "degen-state.json",
         "journal": "degen-journal.md",
         "hard": {
@@ -107,6 +112,42 @@ STRATEGIES = {
             "brake_hours": None,
         },
     },
+    "base": {
+        "label": "Base",
+        "chain": "base",
+        "state": "base-state.json",
+        "journal": "base-journal.md",
+        "hard": {
+            "min_age_minutes": 15,
+            "max_age_hours": 72,
+            "min_liquidity_usd": 10_000,
+            "min_volume_h24": 25_000,
+            "min_mcap_usd": 50_000,
+            "max_mcap_usd": 5_000_000,
+            "min_trades_h24": 100,
+            "max_h1_change_pct": 300,
+            "min_buy_sell_ratio": 0.8,
+        },
+        "rug": {
+            "max_top10_pct": 35,        # top 10 wallets (contracts/pools excluded)
+            "max_creator_pct": 10,      # creator still holds a big bag
+            "max_tax_pct": 10,          # buy or sell tax
+        },
+        "risk": {
+            "position_frac": 0.15,
+            "max_open": 3,
+            "min_score": 0.5,           # Base coins rarely list socials on DexScreener
+            "take_profit_pct": 50,
+            "stop_loss_pct": -25,
+            "trail_after_pct": None,
+            "trail_drop_pct": None,
+            "time_stop_hours": 6,
+            "rug_liquidity_drop": 0.5,
+            "cooldown_hours": 24,
+            "brake_losses": 3,
+            "brake_hours": 2,
+        },
+    },
 }
 
 
@@ -127,6 +168,7 @@ def stamp():
 class Bot:
     def __init__(self, name, cfg):
         self.name, self.cfg = name, cfg
+        self.chain = cfg["chain"]
         self.hard, self.rug, self.risk = cfg["hard"], cfg["rug"], cfg["risk"]
         self.state_file = HERE / cfg["state"]
         self.journal_file = HERE / cfg["journal"]
@@ -193,7 +235,9 @@ class Bot:
         return score, fails
 
     def rug_fails(self, report):
-        """Reasons the RugCheck report rules this coin out."""
+        """Reasons the rug check rules this coin out."""
+        if self.chain == "base":
+            return self.goplus_fails(report)
         if report is None:
             return ["rugcheck unavailable"]
         r, fails = self.rug, []
@@ -222,6 +266,33 @@ class Bot:
             locked = ((markets[0].get("lp") or {}).get("lpLockedPct") or 0) if markets else 0
             if locked < r["min_lp_locked_pct"]:
                 fails.append(f"only {locked:.0f}% of liquidity locked")
+        return fails
+
+    def goplus_fails(self, r):
+        if r is None:
+            return ["goplus unavailable"]
+        flag = lambda k: str(r.get(k)) == "1"
+        fails = [msg for k, msg in (
+            ("is_honeypot", "honeypot: can't sell"), ("cannot_sell_all", "can't sell all"),
+            ("is_mintable", "creator can mint more"), ("hidden_owner", "hidden owner"),
+            ("can_take_back_ownership", "ownership can be reclaimed"),
+            ("owner_change_balance", "owner can change balances"),
+            ("transfer_pausable", "trading can be paused"), ("is_blacklisted", "has a blacklist"),
+            ("slippage_modifiable", "tax can be changed"),
+        ) if flag(k)]
+        if str(r.get("is_open_source")) == "0":
+            fails.append("contract not verified")
+        for k in ("buy_tax", "sell_tax"):
+            tax = float(r.get(k) or 0) * 100
+            if tax > self.rug["max_tax_pct"]:
+                fails.append(f"{k.replace('_', ' ')} {tax:.0f}%")
+        holders = [h for h in r.get("holders") or [] if str(h.get("is_contract")) != "1"]
+        top10 = sum(float(h.get("percent") or 0) for h in holders[:10]) * 100
+        if top10 > self.rug["max_top10_pct"]:
+            fails.append(f"top 10 wallets own {top10:.0f}%")
+        creator = float(r.get("creator_percent") or 0) * 100
+        if creator > self.rug["max_creator_pct"]:
+            fails.append(f"creator holds {creator:.0f}%")
         return fails
 
     def manage(self, pairs):
@@ -342,18 +413,34 @@ def candidate_addresses():
     return addrs
 
 
-def best_pairs(addresses):
+def base_candidates():
+    """New and trending Base tokens from GeckoTerminal (DexScreener's feeds rarely list Base)."""
+    addrs = []
+    for kind in ("new_pools", "trending_pools"):
+        try:
+            for pool in get(GECKO.format(kind))["data"]:
+                a = pool["relationships"]["base_token"]["data"]["id"].split("_", 1)[1]
+                if a not in addrs:
+                    addrs.append(a)
+        except Exception as e:
+            print(f"warn: gecko {kind}: {e}", file=sys.stderr)
+    return addrs
+
+
+def best_pairs(addresses, chain="solana"):
     """Map token address -> its most liquid pair."""
     out = {}
     for i in range(0, len(addresses), 30):
         chunk = ",".join(addresses[i:i + 30])
         try:
-            pairs = get(f"{API}/tokens/v1/solana/{chunk}")
+            pairs = get(f"{API}/tokens/v1/{chain}/{chunk}")
         except Exception as e:
             print(f"warn: pairs: {e}", file=sys.stderr)
             continue
         for p in pairs:
             addr = p["baseToken"]["address"]
+            if chain != "solana":
+                addr = addr.lower()
             liq = (p.get("liquidity") or {}).get("usd") or 0
             cur = out.get(addr)
             if cur is None or liq > ((cur.get("liquidity") or {}).get("usd") or 0):
@@ -378,17 +465,44 @@ def rugcheck(addr):
     return report
 
 
-def held(bots):
-    return list(dict.fromkeys(a for b in bots for a in b.state["positions"]))
+def goplus(addr):
+    """GoPlus security report for a Base token, cached for 15 minutes. None if unavailable."""
+    hit = _rug_cache.get(addr)
+    if hit and now() - hit[0] < 900:
+        return hit[1]
+    try:
+        res = get(GOPLUS.format(addr)).get("result") or {}
+        report = res.get(addr.lower()) or (next(iter(res.values())) if res else None)
+    except Exception as e:
+        print(f"warn: goplus {addr[:8]}: {e}", file=sys.stderr)
+        report = None
+    _rug_cache[addr] = (now(), report)
+    return report
+
+
+FEEDS = {"solana": candidate_addresses, "base": base_candidates}
+CHECKERS = {"solana": rugcheck, "base": goplus}
+
+
+def held(bots, chain=None):
+    return list(dict.fromkeys(a for b in bots if chain in (None, b.chain) for a in b.state["positions"]))
+
+
+def chains(bots):
+    return list(dict.fromkeys(b.chain for b in bots))
 
 
 def tick(bots):
-    pairs = best_pairs(list(dict.fromkeys(candidate_addresses() + held(bots))))
-    for b in bots:
-        b.manage(pairs)
-        b.open(pairs, rugcheck)
-        b.save()
-        b.report(pairs)
+    for chain in chains(bots):
+        found = [a.lower() for a in FEEDS[chain]()] if chain != "solana" else FEEDS[chain]()
+        pairs = best_pairs(list(dict.fromkeys(found + held(bots, chain))), chain)
+        for b in bots:
+            if b.chain != chain:
+                continue
+            b.manage(pairs)
+            b.open(pairs, CHECKERS[chain])
+            b.save()
+            b.report(pairs)
 
 
 def sync(reason):
@@ -422,11 +536,15 @@ def serve(bots, scan_every, exit_every, do_sync):
             if now() - last_scan >= scan_every:
                 tick(bots)
                 last_scan = now()
-            elif held(bots):
-                pairs = best_pairs(held(bots))
-                for b in bots:
-                    b.manage(pairs)
-                    b.save()
+            else:
+                for chain in chains(bots):
+                    if not held(bots, chain):
+                        continue
+                    pairs = best_pairs(held(bots, chain), chain)
+                    for b in bots:
+                        if b.chain == chain:
+                            b.manage(pairs)
+                            b.save()
         except Exception as e:
             print(f"warn: {e}", file=sys.stderr)
         traded = count() != before
