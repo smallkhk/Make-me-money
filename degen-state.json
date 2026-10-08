@@ -1,5 +1,5 @@
 {
-  "cash": 0.060234456619154386,
+  "cash": 0.0,
   "positions": {
     "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
       "symbol": "ECSTASY",
@@ -9,20 +9,27 @@
       "entry_liq": 28541.86,
       "opened": 1791422676.246789,
       "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1",
-      "peak_pct": 0.6511627906976791
+      "peak_pct": 1.023255813953483
     },
-    "Aov3BtQvrGXM5V9oiHu8PKJWeV8a2rFnr24fwWcNpump": {
-      "symbol": "HNET",
-      "qty": 130653.5771835694,
-      "entry_px": 3.689e-05,
-      "cost": 4.939765543380846,
-      "entry_liq": 15517.73,
-      "opened": 1791422676.5802288,
-      "url": "https://dexscreener.com/solana/hglsak3nvlzazpbmiqrkv52cmzhnvrwvquzpsncsyakw",
-      "peak_pct": 2.304147465437789
+    "HXqxTwCzREUXNK4CbNDgNEUEh2jLzFKdC4tvTuojpump": {
+      "symbol": "ZKDARK",
+      "qty": 7861.99825072414,
+      "entry_px": 0.0003738,
+      "cost": 3.018960173241853,
+      "entry_liq": 54171.57,
+      "opened": 1791423777.5804994,
+      "url": "https://dexscreener.com/solana/cr5dtgvtddgaqdjp8dghtl51n6pkraxqxfbp9fq5prkn"
     }
   },
-  "closed": [],
-  "seen_rejects": 49,
+  "closed": [
+    {
+      "symbol": "HNET",
+      "pnl": -1.9810398267581468,
+      "reason": "stop loss",
+      "addr": "Aov3BtQvrGXM5V9oiHu8PKJWeV8a2rFnr24fwWcNpump",
+      "at": 1791423743.9488287
+    }
+  ],
+  "seen_rejects": 94,
   "paused_until": 0
 }
