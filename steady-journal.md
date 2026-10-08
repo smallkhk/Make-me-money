@@ -7,3 +7,5 @@
 - `2026-10-08 02:00 UTC` BUY **ZKDARK** $1.40 @ 0.0003977 (score 0.80, liq $55,921, mcap $392,295) https://dexscreener.com/solana/cr5dtgvtddgaqdjp8dghtl51n6pkraxqxfbp9fq5prkn
 - `2026-10-08 02:11 UTC` SELL **MINER** (stop loss) price -26.9%, net $-0.48 after fees. Cash $6.14
 - `2026-10-08 02:12 UTC` BUY **HUMAN** $1.33 @ 8.701e-05 (score 0.99, liq $25,163, mcap $87,017) https://dexscreener.com/solana/fkcnmnnndzuwb83ris9ustmf4k5ehhsafzv9fcsnta6e
+- `2026-10-08 02:13 UTC` SELL **HUMAN** (stop loss) price -31.4%, net $-0.49 after fees. Cash $5.65
+- `2026-10-08 02:13 UTC` PAUSE 3 losses in a row, no new buys for 2h
