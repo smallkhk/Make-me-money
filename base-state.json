@@ -1,7 +1,17 @@
 {
-  "cash": 10.0,
-  "positions": {},
+  "cash": 8.5,
+  "positions": {
+    "0x3def25780ba11605b740888c30aaf00b01299401": {
+      "symbol": "Trenchors",
+      "qty": 13516.696145954475,
+      "entry_px": 0.0001073,
+      "cost": 1.5,
+      "entry_liq": 37440.47,
+      "opened": 1791454253.073222,
+      "url": "https://dexscreener.com/base/0xaf861cf0c9660712dfac0b4b30a5684c7e632c5567c07df54cd1f68c8e587a3e"
+    }
+  },
   "closed": [],
-  "seen_rejects": 17193,
+  "seen_rejects": 17678,
   "paused_until": 0
 }
