@@ -1,5 +1,5 @@
 {
-  "cash": 0.42759269387416166,
+  "cash": 0.0,
   "positions": {
     "BEkw54ZMNfiQoS4PSxs1Bwrzjeu3bCrWtDGUNzKoojbN": {
       "symbol": "Bilbo",
@@ -11,15 +11,14 @@
       "url": "https://dexscreener.com/solana/ekejcolc4fx6rsvez9nxvyra4hjucre8kqqpusgfbmvy",
       "peak_pct": 43.85614385614387
     },
-    "2WNiZqRefcndEA9c1T6A1bdie31pbBGdFQpyR52h9TWr": {
-      "symbol": "BUNKER",
-      "qty": 36072.802561810946,
-      "entry_px": 4.768e-05,
-      "cost": 1.7752278733749438,
-      "entry_liq": 17902.43,
-      "opened": 1791459911.2782502,
-      "url": "https://dexscreener.com/solana/3ugevumzwajsxnhfznqefbcvizczxxbgevtdszcf5aqu",
-      "peak_pct": 24.601510067114106
+    "FvfX6xmM8UPmbmQJaFpDfuz5kqnbe2pB75c4xdKLpump": {
+      "symbol": "SPAWN",
+      "qty": 16052.552282115295,
+      "entry_px": 8.378e-05,
+      "cost": 1.392404828260788,
+      "entry_liq": 25486.56,
+      "opened": 1791461160.2414627,
+      "url": "https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka"
     }
   },
   "closed": [
@@ -113,8 +112,15 @@
       "reason": "time stop",
       "addr": "DZaQRdmPHNaqNsMVqRU8P4q5f2mErab4GipPghowFvaz",
       "at": 1791459883.5648975
+    },
+    {
+      "symbol": "BUNKER",
+      "pnl": -0.8104157389883175,
+      "reason": "stop loss",
+      "addr": "2WNiZqRefcndEA9c1T6A1bdie31pbBGdFQpyR52h9TWr",
+      "at": 1791461132.431433
     }
   ],
-  "seen_rejects": 3801,
+  "seen_rejects": 3846,
   "paused_until": 0
 }

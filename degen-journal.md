@@ -28,3 +28,5 @@
 - `2026-10-08 09:50 UTC` BUY **Bilbo** $1.34 @ 3.003e-05 (score 0.85, liq $13,736, mcap $28,450) https://dexscreener.com/solana/ekejcolc4fx6rsvez9nxvyra4hjucre8kqqpusgfbmvy
 - `2026-10-08 11:44 UTC` SELL **GIF** (time stop) price +0.5%, net $-0.12 after fees. Cash $2.20
 - `2026-10-08 11:45 UTC` BUY **BUNKER** $1.78 @ 4.768e-05 (score 0.87, liq $17,902, mcap $45,316) https://dexscreener.com/solana/3ugevumzwajsxnhfznqefbcvizczxxbgevtdszcf5aqu
+- `2026-10-08 12:05 UTC` SELL **BUNKER** (stop loss) price -41.6%, net $-0.81 after fees. Cash $1.39
+- `2026-10-08 12:06 UTC` BUY **SPAWN** $1.39 @ 8.378e-05 (score 0.82, liq $25,487, mcap $79,030) https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka
