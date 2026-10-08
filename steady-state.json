@@ -1,5 +1,5 @@
 {
-  "cash": 4.200381262042397,
+  "cash": 4.9995086134192235,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -11,15 +11,6 @@
       "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg",
       "peak_pct": 32.419011586663515
     },
-    "4QTZ4dR2SmHdP48KAxpqa6edUDc1N4NwZoFnyZHnvnbw": {
-      "symbol": "Tincan",
-      "qty": 14820.542727190497,
-      "entry_px": 8.057e-05,
-      "cost": 1.238520658066566,
-      "entry_liq": 25116.01,
-      "opened": 1791443467.8408387,
-      "url": "https://dexscreener.com/solana/4svitreiu8kkrpey3oonukcf7sqyxv9k3uuatpqn6trz"
-    },
     "2hP1kwKtPyTW1uBs1u3Aoxu83c8ucKwe7rRGqS2epump": {
       "symbol": "FIX",
       "qty": 13214.201060505895,
@@ -27,7 +18,8 @@
       "cost": 1.231856228486042,
       "entry_liq": 24952.94,
       "opened": 1791443468.1004446,
-      "url": "https://dexscreener.com/solana/aurjhnmdxwqhyexvhrdlnxewusnfv7npaeerk4cpakfx"
+      "url": "https://dexscreener.com/solana/aurjhnmdxwqhyexvhrdlnxewusnfv7npaeerk4cpakfx",
+      "peak_pct": 21.842661622343385
     }
   },
   "closed": [
@@ -79,8 +71,15 @@
       "reason": "stop loss",
       "addr": "CHawNNAdYdzipEdiRDq3LFimhext5Z6g6zdohD1dACdx",
       "at": 1791436265.1270514
+    },
+    {
+      "symbol": "Tincan",
+      "pnl": -0.43939330668973897,
+      "reason": "stop loss",
+      "addr": "4QTZ4dR2SmHdP48KAxpqa6edUDc1N4NwZoFnyZHnvnbw",
+      "at": 1791443988.5354936
     }
   ],
-  "seen_rejects": 3271,
+  "seen_rejects": 3318,
   "paused_until": 1791443465.1272202
 }
