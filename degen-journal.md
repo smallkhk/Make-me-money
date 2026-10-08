@@ -36,3 +36,5 @@
 - `2026-10-08 13:06 UTC` BUY **Stonked** $2.97 @ 2.24e-05 (score 0.87, liq $13,719, mcap $22,404) https://dexscreener.com/solana/6xmz83tufrjbdh8d5dvcz2yu5wtih2uq4rw9pd4wgxbb
 - `2026-10-08 13:40 UTC` SELL **Stonked** (stop loss) price -38.1%, net $-1.24 after fees. Cash $3.31
 - `2026-10-08 13:41 UTC` BUY **OMARCHY** $2.45 @ 3.144e-05 (score 0.85, liq $14,774, mcap $31,444) https://dexscreener.com/solana/djqmfhfybyooqvjsjankqvzmartlzoaf8ze44dofm4mj
+- `2026-10-08 13:56 UTC` SELL **OMARCHY** (take profit) price +120.9%, net $+2.69 after fees. Cash $5.99
+- `2026-10-08 13:57 UTC` BUY **SKY** $3.72 @ 2.698e-05 (score 0.82, liq $12,724, mcap $26,138) https://dexscreener.com/solana/eykdaqgko58cpaypukcdthq9psenqa14j9eey5t3dgj3
