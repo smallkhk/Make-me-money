@@ -26,3 +26,4 @@
 - `2026-10-08 07:37 UTC` SELL **FIX** (stop loss) price -40.8%, net $-0.56 after fees. Cash $4.93
 - `2026-10-08 07:37 UTC` BUY **Playground ** $1.11 @ 6.517e-05 (score 0.69, liq $20,801, mcap $62,848) https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg
 - `2026-10-08 07:47 UTC` SELL **GIF** (stop loss) price -26.4%, net $-0.38 after fees. Cash $4.63
+- `2026-10-08 07:47 UTC` BUY **$BITFOOTS** $1.05 @ 0.0001274 (score 0.69, liq $30,651, mcap $119,958) https://dexscreener.com/solana/koqr2pvcyfiwvidqtbxakcmgqqjwanw4oed9cljflna
