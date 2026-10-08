@@ -6,3 +6,5 @@
 - `2026-10-08 01:42 UTC` BUY **ZKDARK** $3.02 @ 0.0003738 (score 0.81, liq $54,172, mcap $368,725) https://dexscreener.com/solana/cr5dtgvtddgaqdjp8dghtl51n6pkraxqxfbp9fq5prkn
 - `2026-10-08 03:03 UTC` SELL **ZKDARK** (take profit) price +102.0%, net $+2.78 after fees. Cash $5.80
 - `2026-10-08 03:03 UTC` BUY **FLY** $5.36 @ 1.783e-05 (score 0.87, liq $11,705, mcap $16,155) https://dexscreener.com/solana/j4azhntuxg1nu4boja42kc7rnohqote6epxbauvqzdiy
+- `2026-10-08 04:24 UTC` SELL **ECSTASY** (time stop) price -33.7%, net $-1.85 after fees. Cash $3.59
+- `2026-10-08 04:25 UTC` BUY **FEEBIE** $3.59 @ 3.469e-05 (score 0.74, liq $14,815, mcap $33,633) https://dexscreener.com/solana/gzwuwl7syuxv8z8hnbjw3eplq8ggd2a4myhja1nzmwad

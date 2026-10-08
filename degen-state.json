@@ -1,16 +1,6 @@
 {
-  "cash": 0.4403993195372742,
+  "cash": 0.0,
   "positions": {
-    "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump": {
-      "symbol": "ECSTASY",
-      "qty": 45390.98685359712,
-      "entry_px": 0.0001075,
-      "cost": 5.0,
-      "entry_liq": 28541.86,
-      "opened": 1791422676.246789,
-      "url": "https://dexscreener.com/solana/ucwmmumv5xncimxxymfw2erlqzjfyfbs47bthptgrz1",
-      "peak_pct": 9.395348837209294
-    },
     "AHmD5jaFKqWMGswNkTSwAfvaWNHVY8m6JJro9LFppump": {
       "symbol": "FLY",
       "qty": 293162.3935708404,
@@ -20,6 +10,15 @@
       "opened": 1791428639.1853254,
       "url": "https://dexscreener.com/solana/j4azhntuxg1nu4boja42kc7rnohqote6epxbauvqzdiy",
       "peak_pct": 2.9164329781267373
+    },
+    "2LMiWGyNjGKyUkH2oFYmMxzwLzUY84dHZf6DUUZFpump": {
+      "symbol": "FEEBIE",
+      "qty": 100873.4004870504,
+      "entry_px": 3.469e-05,
+      "cost": 3.591591135989119,
+      "entry_liq": 14814.77,
+      "opened": 1791433520.2709916,
+      "url": "https://dexscreener.com/solana/gzwuwl7syuxv8z8hnbjw3eplq8ggd2a4myhja1nzmwad"
     }
   },
   "closed": [
@@ -36,8 +35,15 @@
       "reason": "take profit",
       "addr": "HXqxTwCzREUXNK4CbNDgNEUEh2jLzFKdC4tvTuojpump",
       "at": 1791428638.8404813
+    },
+    {
+      "symbol": "ECSTASY",
+      "pnl": -1.8488081835481553,
+      "reason": "time stop",
+      "addr": "F6EDRhRzXGmkBabhSHdAnqx26XLhG6NCa83wwuqFpump",
+      "at": 1791433477.4404805
     }
   ],
-  "seen_rejects": 145,
+  "seen_rejects": 197,
   "paused_until": 0
 }
