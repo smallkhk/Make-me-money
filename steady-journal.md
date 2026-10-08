@@ -30,3 +30,4 @@
 - `2026-10-08 07:56 UTC` SELL **$BITFOOTS** (take profit) price +72.1%, net $+0.63 after fees. Cash $5.26
 - `2026-10-08 07:58 UTC` BUY **URI-M** $1.17 @ 6.416e-05 (score 0.82, liq $21,061, mcap $61,330) https://dexscreener.com/solana/abuavqyjfwrsxnqtjjyzuuedurgtc7rrhxcnjhfesyv5
 - `2026-10-08 08:08 UTC` SELL **URI-M** (take profit) price +62.4%, net $+0.61 after fees. Cash $5.87
+- `2026-10-08 08:19 UTC` SELL **Playground ** (stop loss) price -43.9%, net $-0.55 after fees. Cash $6.44

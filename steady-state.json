@@ -1,5 +1,5 @@
 {
-  "cash": 5.867803057018765,
+  "cash": 6.4372955290046985,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -10,16 +10,6 @@
       "opened": 1791432847.6664367,
       "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg",
       "peak_pct": 32.419011586663515
-    },
-    "cnNgFYRS26pKHstKvfzQXEDQuvuMfUNzTB2AMZypump": {
-      "symbol": "Playground ",
-      "qty": 16458.204231442745,
-      "entry_px": 6.517e-05,
-      "cost": 1.1145293509266436,
-      "entry_liq": 20800.63,
-      "opened": 1791445053.0681438,
-      "url": "https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg",
-      "peak_pct": 6.045726561301201
     }
   },
   "closed": [
@@ -113,8 +103,15 @@
       "reason": "take profit",
       "addr": "DS2aUr4mro9rBTs119eFXc2UR8VpqTo9mmmqCQUunw1A",
       "at": 1791446916.8368669
+    },
+    {
+      "symbol": "Playground ",
+      "pnl": -0.5450368789407098,
+      "reason": "stop loss",
+      "addr": "cnNgFYRS26pKHstKvfzQXEDQuvuMfUNzTB2AMZypump",
+      "at": 1791447591.3179505
     }
   ],
-  "seen_rejects": 4249,
+  "seen_rejects": 4709,
   "paused_until": 1791443465.1272202
 }
