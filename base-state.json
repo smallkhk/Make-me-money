@@ -1,18 +1,15 @@
 {
-  "cash": 8.5,
-  "positions": {
-    "0x3def25780ba11605b740888c30aaf00b01299401": {
+  "cash": 9.277803856711264,
+  "positions": {},
+  "closed": [
+    {
       "symbol": "Trenchors",
-      "qty": 13516.696145954475,
-      "entry_px": 0.0001073,
-      "cost": 1.5,
-      "entry_liq": 37440.47,
-      "opened": 1791454253.073222,
-      "url": "https://dexscreener.com/base/0xaf861cf0c9660712dfac0b4b30a5684c7e632c5567c07df54cd1f68c8e587a3e",
-      "peak_pct": 16.68219944082012
+      "pnl": -0.722196143288735,
+      "reason": "stop loss",
+      "addr": "0x3def25780ba11605b740888c30aaf00b01299401",
+      "at": 1791455332.021905
     }
-  },
-  "closed": [],
-  "seen_rejects": 18224,
+  ],
+  "seen_rejects": 18951,
   "paused_until": 0
 }
