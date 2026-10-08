@@ -17,3 +17,6 @@
 - `2026-10-08 05:56 UTC` SELL **Tincan** (stop loss) price -41.9%, net $-0.87 after fees. Cash $1.03
 - `2026-10-08 05:56 UTC` BUY **GRAVY** $1.03 @ 6.269e-05 (score 0.73, liq $20,766, mcap $62,699) https://dexscreener.com/solana/ehoijshmgqrfchsewxssyp7cdoi1tukisfmw22nqnbar
 - `2026-10-08 06:08 UTC` SELL **GRAVY** (stop loss) price -45.3%, net $-0.52 after fees. Cash $0.51
+- `2026-10-08 07:25 UTC` SELL **FEEBIE** (time stop) price -10.2%, net $-0.53 after fees. Cash $3.57
+- `2026-10-08 07:25 UTC` BUY **C3PO** $1.78 @ 3.409e-05 (score 0.87, liq $14,687, mcap $33,070) https://dexscreener.com/solana/gb79zgp981qtyswj8py3lquegt2tcqeeenve3brqad5r
+- `2026-10-08 07:25 UTC` BUY **iCoin** $1.76 @ 5.403e-05 (score 0.86, liq $20,149, mcap $51,358) https://dexscreener.com/solana/7ohdsl98qr5euomahubiciun8dyyrdsmsm8dpeesvvsw
