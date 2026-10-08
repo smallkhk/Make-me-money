@@ -8,3 +8,5 @@
 - `2026-10-08 03:03 UTC` BUY **FLY** $5.36 @ 1.783e-05 (score 0.87, liq $11,705, mcap $16,155) https://dexscreener.com/solana/j4azhntuxg1nu4boja42kc7rnohqote6epxbauvqzdiy
 - `2026-10-08 04:24 UTC` SELL **ECSTASY** (time stop) price -33.7%, net $-1.85 after fees. Cash $3.59
 - `2026-10-08 04:25 UTC` BUY **FEEBIE** $3.59 @ 3.469e-05 (score 0.74, liq $14,815, mcap $33,633) https://dexscreener.com/solana/gzwuwl7syuxv8z8hnbjw3eplq8ggd2a4myhja1nzmwad
+- `2026-10-08 05:13 UTC` SELL **FLY** (stop loss) price -50.3%, net $-2.83 after fees. Cash $2.53
+- `2026-10-08 05:13 UTC` BUY **Bot** $2.53 @ 6.764e-05 (score 0.75, liq $21,392, mcap $67,642) https://dexscreener.com/solana/gkkecspjfbqd1i17qudj6mumwaybz97jxtghjrlxqu85
