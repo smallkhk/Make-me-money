@@ -12,3 +12,5 @@
 - `2026-10-08 05:13 UTC` BUY **Bot** $2.53 @ 6.764e-05 (score 0.75, liq $21,392, mcap $67,642) https://dexscreener.com/solana/gkkecspjfbqd1i17qudj6mumwaybz97jxtghjrlxqu85
 - `2026-10-08 05:29 UTC` SELL **Bot** (trailing stop (peak +80%)) price +31.5%, net $+0.62 after fees. Cash $3.15
 - `2026-10-08 05:30 UTC` BUY **BATONPASS** $3.15 @ 0.0002951 (score 0.84, liq $48,402, mcap $292,245) https://dexscreener.com/solana/berqejzdtqmu5ac2q9sax7awpuezrt2wicsbuqmcetw4
+- `2026-10-08 05:35 UTC` SELL **BATONPASS** (stop loss) price -36.0%, net $-1.24 after fees. Cash $1.90
+- `2026-10-08 05:36 UTC` BUY **Tincan** $1.90 @ 0.0001441 (score 0.76, liq $32,960, mcap $144,184) https://dexscreener.com/solana/4svitreiu8kkrpey3oonukcf7sqyxv9k3uuatpqn6trz

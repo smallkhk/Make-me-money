@@ -11,14 +11,14 @@
       "url": "https://dexscreener.com/solana/gzwuwl7syuxv8z8hnbjw3eplq8ggd2a4myhja1nzmwad",
       "peak_pct": 0.7783222830786807
     },
-    "CUDaYTpsWoJEakpv62vQgNLG9Jxrm4djmsFTgEaQpump": {
-      "symbol": "BATONPASS",
-      "qty": 10380.811452195665,
-      "entry_px": 0.0002951,
-      "cost": 3.146101391603405,
-      "entry_liq": 48401.71,
-      "opened": 1791437422.5784063,
-      "url": "https://dexscreener.com/solana/berqejzdtqmu5ac2q9sax7awpuezrt2wicsbuqmcetw4"
+    "4QTZ4dR2SmHdP48KAxpqa6edUDc1N4NwZoFnyZHnvnbw": {
+      "symbol": "Tincan",
+      "qty": 12795.813099015986,
+      "entry_px": 0.0001441,
+      "cost": 1.9016164139854432,
+      "entry_liq": 32959.8,
+      "opened": 1791437788.147718,
+      "url": "https://dexscreener.com/solana/4svitreiu8kkrpey3oonukcf7sqyxv9k3uuatpqn6trz"
     }
   },
   "closed": [
@@ -56,8 +56,15 @@
       "reason": "trailing stop (peak +80%)",
       "addr": "CHawNNAdYdzipEdiRDq3LFimhext5Z6g6zdohD1dACdx",
       "at": 1791437394.9502301
+    },
+    {
+      "symbol": "BATONPASS",
+      "pnl": -1.2444849776179618,
+      "reason": "stop loss",
+      "addr": "CUDaYTpsWoJEakpv62vQgNLG9Jxrm4djmsFTgEaQpump",
+      "at": 1791437730.4577038
     }
   ],
-  "seen_rejects": 293,
+  "seen_rejects": 337,
   "paused_until": 0
 }
