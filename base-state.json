@@ -1,6 +1,16 @@
 {
-  "cash": 9.277803856711264,
-  "positions": {},
+  "cash": 7.886133278204575,
+  "positions": {
+    "0xf0b38290af70e2cb9850c1cdbe9c8441cb2a8889": {
+      "symbol": "BULLCRAFT",
+      "qty": 4421.267241137208,
+      "entry_px": 0.000304,
+      "cost": 1.3916705785066896,
+      "entry_liq": 10943.57,
+      "opened": 1791459042.9017177,
+      "url": "https://dexscreener.com/base/0xd1a921371d7d31e0ebcffa4999dc658db4b413b52288ec887d4059251d368bd8"
+    }
+  },
   "closed": [
     {
       "symbol": "Trenchors",
@@ -10,6 +20,6 @@
       "at": 1791455332.021905
     }
   ],
-  "seen_rejects": 22168,
+  "seen_rejects": 22983,
   "paused_until": 0
 }
