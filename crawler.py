@@ -677,10 +677,15 @@ def tick(bots):
         found = [a.lower() for a in FEEDS[chain]()] if chain != "solana" else FEEDS[chain]()
         pairs = best_pairs(list(dict.fromkeys(found + held(bots, chain))), chain)
         RECORDER.add(chain, pairs)
-        if RECORDER.due(chain):
+        # Base's feed only lists pools minutes old, gone before they pass min_age, so the
+        # Base bot also re-checks coins the recorder is following.
+        if RECORDER.due(chain) or chain == "base":
             extra = [a for a, (c, _) in RECORDER.watch.items() if c == chain and a not in pairs]
             seen = {**best_pairs(extra, chain), **pairs} if extra else pairs
-            RECORDER.record(chain, seen)
+            if RECORDER.due(chain):
+                RECORDER.record(chain, seen)
+            if chain == "base":
+                pairs = seen
         for b in bots:
             if b.chain != chain:
                 continue
