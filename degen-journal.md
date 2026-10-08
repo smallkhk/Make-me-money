@@ -30,3 +30,5 @@
 - `2026-10-08 11:45 UTC` BUY **BUNKER** $1.78 @ 4.768e-05 (score 0.87, liq $17,902, mcap $45,316) https://dexscreener.com/solana/3ugevumzwajsxnhfznqefbcvizczxxbgevtdszcf5aqu
 - `2026-10-08 12:05 UTC` SELL **BUNKER** (stop loss) price -41.6%, net $-0.81 after fees. Cash $1.39
 - `2026-10-08 12:06 UTC` BUY **SPAWN** $1.39 @ 8.378e-05 (score 0.82, liq $25,487, mcap $79,030) https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka
+- `2026-10-08 12:42 UTC` SELL **Bilbo** (take profit) price +104.2%, net $+1.22 after fees. Cash $2.56
+- `2026-10-08 12:43 UTC` BUY **CLAUDEPLNT** $2.06 @ 2.357e-05 (score 0.87, liq $14,223, mcap $23,579) https://dexscreener.com/solana/fkydv9aexsc8fi8kgn8bkaqmrj3xzefar5l5zktdmbx4
