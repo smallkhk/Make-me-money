@@ -1,5 +1,5 @@
 {
-  "cash": 3.5801031358666533,
+  "cash": 5.262797745850729,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -19,16 +19,7 @@
       "entry_liq": 20800.63,
       "opened": 1791445053.0681438,
       "url": "https://dexscreener.com/solana/7xp4badsrvfcbd9t4zzkeya3ccnfokimweobrrhw8arg",
-      "peak_pct": 3.007518796992481
-    },
-    "agYKZgcBE2XUzTypkkdJqvwPbu7k5CUZjA6Cm3jpump": {
-      "symbol": "$BITFOOTS",
-      "qty": 7923.022545973217,
-      "entry_px": 0.0001274,
-      "cost": 1.0500282516607584,
-      "entry_liq": 30650.89,
-      "opened": 1791445663.6055436,
-      "url": "https://dexscreener.com/solana/koqr2pvcyfiwvidqtbxakcmgqqjwanw4oed9cljflna"
+      "peak_pct": 5.61608101887372
     }
   },
   "closed": [
@@ -108,8 +99,15 @@
       "reason": "stop loss",
       "addr": "DZaQRdmPHNaqNsMVqRU8P4q5f2mErab4GipPghowFvaz",
       "at": 1791445634.4010975
+    },
+    {
+      "symbol": "$BITFOOTS",
+      "pnl": 0.6326663583233172,
+      "reason": "take profit",
+      "addr": "agYKZgcBE2XUzTypkkdJqvwPbu7k5CUZjA6Cm3jpump",
+      "at": 1791446184.4603784
     }
   ],
-  "seen_rejects": 3645,
+  "seen_rejects": 3694,
   "paused_until": 1791443465.1272202
 }
