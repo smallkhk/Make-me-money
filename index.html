@@ -143,6 +143,8 @@ const BOTS = {
     rules: "Strict filters plus RugCheck holder checks. Bets 15% per trade. Sells at +50%, −25% or after 6h. Pauses 2h after 3 losses in a row." },
   degen: { label: "Degen", state: "degen-state.json", journal: "degen-journal.md", tp: 100, sl: -35, hours: 3, slots: 2,
     rules: "Young coins, 50% of the money per trade. Sells at +100% or −35%, rides pumps with a trailing stop (sells after a 25% drop from a +60% peak), gives up after 3h." },
+  jev: { label: "Jev", state: "jev-state.json", journal: "jev-journal.md", tp: 50, sl: -25, hours: 6, slots: 3,
+    rules: "The steady rules, plus the Jev AI must give the coin at least a 60% chance of hitting +50% first and at most a 30% chance of a rug." },
   base: { label: "Base", chain: "base", state: "base-state.json", journal: "base-journal.md", tp: 50, sl: -25, hours: 6, slots: 3,
     rules: "The steady rules on the Base network, with GoPlus checks for honeypots, taxes, minting and big holders. Bets 15% per trade." },
   v1: { label: "v1 (retired)", state: "state.json", journal: "journal.md", tp: 50, sl: -25, hours: 6, slots: 3,

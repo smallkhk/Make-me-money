@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Paper-trading memecoin desk for Solana, v2.
 
-Three bots trade side by side, each with its own paper $10:
+Four bots trade side by side, each with its own paper $10:
 
   steady  strict filters, RugCheck holder checks, small bets, losing-streak brake
   degen   young coins, big bets, big targets, a trailing stop to ride pumps
   base    the steady rules on Base instead of Solana, with GoPlus rug checks
+  jev     the steady rules, plus the Jev AI model must rate the coin a likely
+          winner and unlikely rug (needs TYPESAFE_API_KEY; skipped without it)
 
 No wallet, no keys, no real money: it only records what each bot *would* have
 done, with realistic fees, so you can see which (if either) actually makes money.
@@ -17,6 +19,7 @@ done, with realistic fees, so you can see which (if either) actually makes money
 """
 import argparse
 import json
+import os
 import subprocess
 import sys
 import time
@@ -27,6 +30,7 @@ from pathlib import Path
 API = "https://api.dexscreener.com"
 RUGCHECK = "https://api.rugcheck.xyz/v1/tokens/{}/report"
 GOPLUS = "https://api.gopluslabs.io/api/v1/token_security/8453?contract_addresses={}"
+JEV_URL = "https://api.typesafe.ai/v1/systemone"
 GECKO = "https://api.geckoterminal.com/api/v2/networks/base/{}?page=1"
 HERE = Path(__file__).resolve().parent
 START_CASH = 10.0
@@ -112,6 +116,16 @@ STRATEGIES = {
             "brake_hours": None,
         },
     },
+    "jev": {
+        "label": "Jev",
+        "chain": "solana",
+        "state": "jev-state.json",
+        "journal": "jev-journal.md",
+        "jev": {
+            "min_pump": 0.6,            # Jev's chance it hits +50% before -25%
+            "max_rug": 0.3,             # Jev's chance it's a rug or insider dump
+        },
+    },
     "base": {
         "label": "Base",
         "chain": "base",
@@ -163,6 +177,10 @@ def now():
 
 def stamp():
     return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+
+# The Jev bot trades the steady rules with an extra Jev gate.
+STRATEGIES["jev"] = {**STRATEGIES["steady"], **STRATEGIES["jev"]}
 
 
 class Bot:
@@ -364,7 +382,20 @@ class Bot:
         for score, addr, pair in ranked:
             if len(self.state["positions"]) >= r["max_open"]:
                 break
-            fails = self.rug_fails(rugcheck(addr))
+            report = rugcheck(addr)
+            fails = self.rug_fails(report)
+            note = ""
+            if not fails and self.cfg.get("jev"):
+                verdict = jev_verdict(addr, pair, report)
+                if verdict is None:
+                    fails = ["jev unavailable"]
+                else:
+                    pump, rug = verdict
+                    note = f", jev pump {pump:.2f} rug {rug:.2f}"
+                    if pump < self.cfg["jev"]["min_pump"]:
+                        fails.append(f"jev pump {pump:.2f}")
+                    if rug > self.cfg["jev"]["max_rug"]:
+                        fails.append(f"jev rug {rug:.2f}")
             if fails:
                 self.state["seen_rejects"] += 1
                 print(f"[{self.name}] skip {pair['baseToken']['symbol']}: {', '.join(fails)}")
@@ -382,7 +413,7 @@ class Bot:
                 "cost": size, "entry_liq": liq, "opened": now(), "url": pair.get("url"),
             }
             self.journal(f"BUY **{pair['baseToken']['symbol']}** ${size:.2f} @ {px:.8g} "
-                         f"(score {score:.2f}, liq ${liq:,.0f}, mcap ${pair.get('marketCap') or 0:,.0f}) "
+                         f"(score {score:.2f}{note}, liq ${liq:,.0f}, mcap ${pair.get('marketCap') or 0:,.0f}) "
                          f"{pair.get('url')}")
 
     def report(self, pairs=None):
@@ -480,6 +511,63 @@ def goplus(addr):
     return report
 
 
+_jev_cache = {}
+
+
+def jev_verdict(addr, pair, report):
+    """Ask Jev for (pump, rug) probabilities, cached 30 minutes. None if unavailable."""
+    key = os.environ.get("TYPESAFE_API_KEY")
+    if not key:
+        return None
+    hit = _jev_cache.get(addr)
+    if hit and now() - hit[0] < 1800:
+        return hit[1]
+    tx = (pair.get("txns") or {})
+    pools = {m.get("pubkey") for m in (report or {}).get("markets") or []}
+    holders = [x for x in (report or {}).get("topHolders") or [] if x.get("owner") not in pools]
+    state = {
+        "chain": "solana",
+        "symbol": pair["baseToken"]["symbol"],
+        "name": pair["baseToken"].get("name"),
+        "age_minutes": round((now() * 1000 - (pair.get("pairCreatedAt") or 0)) / 60_000),
+        "price_usd": pair.get("priceUsd"),
+        "market_cap_usd": pair.get("marketCap"),
+        "liquidity_usd": (pair.get("liquidity") or {}).get("usd"),
+        "volume_usd": pair.get("volume"),
+        "price_change_pct": pair.get("priceChange"),
+        "buys_sells": {k: tx.get(k) for k in ("m5", "h1", "h6", "h24")},
+        "socials": [x.get("type") for x in (pair.get("info") or {}).get("socials") or []],
+        "has_website": bool((pair.get("info") or {}).get("websites")),
+        "top10_holders_pct": round(sum(x.get("pct", 0) for x in holders[:10]), 1),
+        "insider_holders_pct": round(sum(x.get("pct", 0) for x in holders if x.get("insider")), 1),
+        "liquidity_locked_pct": (report or {}).get("lpLockedPct"),
+        "rugcheck_risks": [r.get("name") for r in (report or {}).get("risks") or []],
+    }
+    body = {
+        "model": "jev-latest",
+        "state": state,
+        "questions": {
+            "pump": {"type": "noul", "instructions":
+                     "This is a Solana memecoin. Will its price rise at least 50% before it falls 25%, "
+                     "within the next 6 hours?"},
+            "rug": {"type": "noul", "instructions":
+                    "Is this memecoin likely to be rugged or dumped by insiders within the next 6 hours?"},
+        },
+    }
+    try:
+        req = urllib.request.Request(JEV_URL, data=json.dumps(body).encode(), method="POST", headers={
+            "Authorization": f"Bearer {key}", "Content-Type": "application/json",
+            "User-Agent": "paper-crawler/2.0"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            answers = json.load(r)["answers"]
+        verdict = (float(answers["pump"]["noul"]), float(answers["rug"]["noul"]))
+    except Exception as e:
+        print(f"warn: jev {addr[:6]}: {e}", file=sys.stderr)
+        verdict = None
+    _jev_cache[addr] = (now(), verdict)
+    return verdict
+
+
 FEEDS = {"solana": candidate_addresses, "base": base_candidates}
 CHECKERS = {"solana": rugcheck, "base": goplus}
 
@@ -568,7 +656,11 @@ def main():
     ap.add_argument("--only", choices=sorted(STRATEGIES), help="run just one bot")
     args = ap.parse_args()
 
-    bots = [Bot(n, c) for n, c in STRATEGIES.items() if not args.only or n == args.only]
+    names = [n for n in STRATEGIES if not args.only or n == args.only]
+    if "jev" in names and not os.environ.get("TYPESAFE_API_KEY") and not args.report:
+        print("note: TYPESAFE_API_KEY not set, the Jev bot is off", file=sys.stderr)
+        names.remove("jev")
+    bots = [Bot(n, STRATEGIES[n]) for n in names]
     if args.report:
         for b in bots:
             b.report()

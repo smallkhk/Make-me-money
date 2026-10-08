@@ -44,6 +44,7 @@ Wants=network-online.target
 
 [Service]
 User=$USER
+EnvironmentFile=-$DIR/.env
 WorkingDirectory=$DIR
 ExecStart=$PY -u crawler.py --serve --sync
 Restart=always
@@ -53,6 +54,7 @@ RestartSec=10
 WantedBy=multi-user.target
 UNIT
 
+touch "$DIR/.env" && chmod 600 "$DIR/.env"
 sudo systemctl daemon-reload
 sudo systemctl enable --now desk
 sleep 8
