@@ -11,15 +11,14 @@
       "url": "https://dexscreener.com/solana/gzwuwl7syuxv8z8hnbjw3eplq8ggd2a4myhja1nzmwad",
       "peak_pct": 0.7783222830786807
     },
-    "CHawNNAdYdzipEdiRDq3LFimhext5Z6g6zdohD1dACdx": {
-      "symbol": "Bot",
-      "qty": 36321.301799118926,
-      "entry_px": 6.764e-05,
-      "cost": 2.5272109306790735,
-      "entry_liq": 21391.62,
-      "opened": 1791436386.6698625,
-      "url": "https://dexscreener.com/solana/gkkecspjfbqd1i17qudj6mumwaybz97jxtghjrlxqu85",
-      "peak_pct": 13.054405677114156
+    "CUDaYTpsWoJEakpv62vQgNLG9Jxrm4djmsFTgEaQpump": {
+      "symbol": "BATONPASS",
+      "qty": 10380.811452195665,
+      "entry_px": 0.0002951,
+      "cost": 3.146101391603405,
+      "entry_liq": 48401.71,
+      "opened": 1791437422.5784063,
+      "url": "https://dexscreener.com/solana/berqejzdtqmu5ac2q9sax7awpuezrt2wicsbuqmcetw4"
     }
   },
   "closed": [
@@ -50,8 +49,15 @@
       "reason": "stop loss",
       "addr": "AHmD5jaFKqWMGswNkTSwAfvaWNHVY8m6JJro9LFppump",
       "at": 1791436386.6690652
+    },
+    {
+      "symbol": "Bot",
+      "pnl": 0.6188904609243315,
+      "reason": "trailing stop (peak +80%)",
+      "addr": "CHawNNAdYdzipEdiRDq3LFimhext5Z6g6zdohD1dACdx",
+      "at": 1791437394.9502301
     }
   ],
-  "seen_rejects": 248,
+  "seen_rejects": 293,
   "paused_until": 0
 }

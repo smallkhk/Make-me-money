@@ -10,3 +10,5 @@
 - `2026-10-08 04:25 UTC` BUY **FEEBIE** $3.59 @ 3.469e-05 (score 0.74, liq $14,815, mcap $33,633) https://dexscreener.com/solana/gzwuwl7syuxv8z8hnbjw3eplq8ggd2a4myhja1nzmwad
 - `2026-10-08 05:13 UTC` SELL **FLY** (stop loss) price -50.3%, net $-2.83 after fees. Cash $2.53
 - `2026-10-08 05:13 UTC` BUY **Bot** $2.53 @ 6.764e-05 (score 0.75, liq $21,392, mcap $67,642) https://dexscreener.com/solana/gkkecspjfbqd1i17qudj6mumwaybz97jxtghjrlxqu85
+- `2026-10-08 05:29 UTC` SELL **Bot** (trailing stop (peak +80%)) price +31.5%, net $+0.62 after fees. Cash $3.15
+- `2026-10-08 05:30 UTC` BUY **BATONPASS** $3.15 @ 0.0002951 (score 0.84, liq $48,402, mcap $292,245) https://dexscreener.com/solana/berqejzdtqmu5ac2q9sax7awpuezrt2wicsbuqmcetw4
