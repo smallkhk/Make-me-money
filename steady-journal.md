@@ -14,3 +14,4 @@
 - `2026-10-08 04:19 UTC` SELL **ECSTASY** (stop loss) price -26.3%, net $-0.47 after fees. Cash $7.52
 - `2026-10-08 04:23 UTC` BUY **QUANT** $1.33 @ 7.494e-05 (score 0.72, liq $22,113, mcap $71,692) https://dexscreener.com/solana/32bsyvldyypnukywntalqa9ypufwkhaysbnxaxoaexwn
 - `2026-10-08 04:37 UTC` SELL **QUANT** (stop loss) price -28.1%, net $-0.44 after fees. Cash $7.08
+- `2026-10-08 05:04 UTC` BUY **Bot** $1.26 @ 9.773e-05 (score 0.61, liq $26,094, mcap $97,738) https://dexscreener.com/solana/gkkecspjfbqd1i17qudj6mumwaybz97jxtghjrlxqu85
