@@ -19,6 +19,9 @@ done, with realistic fees, so you can see which (if either) actually makes money
                                        # trades pushed to GitHub for the dashboard
 """
 import argparse
+import csv
+import gzip
+import io
 import json
 import os
 import subprocess
@@ -592,10 +595,92 @@ def chains(bots):
     return list(dict.fromkeys(b.chain for b in bots))
 
 
+class Recorder:
+    """Logs a price snapshot of every coin the bots see, each scan, for 6 hours after
+    first sighting. Hourly gzip files under research/ let us backtest rule changes on
+    thousands of would-be trades instead of a few dozen real ones."""
+    FIELDS = ["ts", "chain", "addr", "symbol", "price", "liq", "mcap", "vol_h1", "vol_h24",
+              "buys_m5", "sells_m5", "buys_h1", "sells_h1", "chg_m5", "chg_h1", "chg_h6",
+              "age_min", "socials"]
+    WATCH_HOURS = 6
+    MIN_LIQ = 5_000
+    MAX_WATCH = 400            # newest coins win; keeps a scan to ~14 API calls
+    EVERY = 115                # seconds between snapshots
+
+    def __init__(self):
+        self.dir = HERE / "research"
+        self.watch = {}            # addr -> (chain, first_seen)
+        self.rows, self.hour = [], None
+        self.done = []             # finished hourly files waiting to be committed
+        self.last = {}             # chain -> time of last snapshot
+
+    def due(self, chain):
+        return now() - self.last.get(chain, 0) >= self.EVERY
+
+    def add(self, chain, pairs):
+        for a, p in pairs.items():
+            if ((p.get("liquidity") or {}).get("usd") or 0) >= self.MIN_LIQ:
+                self.watch.setdefault(a, (chain, now()))
+        if len(self.watch) > self.MAX_WATCH:
+            keep = sorted(self.watch.items(), key=lambda kv: kv[1][1])[-self.MAX_WATCH:]
+            self.watch = dict(keep)
+
+    def record(self, chain, pairs):
+        cutoff = now() - self.WATCH_HOURS * 3600
+        for a in [a for a, (c, t) in self.watch.items() if t < cutoff]:
+            del self.watch[a]
+        self.last[chain] = now()
+        ts = int(now())
+        for a, (c, _) in self.watch.items():
+            p = pairs.get(a)
+            if c != chain or p is None:
+                continue
+            tx, pc, vol = p.get("txns") or {}, p.get("priceChange") or {}, p.get("volume") or {}
+            info = p.get("info") or {}
+            self.rows.append([
+                ts, chain, a, p["baseToken"]["symbol"], p.get("priceUsd"),
+                (p.get("liquidity") or {}).get("usd"), p.get("marketCap") or p.get("fdv"),
+                vol.get("h1"), vol.get("h24"),
+                (tx.get("m5") or {}).get("buys"), (tx.get("m5") or {}).get("sells"),
+                (tx.get("h1") or {}).get("buys"), (tx.get("h1") or {}).get("sells"),
+                pc.get("m5"), pc.get("h1"), pc.get("h6"),
+                round((now() * 1000 - (p.get("pairCreatedAt") or now() * 1000)) / 60_000),
+                len(info.get("socials") or []) + len(info.get("websites") or []),
+            ])
+
+    def flush(self, force=False):
+        hour = datetime.now(timezone.utc).strftime("%Y-%m-%d/%H")
+        if self.hour is None:
+            self.hour = hour
+        if (hour == self.hour and not force) or not self.rows:
+            self.hour = hour
+            return
+        day, hh = self.hour.split("/")
+        path = self.dir / day / f"{hh}.csv.gz"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        buf = io.StringIO()
+        w = csv.writer(buf)
+        if not path.exists():
+            w.writerow(self.FIELDS)
+        w.writerows(self.rows)
+        with gzip.open(path, "at") as f:   # appending adds a gzip member; readers handle it
+            f.write(buf.getvalue())
+        self.done.append(path)
+        self.rows, self.hour = [], hour
+
+
+RECORDER = Recorder()
+
+
 def tick(bots):
     for chain in chains(bots):
         found = [a.lower() for a in FEEDS[chain]()] if chain != "solana" else FEEDS[chain]()
         pairs = best_pairs(list(dict.fromkeys(found + held(bots, chain))), chain)
+        RECORDER.add(chain, pairs)
+        if RECORDER.due(chain):
+            extra = [a for a, (c, _) in RECORDER.watch.items() if c == chain and a not in pairs]
+            seen = {**best_pairs(extra, chain), **pairs} if extra else pairs
+            RECORDER.record(chain, seen)
         for b in bots:
             if b.chain != chain:
                 continue
@@ -610,7 +695,9 @@ def sync(reason):
     def git(*a):
         return subprocess.run(["git", "-C", str(HERE), *a], capture_output=True, text=True, timeout=60)
     files = [f for cfg in STRATEGIES.values() for f in (cfg["state"], cfg["journal"]) if (HERE / f).exists()]
+    files += [str(p.relative_to(HERE)) for p in RECORDER.done if p.exists()]
     git("add", *files)
+    RECORDER.done.clear()
     if git("diff", "--cached", "--quiet").returncode == 0:
         return
     git("commit", "-qm", f"crawler: {reason} {datetime.now(timezone.utc):%H:%M}")
@@ -647,6 +734,7 @@ def serve(bots, scan_every, exit_every, do_sync):
                             b.save()
         except Exception as e:
             print(f"warn: {e}", file=sys.stderr)
+        RECORDER.flush()
         traded = count() != before
         if do_sync and (traded or now() - last_sync >= 600):
             try:
