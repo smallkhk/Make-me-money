@@ -12,3 +12,4 @@
 - `2026-10-08 17:40 UTC` SELL **PumpSocks** (time stop) price +0.0%, net $-0.09 after fees. Cash $7.63
 - `2026-10-08 19:34 UTC` BUY **403** $1.34 @ 0.0002767 (score 0.52, liq $10,183, mcap $276,760) https://dexscreener.com/base/0x29f685d7aa62fce43ace69e3ae034fbc767be09e1a6f858f0ea6fd0d9160d9ba
 - `2026-10-08 19:34 UTC` BUY **OMARCHY** $1.34 @ 0.0002965 (score 0.52, liq $10,748, mcap $296,530) https://dexscreener.com/base/0x20935e7dff1e901f3e8b70af9ecdccf21bb1a8ba6b42e590b90c02928d1c3290
+- `2026-10-08 23:31 UTC` SELL **DOOM FLY** (time stop) price +0.0%, net $-0.09 after fees. Cash $6.22

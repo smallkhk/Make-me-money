@@ -1,16 +1,6 @@
 {
-  "cash": 4.9541417346255265,
+  "cash": 6.223863653330322,
   "positions": {
-    "0xdf536d8c1c258b3f13410567c1b37cf1389b9846": {
-      "symbol": "DOOM FLY",
-      "qty": 4869.4601806222245,
-      "entry_px": 0.0002703,
-      "cost": 1.3632560847274042,
-      "entry_liq": 10259.13,
-      "opened": 1791480668.950171,
-      "url": "https://dexscreener.com/base/0xfeda450e83d21279973380c6466b1dbf1cce359d939e439c27301a254c9058dd",
-      "peak_pct": 0
-    },
     "0x78b56f3f0a33548c681d1ab1ab0a8c8546da2e38": {
       "symbol": "403",
       "qty": 4682.092192095455,
@@ -60,8 +50,15 @@
       "reason": "time stop",
       "addr": "0x351a15cefda47d938d6fecb5e3d1b629b3c2ba7b",
       "at": 1791481203.844029
+    },
+    {
+      "symbol": "DOOM FLY",
+      "pnl": -0.093534166022609,
+      "reason": "time stop",
+      "addr": "0xdf536d8c1c258b3f13410567c1b37cf1389b9846",
+      "at": 1791502271.7608187
     }
   ],
-  "seen_rejects": 24510,
+  "seen_rejects": 25573,
   "paused_until": 1791488093.4928699
 }
