@@ -18,7 +18,8 @@
       "cost": 1.342149562189751,
       "entry_liq": 10183.3,
       "opened": 1791488096.061739,
-      "url": "https://dexscreener.com/base/0x29f685d7aa62fce43ace69e3ae034fbc767be09e1a6f858f0ea6fd0d9160d9ba"
+      "url": "https://dexscreener.com/base/0x29f685d7aa62fce43ace69e3ae034fbc767be09e1a6f858f0ea6fd0d9160d9ba",
+      "peak_pct": 0
     },
     "0xcab37616207e0c3072500007689e133db3ffb988": {
       "symbol": "OMARCHY",
@@ -27,7 +28,8 @@
       "cost": 1.3351573642942107,
       "entry_liq": 10747.95,
       "opened": 1791488096.3823798,
-      "url": "https://dexscreener.com/base/0x20935e7dff1e901f3e8b70af9ecdccf21bb1a8ba6b42e590b90c02928d1c3290"
+      "url": "https://dexscreener.com/base/0x20935e7dff1e901f3e8b70af9ecdccf21bb1a8ba6b42e590b90c02928d1c3290",
+      "peak_pct": 0
     }
   },
   "closed": [
