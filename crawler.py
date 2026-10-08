@@ -7,7 +7,8 @@ Four bots trade side by side, each with its own paper $10:
   degen   young coins, big bets, big targets, a trailing stop to ride pumps
   base    the steady rules on Base instead of Solana, with GoPlus rug checks
   jev     the steady rules, plus the Jev AI model must rate the coin a likely
-          winner and unlikely rug (needs TYPESAFE_API_KEY; skipped without it)
+          winner and unlikely rug. Needs TYPESAFE_API_KEY, or Cloudflare's
+          CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN; skipped without them
 
 No wallet, no keys, no real money: it only records what each bot *would* have
 done, with realistic fees, so you can see which (if either) actually makes money.
@@ -31,6 +32,7 @@ API = "https://api.dexscreener.com"
 RUGCHECK = "https://api.rugcheck.xyz/v1/tokens/{}/report"
 GOPLUS = "https://api.gopluslabs.io/api/v1/token_security/8453?contract_addresses={}"
 JEV_URL = "https://api.typesafe.ai/v1/systemone"
+CF_URL = "https://api.cloudflare.com/client/v4/accounts/{}/ai/run"
 GECKO = "https://api.geckoterminal.com/api/v2/networks/base/{}?page=1"
 HERE = Path(__file__).resolve().parent
 START_CASH = 10.0
@@ -514,10 +516,14 @@ def goplus(addr):
 _jev_cache = {}
 
 
+def jev_configured():
+    return bool(os.environ.get("TYPESAFE_API_KEY") or
+                (os.environ.get("CLOUDFLARE_ACCOUNT_ID") and os.environ.get("CLOUDFLARE_API_TOKEN")))
+
+
 def jev_verdict(addr, pair, report):
     """Ask Jev for (pump, rug) probabilities, cached 30 minutes. None if unavailable."""
-    key = os.environ.get("TYPESAFE_API_KEY")
-    if not key:
+    if not jev_configured():
         return None
     hit = _jev_cache.get(addr)
     if hit and now() - hit[0] < 1800:
@@ -554,12 +560,18 @@ def jev_verdict(addr, pair, report):
                     "Is this memecoin likely to be rugged or dumped by insiders within the next 6 hours?"},
         },
     }
+    if os.environ.get("TYPESAFE_API_KEY"):
+        url, key = JEV_URL, os.environ["TYPESAFE_API_KEY"]
+    else:   # same model through Cloudflare Workers AI
+        url, key = CF_URL.format(os.environ["CLOUDFLARE_ACCOUNT_ID"]), os.environ["CLOUDFLARE_API_TOKEN"]
+        body = {"model": "typesafe/jev", "input": {"state": body["state"], "questions": body["questions"]}}
     try:
-        req = urllib.request.Request(JEV_URL, data=json.dumps(body).encode(), method="POST", headers={
+        req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST", headers={
             "Authorization": f"Bearer {key}", "Content-Type": "application/json",
             "User-Agent": "paper-crawler/2.0"})
         with urllib.request.urlopen(req, timeout=20) as r:
-            answers = json.load(r)["answers"]
+            data = json.load(r)
+        answers = (data.get("result") or data)["answers"]
         verdict = (float(answers["pump"]["noul"]), float(answers["rug"]["noul"]))
     except Exception as e:
         print(f"warn: jev {addr[:6]}: {e}", file=sys.stderr)
@@ -657,8 +669,8 @@ def main():
     args = ap.parse_args()
 
     names = [n for n in STRATEGIES if not args.only or n == args.only]
-    if "jev" in names and not os.environ.get("TYPESAFE_API_KEY") and not args.report:
-        print("note: TYPESAFE_API_KEY not set, the Jev bot is off", file=sys.stderr)
+    if "jev" in names and not jev_configured() and not args.report:
+        print("note: no Jev key set, the Jev bot is off", file=sys.stderr)
         names.remove("jev")
     bots = [Bot(n, STRATEGIES[n]) for n in names]
     if args.report:
