@@ -1,5 +1,5 @@
 {
-  "cash": 7.886133278204575,
+  "cash": 6.501603500278032,
   "positions": {
     "0xf0b38290af70e2cb9850c1cdbe9c8441cb2a8889": {
       "symbol": "BULLCRAFT",
@@ -8,7 +8,17 @@
       "cost": 1.3916705785066896,
       "entry_liq": 10943.57,
       "opened": 1791459042.9017177,
-      "url": "https://dexscreener.com/base/0xd1a921371d7d31e0ebcffa4999dc658db4b413b52288ec887d4059251d368bd8"
+      "url": "https://dexscreener.com/base/0xd1a921371d7d31e0ebcffa4999dc658db4b413b52288ec887d4059251d368bd8",
+      "peak_pct": 0
+    },
+    "0x42b5a5b61448530da12a5d2989e851fb0a571d6a": {
+      "symbol": "WHO",
+      "qty": 4252.7724983974695,
+      "entry_px": 0.0003144,
+      "cost": 1.384529777926543,
+      "entry_liq": 11115.48,
+      "opened": 1791459293.3094034,
+      "url": "https://dexscreener.com/base/0x5138c9d2a1ef3995314bbc445b4b335f8a20a63a661076510a5feecf2880a698"
     }
   },
   "closed": [
@@ -20,6 +30,6 @@
       "at": 1791455332.021905
     }
   ],
-  "seen_rejects": 22983,
+  "seen_rejects": 23365,
   "paused_until": 0
 }
