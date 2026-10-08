@@ -1,5 +1,5 @@
 {
-  "cash": 4.241859234753859,
+  "cash": 5.829890091186393,
   "positions": {
     "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump": {
       "symbol": "SI276",
@@ -10,16 +10,6 @@
       "opened": 1791432847.6664367,
       "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg",
       "peak_pct": 32.419011586663515
-    },
-    "9U1TqP5HMmsBnKnHhjish9Q7gEYViQrgUJ567mB5pump": {
-      "symbol": "FPES",
-      "qty": 2441.7877362724653,
-      "entry_px": 0.0004442,
-      "cost": 1.126796716526171,
-      "entry_liq": 65614.13,
-      "opened": 1791449018.712903,
-      "url": "https://dexscreener.com/solana/3dzhwuobqkh7vmtj29oqa5mpf1cppnzpsdfprtci8kip",
-      "peak_pct": 44.73210265646104
     }
   },
   "closed": [
@@ -134,6 +124,13 @@
       "reason": "stop loss",
       "addr": "FmAJsXEkq5qBRtdTCXon2LbYW6aznKyZsYQsLqvvpump",
       "at": 1791449421.4978375
+    },
+    {
+      "symbol": "FPES",
+      "pnl": 0.4612341399063633,
+      "reason": "take profit",
+      "addr": "9U1TqP5HMmsBnKnHhjish9Q7gEYViQrgUJ567mB5pump",
+      "at": 1791451011.9546773
     }
   ],
   "seen_rejects": 5532,

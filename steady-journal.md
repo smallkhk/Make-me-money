@@ -37,3 +37,4 @@
 - `2026-10-08 08:46 UTC` BUY **BUNBARA** $1.12 @ 0.0003427 (score 0.86, liq $51,963, mcap $339,854) https://dexscreener.com/solana/hdl6pighxbcqhvsvwtnwp2gtwpqrgdy91qcczcrntz76
 - `2026-10-08 08:50 UTC` SELL **BUNBARA** (stop loss) price -56.1%, net $-0.68 after fees. Cash $4.24
 - `2026-10-08 08:50 UTC` PAUSE 3 losses in a row, no new buys for 2h
+- `2026-10-08 09:16 UTC` SELL **FPES** (take profit) price +51.3%, net $+0.46 after fees. Cash $5.83
