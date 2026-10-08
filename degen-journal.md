@@ -32,3 +32,5 @@
 - `2026-10-08 12:06 UTC` BUY **SPAWN** $1.39 @ 8.378e-05 (score 0.82, liq $25,487, mcap $79,030) https://dexscreener.com/solana/6vbvxqs4qjtv35xnmye1wgk9yanfnuanecnekvgbetka
 - `2026-10-08 12:42 UTC` SELL **Bilbo** (take profit) price +104.2%, net $+1.22 after fees. Cash $2.56
 - `2026-10-08 12:43 UTC` BUY **CLAUDEPLNT** $2.06 @ 2.357e-05 (score 0.87, liq $14,223, mcap $23,579) https://dexscreener.com/solana/fkydv9aexsc8fi8kgn8bkaqmrj3xzefar5l5zktdmbx4
+- `2026-10-08 13:05 UTC` SELL **CLAUDEPLNT** (take profit) price +107.3%, net $+1.98 after fees. Cash $4.54
+- `2026-10-08 13:06 UTC` BUY **Stonked** $2.97 @ 2.24e-05 (score 0.87, liq $13,719, mcap $22,404) https://dexscreener.com/solana/6xmz83tufrjbdh8d5dvcz2yu5wtih2uq4rw9pd4wgxbb
