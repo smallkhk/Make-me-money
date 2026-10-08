@@ -46,3 +46,5 @@
 - `2026-10-08 15:06 UTC` BUY **Gary** $1.93 @ 0.0005812 (score 0.83, liq $67,680, mcap $577,792) https://dexscreener.com/solana/2uzutqejcxcr1eswmdgtpqewm5pcekewrsnvrpc1ehs1
 - `2026-10-08 15:23 UTC` SELL **PLAY** (trailing stop (peak +60%)) price +18.4%, net $+0.26 after fees. Cash $2.46
 - `2026-10-08 15:24 UTC` BUY **VCAT** $2.46 @ 2.085e-05 (score 0.90, liq $12,770, mcap $20,855) https://dexscreener.com/solana/2yg7cw4cbpcn8jcp77jc8dwwnfpisa8skaut77tmebhj
+- `2026-10-08 15:45 UTC` SELL **VCAT** (trailing stop (peak +83%)) price +34.1%, net $+0.66 after fees. Cash $3.11
+- `2026-10-08 15:46 UTC` BUY **[cat]** $2.61 @ 1.847e-05 (score 0.78, liq $10,574, mcap $17,899) https://dexscreener.com/solana/4fpntql4kqkjzfkvujtmosj7apmens5ck51girr3azo7
