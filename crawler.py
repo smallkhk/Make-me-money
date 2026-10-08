@@ -27,6 +27,7 @@ import os
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -37,7 +38,7 @@ GOPLUS = "https://api.gopluslabs.io/api/v1/token_security/8453?contract_addresse
 JEV_URL = "https://api.typesafe.ai/v1/systemone"
 CF_URL = "https://api.cloudflare.com/client/v4/accounts/{}/ai/run"
 VERCEL_URL = "https://ai-gateway.vercel.sh/typesafe/v1/systemone"
-GECKO = "https://api.geckoterminal.com/api/v2/networks/base/{}?page=1"
+GECKO = "https://api.geckoterminal.com/api/v2/networks/{}/{}?page=1"
 HERE = Path(__file__).resolve().parent
 START_CASH = 10.0
 
@@ -450,18 +451,32 @@ def candidate_addresses():
     return addrs
 
 
-def base_candidates():
-    """New and trending Base tokens from GeckoTerminal (DexScreener's feeds rarely list Base)."""
+def gecko_candidates(network):
+    """New and trending tokens on a network from GeckoTerminal."""
     addrs = []
-    for kind in ("new_pools", "trending_pools"):
+    for i, kind in enumerate(("new_pools", "trending_pools")):
+        if i:
+            time.sleep(1.5)            # GeckoTerminal's free API allows only a few calls a minute
         try:
-            for pool in get(GECKO.format(kind))["data"]:
+            try:
+                data = get(GECKO.format(network, kind))["data"]
+            except urllib.error.HTTPError as e:
+                if e.code != 429:
+                    raise
+                time.sleep(5)          # rate limited: wait once, then retry
+                data = get(GECKO.format(network, kind))["data"]
+            for pool in data:
                 a = pool["relationships"]["base_token"]["data"]["id"].split("_", 1)[1]
                 if a not in addrs:
                     addrs.append(a)
         except Exception as e:
-            print(f"warn: gecko {kind}: {e}", file=sys.stderr)
+            print(f"warn: gecko {network} {kind}: {e}", file=sys.stderr)
     return addrs
+
+
+def base_candidates():
+    """Base tokens for the bots (DexScreener's feeds rarely list Base)."""
+    return gecko_candidates("base")
 
 
 def best_pairs(addresses, chain="solana"):
@@ -608,7 +623,7 @@ class Recorder:
               "age_min", "socials"]
     WATCH_HOURS = 6
     MIN_LIQ = 5_000
-    MAX_WATCH = 400            # newest coins win; keeps a scan to ~14 API calls
+    MAX_WATCH = 400            # per chain; newest coins win
     EVERY = 115                # seconds between snapshots
 
     def __init__(self):
@@ -625,9 +640,10 @@ class Recorder:
         for a, p in pairs.items():
             if ((p.get("liquidity") or {}).get("usd") or 0) >= self.MIN_LIQ:
                 self.watch.setdefault(a, (chain, now()))
-        if len(self.watch) > self.MAX_WATCH:
-            keep = sorted(self.watch.items(), key=lambda kv: kv[1][1])[-self.MAX_WATCH:]
-            self.watch = dict(keep)
+        mine = [kv for kv in self.watch.items() if kv[1][0] == chain]
+        if len(mine) > self.MAX_WATCH:     # cap per chain, so one chain can't crowd out another
+            for a, _ in sorted(mine, key=lambda kv: kv[1][1])[:-self.MAX_WATCH]:
+                del self.watch[a]
 
     def record(self, chain, pairs):
         cutoff = now() - self.WATCH_HOURS * 3600
@@ -674,6 +690,7 @@ class Recorder:
 
 
 RECORDER = Recorder()
+_last_extra = [0.0]
 
 
 def tick(bots):
@@ -681,6 +698,14 @@ def tick(bots):
         found = [a.lower() for a in FEEDS[chain]()] if chain != "solana" else FEEDS[chain]()
         pairs = best_pairs(list(dict.fromkeys(found + held(bots, chain))), chain)
         RECORDER.add(chain, pairs)
+        if chain == "solana" and now() - _last_extra[0] >= 180:
+            # Research only: GeckoTerminal's Solana lists widen the recorded sample.
+            # The bots never trade these, so their results stay comparable.
+            # Every 3 minutes, to stay inside GeckoTerminal's rate limit beside the Base feed.
+            _last_extra[0] = now()
+            more = [a for a in gecko_candidates("solana") if a not in pairs and a not in RECORDER.watch]
+            if more:
+                RECORDER.add(chain, best_pairs(more, chain))
         # Base's feed only lists pools minutes old, gone before they pass min_age, so the
         # Base bot also re-checks coins the recorder is following.
         if RECORDER.due(chain) or chain == "base":
