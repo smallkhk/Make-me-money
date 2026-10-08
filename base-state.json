@@ -1,16 +1,6 @@
 {
-  "cash": 5.1241924380160455,
+  "cash": 5.057955214626133,
   "positions": {
-    "0xf0b38290af70e2cb9850c1cdbe9c8441cb2a8889": {
-      "symbol": "BULLCRAFT",
-      "qty": 4421.267241137208,
-      "entry_px": 0.000304,
-      "cost": 1.3916705785066896,
-      "entry_liq": 10943.57,
-      "opened": 1791459042.9017177,
-      "url": "https://dexscreener.com/base/0xd1a921371d7d31e0ebcffa4999dc658db4b413b52288ec887d4059251d368bd8",
-      "peak_pct": 0
-    },
     "0x42b5a5b61448530da12a5d2989e851fb0a571d6a": {
       "symbol": "WHO",
       "qty": 4252.7724983974695,
@@ -30,6 +20,15 @@
       "opened": 1791459603.0780919,
       "url": "https://dexscreener.com/base/0xa19f9dc05be35c54967fddf5fde531f81d5dfc44c91e3710e2b7f2a588540c9c",
       "peak_pct": 0
+    },
+    "0xdf536d8c1c258b3f13410567c1b37cf1389b9846": {
+      "symbol": "DOOM FLY",
+      "qty": 4869.4601806222245,
+      "entry_px": 0.0002703,
+      "cost": 1.3632560847274042,
+      "entry_liq": 10259.13,
+      "opened": 1791480668.950171,
+      "url": "https://dexscreener.com/base/0xfeda450e83d21279973380c6466b1dbf1cce359d939e439c27301a254c9058dd"
     }
   },
   "closed": [
@@ -39,8 +38,15 @@
       "reason": "stop loss",
       "addr": "0x3def25780ba11605b740888c30aaf00b01299401",
       "at": 1791455332.021905
+    },
+    {
+      "symbol": "BULLCRAFT",
+      "pnl": -0.09465171716919762,
+      "reason": "time stop",
+      "addr": "0xf0b38290af70e2cb9850c1cdbe9c8441cb2a8889",
+      "at": 1791480645.3346364
     }
   ],
-  "seen_rejects": 23880,
+  "seen_rejects": 24196,
   "paused_until": 0
 }
