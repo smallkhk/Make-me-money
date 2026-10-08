@@ -51,3 +51,6 @@
 - `2026-10-08 17:09 UTC` SELL **Gary** (trailing stop (peak +74%)) price -50.8%, net $-1.05 after fees. Cash $1.38
 - `2026-10-08 17:10 UTC` BUY **swordowl** $1.38 @ 0.0004603 (score 0.84, liq $58,803, mcap $456,149) https://dexscreener.com/solana/9nafeejhddnajifzctbriwhjdhrgyjtegwk35c7gr6xf
 - `2026-10-08 17:21 UTC` SELL **swordowl** (stop loss) price -46.3%, net $-0.70 after fees. Cash $0.68
+- `2026-10-08 17:46 UTC` SELL **[cat]** (stop loss) price -35.1%, net $-1.02 after fees. Cash $2.28
+- `2026-10-08 17:46 UTC` BUY **BCAT** $1.14 @ 0.0001721 (score 0.92, liq $35,073, mcap $172,105) https://dexscreener.com/solana/aeznpgyspr9mbhqhpmu2gwejf6rvcanf2jd1jmgnlkcp
+- `2026-10-08 17:46 UTC` BUY **BEARY** $1.12 @ 2.805e-05 (score 0.73, liq $14,974, mcap $28,055) https://dexscreener.com/solana/aukv5bh8ewvsszhbchiop92rwl4z4bclaldyhbueeh5
