@@ -23,3 +23,4 @@
 - `2026-10-09 10:31 UTC` BUY **DIGITALART** $1.16 @ 5.45e-05 (score 0.54, liq $20,775, mcap $54,507) https://dexscreener.com/base/0x4bf552c2dfff4bc804e134fe6f01ec5a43c260d6298811c79a97f79257812ee3
 - `2026-10-09 16:31 UTC` SELL **DIGITALART** (time stop) price +0.0%, net $-0.09 after fees. Cash $7.68
 - `2026-10-09 16:31 UTC` PAUSE 3 losses in a row, no new buys for 2h
+- `2026-10-09 18:31 UTC` BUY **OMEN** $1.15 @ 0.0007226 (score 0.60, liq $213,456, mcap $722,695) https://dexscreener.com/base/0xb93e1f54e2ee7dbfcfc517094ae663e6c72abbb305f87d69a53ea36f60725b5f
