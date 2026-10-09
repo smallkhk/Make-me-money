@@ -18,3 +18,4 @@
 - `2026-10-09 01:34 UTC` PAUSE 3 losses in a row, no new buys for 2h
 - `2026-10-09 03:35 UTC` BUY **HIP** $1.31 @ 6.213e-06 (score 0.61, liq $196,740, mcap $621,313) https://dexscreener.com/base/0x93f2913ef90bb3fed3250d826525fadac34db5a6f0c8c17ed913b36ffd1f95d2
 - `2026-10-09 03:54 UTC` SELL **HIP** (stop loss) price -25.2%, net $-0.40 after fees. Cash $8.31
+- `2026-10-09 06:56 UTC` BUY **SC** $1.25 @ 5.13e-07 (score 0.67, liq $17,064, mcap $51,306) https://dexscreener.com/base/0xe487ca4c72af9364829beabc3caad160b932adf60ff973b6d7935aa3d73fa267

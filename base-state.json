@@ -1,6 +1,16 @@
 {
-  "cash": 8.313051647548534,
-  "positions": {},
+  "cash": 7.066093900416254,
+  "positions": {
+    "0x3d3d819b0cf9867c6c68b1085aed9ae4923e355c": {
+      "symbol": "SC",
+      "qty": 2343723.9157986767,
+      "entry_px": 5.13e-07,
+      "cost": 1.24695774713228,
+      "entry_liq": 17063.79,
+      "opened": 1791528989.288895,
+      "url": "https://dexscreener.com/base/0xe487ca4c72af9364829beabc3caad160b932adf60ff973b6d7935aa3d73fa267"
+    }
+  },
   "closed": [
     {
       "symbol": "Trenchors",
@@ -59,6 +69,6 @@
       "at": 1791518096.2013502
     }
   ],
-  "seen_rejects": 92814,
+  "seen_rejects": 95503,
   "paused_until": 1791516897.9499896
 }
