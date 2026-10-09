@@ -1,5 +1,5 @@
 {
-  "cash": 6.912123738198218,
+  "cash": 4.492388921504478,
   "positions": {
     "0xb156780c0fdc06e3d35df9bb0b11500bc7fd4bb5": {
       "symbol": "swordowl",
@@ -10,6 +10,24 @@
       "opened": 1791584751.3339763,
       "url": "https://dexscreener.com/base/0xaf2f2d6b31340839ed5b9df96c8b237293ec670ee41e234e15a603993642a282",
       "peak_pct": 0
+    },
+    "0x8f61e3261d25d41a7968cf6ed48f2cef8a94d2d4": {
+      "symbol": "Catnip",
+      "qty": 3940.580598024817,
+      "entry_px": 0.0002967,
+      "cost": 1.213167176853322,
+      "entry_liq": 10658.45,
+      "opened": 1791585389.167557,
+      "url": "https://dexscreener.com/base/0xa4202f977bc2611e2ca0e84bdf723bba864e4323e52bd031bfc2b998f0f4b8f8"
+    },
+    "0x1385fad088625602708b20e3c04d6df9795b0f78": {
+      "symbol": "Butt",
+      "qty": 3952.085389609957,
+      "entry_px": 0.0002942,
+      "cost": 1.2065676398404184,
+      "entry_liq": 10604.74,
+      "opened": 1791585389.4590201,
+      "url": "https://dexscreener.com/base/0x58ead70b67b24cbfa1e08a6acdb7e31d2d18afacb0a5de705c6a4f2e51f5bcc6"
     }
   },
   "closed": [
@@ -98,6 +116,6 @@
       "at": 1791580652.9865897
     }
   ],
-  "seen_rejects": 314191,
+  "seen_rejects": 314321,
   "paused_until": 1791570663.5603478
 }
