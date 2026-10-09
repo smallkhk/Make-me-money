@@ -1,17 +1,6 @@
 {
-  "cash": 7.40867475974564,
-  "positions": {
-    "0xa2f82b7f88be32b667e61c25dad0f62bceaf4ac3": {
-      "symbol": "HIP",
-      "qty": 203067.19854607794,
-      "entry_px": 6.213e-06,
-      "cost": 1.3074131928962893,
-      "entry_liq": 196740.26,
-      "opened": 1791516947.5923545,
-      "url": "https://dexscreener.com/base/0x93f2913ef90bb3fed3250d826525fadac34db5a6f0c8c17ed913b36ffd1f95d2",
-      "peak_pct": 0.6760019314340893
-    }
-  },
+  "cash": 8.313051647548534,
+  "positions": {},
   "closed": [
     {
       "symbol": "Trenchors",
@@ -61,8 +50,15 @@
       "reason": "time stop",
       "addr": "0xcab37616207e0c3072500007689e133db3ffb988",
       "at": 1791509697.9499056
+    },
+    {
+      "symbol": "HIP",
+      "pnl": -0.40303630509339616,
+      "reason": "stop loss",
+      "addr": "0xa2f82b7f88be32b667e61c25dad0f62bceaf4ac3",
+      "at": 1791518096.2013502
     }
   ],
-  "seen_rejects": 50623,
+  "seen_rejects": 52753,
   "paused_until": 1791516897.9499896
 }
