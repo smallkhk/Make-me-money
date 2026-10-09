@@ -1,6 +1,16 @@
 {
-  "cash": 7.761748639986257,
-  "positions": {},
+  "cash": 6.597486343988319,
+  "positions": {
+    "0xb200000000000000000000196ace596a87fabf5d": {
+      "symbol": "DIGITALART",
+      "qty": 20574.569263014768,
+      "entry_px": 5.45e-05,
+      "cost": 1.1642622959979385,
+      "entry_liq": 20774.79,
+      "opened": 1791541861.9420793,
+      "url": "https://dexscreener.com/base/0x4bf552c2dfff4bc804e134fe6f01ec5a43c260d6298811c79a97f79257812ee3"
+    }
+  },
   "closed": [
     {
       "symbol": "Trenchors",
@@ -66,6 +76,6 @@
       "at": 1791529546.1211686
     }
   ],
-  "seen_rejects": 154995,
+  "seen_rejects": 156193,
   "paused_until": 1791516897.9499896
 }

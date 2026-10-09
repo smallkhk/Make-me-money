@@ -20,3 +20,4 @@
 - `2026-10-09 03:54 UTC` SELL **HIP** (stop loss) price -25.2%, net $-0.40 after fees. Cash $8.31
 - `2026-10-09 06:56 UTC` BUY **SC** $1.25 @ 5.13e-07 (score 0.67, liq $17,064, mcap $51,306) https://dexscreener.com/base/0xe487ca4c72af9364829beabc3caad160b932adf60ff973b6d7935aa3d73fa267
 - `2026-10-09 07:05 UTC` SELL **SC** (stop loss) price -39.3%, net $-0.55 after fees. Cash $7.76
+- `2026-10-09 10:31 UTC` BUY **DIGITALART** $1.16 @ 5.45e-05 (score 0.54, liq $20,775, mcap $54,507) https://dexscreener.com/base/0x4bf552c2dfff4bc804e134fe6f01ec5a43c260d6298811c79a97f79257812ee3
