@@ -1,6 +1,16 @@
 {
-  "cash": 8.131910280233198,
-  "positions": {},
+  "cash": 6.912123738198218,
+  "positions": {
+    "0xb156780c0fdc06e3d35df9bb0b11500bc7fd4bb5": {
+      "symbol": "swordowl",
+      "qty": 3860.943976433268,
+      "entry_px": 0.0003045,
+      "cost": 1.2197865420349796,
+      "entry_liq": 10793.16,
+      "opened": 1791584751.3339763,
+      "url": "https://dexscreener.com/base/0xaf2f2d6b31340839ed5b9df96c8b237293ec670ee41e234e15a603993642a282"
+    }
+  },
   "closed": [
     {
       "symbol": "Trenchors",
@@ -87,6 +97,6 @@
       "at": 1791580652.9865897
     }
   ],
-  "seen_rejects": 311981,
+  "seen_rejects": 313032,
   "paused_until": 1791570663.5603478
 }

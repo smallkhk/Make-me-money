@@ -27,3 +27,4 @@
 - `2026-10-09 18:49 UTC` BUY **DOFT** $1.15 @ 0.0001596 (score 0.59, liq $88,023, mcap $159,663) https://dexscreener.com/base/0xb37583a3b722c4d2a336250bffc51000a8af72a1e27d2a7b040ce2f1b9e13a00
 - `2026-10-09 19:17 UTC` SELL **DOFT** (take profit) price +83.1%, net $+0.81 after fees. Cash $7.34
 - `2026-10-09 21:17 UTC` SELL **OMEN** (stop loss) price -25.2%, net $-0.36 after fees. Cash $8.13
+- `2026-10-09 22:25 UTC` BUY **swordowl** $1.22 @ 0.0003045 (score 0.50, liq $10,793, mcap $304,545) https://dexscreener.com/base/0xaf2f2d6b31340839ed5b9df96c8b237293ec670ee41e234e15a603993642a282
