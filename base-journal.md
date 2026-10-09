@@ -25,3 +25,4 @@
 - `2026-10-09 16:31 UTC` PAUSE 3 losses in a row, no new buys for 2h
 - `2026-10-09 18:31 UTC` BUY **OMEN** $1.15 @ 0.0007226 (score 0.60, liq $213,456, mcap $722,695) https://dexscreener.com/base/0xb93e1f54e2ee7dbfcfc517094ae663e6c72abbb305f87d69a53ea36f60725b5f
 - `2026-10-09 18:49 UTC` BUY **DOFT** $1.15 @ 0.0001596 (score 0.59, liq $88,023, mcap $159,663) https://dexscreener.com/base/0xb37583a3b722c4d2a336250bffc51000a8af72a1e27d2a7b040ce2f1b9e13a00
+- `2026-10-09 19:17 UTC` SELL **DOFT** (take profit) price +83.1%, net $+0.81 after fees. Cash $7.34
