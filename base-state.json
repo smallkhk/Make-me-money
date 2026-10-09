@@ -19,7 +19,7 @@
       "entry_liq": 88022.75,
       "opened": 1791571758.6393847,
       "url": "https://dexscreener.com/base/0xb37583a3b722c4d2a336250bffc51000a8af72a1e27d2a7b040ce2f1b9e13a00",
-      "peak_pct": 9.085213032581452
+      "peak_pct": 17.105263157894733
     }
   },
   "closed": [
@@ -94,6 +94,6 @@
       "at": 1791563463.5595164
     }
   ],
-  "seen_rejects": 270093,
+  "seen_rejects": 272927,
   "paused_until": 1791570663.5603478
 }
