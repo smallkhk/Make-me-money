@@ -1,17 +1,6 @@
 {
-  "cash": 7.338816901502685,
-  "positions": {
-    "0x408444fd665a5149cc3cff6580aec981debc38eb": {
-      "symbol": "OMEN",
-      "qty": 1534.4756390676457,
-      "entry_px": 0.0007226,
-      "cost": 1.151447034852847,
-      "entry_liq": 213455.79,
-      "opened": 1791570696.815518,
-      "url": "https://dexscreener.com/base/0xb93e1f54e2ee7dbfcfc517094ae663e6c72abbb305f87d69a53ea36f60725b5f",
-      "peak_pct": 16.75892610019374
-    }
-  },
+  "cash": 8.131910280233198,
+  "positions": {},
   "closed": [
     {
       "symbol": "Trenchors",
@@ -89,8 +78,15 @@
       "reason": "take profit",
       "addr": "0xaf7296932a45e881df5ae33a631b36a540e2053f",
       "at": 1791573475.905046
+    },
+    {
+      "symbol": "OMEN",
+      "pnl": -0.35835365612233394,
+      "reason": "stop loss",
+      "addr": "0x408444fd665a5149cc3cff6580aec981debc38eb",
+      "at": 1791580652.9865897
     }
   ],
-  "seen_rejects": 307806,
+  "seen_rejects": 308236,
   "paused_until": 1791570663.5603478
 }
