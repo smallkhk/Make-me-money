@@ -37,3 +37,5 @@
 - `2026-10-10 04:36 UTC` SELL **Butt** (time stop) price +0.0%, net $-0.09 after fees. Cash $6.68
 - `2026-10-10 06:37 UTC` BUY **ONDEX** $1.17 @ 0.0005083 (score 0.62, liq $171,148, mcap $508,344) https://dexscreener.com/base/0x35a3980d045ccdb462d8e120b7e72b02ad2b71d37e11c45aac7e5b156e0f7ea8
 - `2026-10-10 06:37 UTC` BUY **SHX** $1.17 @ 0.0002472 (score 0.59, liq $98,620, mcap $247,218) https://dexscreener.com/base/0x3df0dbe379ee7d48ee542c2c9eaa4bd297e858c2eed28a23d19c860437bfc1b4
+- `2026-10-10 07:15 UTC` SELL **ONDEX** (stop loss) price -26.6%, net $-0.38 after fees. Cash $5.13
+- `2026-10-10 07:15 UTC` BUY **SIW** $1.16 @ 0.0003057 (score 0.53, liq $10,831, mcap $305,728) https://dexscreener.com/base/0x6f9f2997d5a4883ba35a6b115f3c448f3cc64fe7ef39ca222e459403eacc793f
