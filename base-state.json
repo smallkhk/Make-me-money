@@ -1,16 +1,6 @@
 {
-  "cash": 3.9462979231256536,
+  "cash": 3.9019410389633267,
   "positions": {
-    "0x28d2ff0a4b64b5a7df3e994561bdd8de4e2d3dec": {
-      "symbol": "Pepper",
-      "qty": 3656.7104030263145,
-      "entry_px": 0.0002865,
-      "cost": 1.0891392441694765,
-      "entry_liq": 10493.63,
-      "opened": 1791647279.3330321,
-      "url": "https://dexscreener.com/base/0x1d24c787a3db7797fb2ae6104d4074f883bd1140f0dc41b33c1d01ecdb041783",
-      "peak_pct": 0
-    },
     "0xa733e1c42ea91fab7af7b0d09b2d88dbe9bdbbe6": {
       "symbol": "HIBIDI",
       "qty": 3700.088264126354,
@@ -29,7 +19,16 @@
       "entry_liq": 182142.56,
       "opened": 1791666975.781128,
       "url": "https://dexscreener.com/base/0xcd5006eda0796eed8709f70a367ecdd2e87c0ad19925334a6df4c5ae04d628ad",
-      "peak_pct": 1.3601639649711172
+      "peak_pct": 1.4346934972983005
+    },
+    "0xf17f4d65dd3f3cfc2ce005b55bea5a69bf64a030": {
+      "symbol": "A&T",
+      "qty": 3649.657259842832,
+      "entry_px": 0.0002768,
+      "cost": 1.0509468705334912,
+      "entry_liq": 10338.66,
+      "opened": 1791668905.4899504,
+      "url": "https://dexscreener.com/base/0x219b8d07245f5902043b817cd566c99138d118da1f3ae83315e0fe271a25d8fa"
     }
   },
   "closed": [
@@ -193,8 +192,15 @@
       "reason": "time stop",
       "addr": "0xfed6ca3c26440b80f0edd6496d5f2bd4319aeff2",
       "at": 1791659753.6313398
+    },
+    {
+      "symbol": "Pepper",
+      "pnl": -0.08254925779831179,
+      "reason": "time stop",
+      "addr": "0x28d2ff0a4b64b5a7df3e994561bdd8de4e2d3dec",
+      "at": 1791668881.2604747
     }
   ],
-  "seen_rejects": 317230,
+  "seen_rejects": 317472,
   "paused_until": 1791666953.6315012
 }
