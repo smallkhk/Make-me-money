@@ -28,7 +28,8 @@
       "cost": 1.0891392441694765,
       "entry_liq": 10493.63,
       "opened": 1791647279.3330321,
-      "url": "https://dexscreener.com/base/0x1d24c787a3db7797fb2ae6104d4074f883bd1140f0dc41b33c1d01ecdb041783"
+      "url": "https://dexscreener.com/base/0x1d24c787a3db7797fb2ae6104d4074f883bd1140f0dc41b33c1d01ecdb041783",
+      "peak_pct": 0
     }
   },
   "closed": [
