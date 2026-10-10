@@ -1,16 +1,6 @@
 {
-  "cash": 3.9019410389633267,
+  "cash": 4.896416713510967,
   "positions": {
-    "0xa733e1c42ea91fab7af7b0d09b2d88dbe9bdbbe6": {
-      "symbol": "HIBIDI",
-      "qty": 3700.088264126354,
-      "entry_px": 0.0002798,
-      "cost": 1.0765227622412643,
-      "entry_liq": 10372.95,
-      "opened": 1791649663.3351107,
-      "url": "https://dexscreener.com/base/0xbbff59bb8e30bb85dd26ad7a560697989fe13f93ca95ccea94a8dc5c451c79f9",
-      "peak_pct": 0
-    },
     "0x13e845f8a8bba6717a0bb18c74e6d131b6dc3c86": {
       "symbol": "USMS",
       "qty": 190627.19798238235,
@@ -200,8 +190,15 @@
       "reason": "time stop",
       "addr": "0x28d2ff0a4b64b5a7df3e994561bdd8de4e2d3dec",
       "at": 1791668881.2604747
+    },
+    {
+      "symbol": "HIBIDI",
+      "pnl": -0.0820470876936239,
+      "reason": "time stop",
+      "addr": "0xa733e1c42ea91fab7af7b0d09b2d88dbe9bdbbe6",
+      "at": 1791671266.2099392
     }
   ],
-  "seen_rejects": 317472,
+  "seen_rejects": 317713,
   "paused_until": 1791666953.6315012
 }

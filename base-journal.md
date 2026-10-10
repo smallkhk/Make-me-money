@@ -57,3 +57,4 @@
 - `2026-10-10 21:16 UTC` BUY **USMS** $1.06 @ 5.367e-06 (score 0.64, liq $182,143, mcap $536,757) https://dexscreener.com/base/0xcd5006eda0796eed8709f70a367ecdd2e87c0ad19925334a6df4c5ae04d628ad
 - `2026-10-10 21:48 UTC` SELL **Pepper** (time stop) price +0.0%, net $-0.08 after fees. Cash $4.95
 - `2026-10-10 21:48 UTC` BUY **A&T** $1.05 @ 0.0002768 (score 0.52, liq $10,339, mcap $276,811) https://dexscreener.com/base/0x219b8d07245f5902043b817cd566c99138d118da1f3ae83315e0fe271a25d8fa
+- `2026-10-10 22:27 UTC` SELL **HIBIDI** (time stop) price +0.0%, net $-0.08 after fees. Cash $4.90
