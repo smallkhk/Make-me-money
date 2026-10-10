@@ -30,3 +30,5 @@
 - `2026-10-09 22:25 UTC` BUY **swordowl** $1.22 @ 0.0003045 (score 0.50, liq $10,793, mcap $304,545) https://dexscreener.com/base/0xaf2f2d6b31340839ed5b9df96c8b237293ec670ee41e234e15a603993642a282
 - `2026-10-09 22:36 UTC` BUY **Catnip** $1.21 @ 0.0002967 (score 0.51, liq $10,658, mcap $296,757) https://dexscreener.com/base/0xa4202f977bc2611e2ca0e84bdf723bba864e4323e52bd031bfc2b998f0f4b8f8
 - `2026-10-09 22:36 UTC` BUY **Butt** $1.21 @ 0.0002942 (score 0.51, liq $10,605, mcap $294,202) https://dexscreener.com/base/0x58ead70b67b24cbfa1e08a6acdb7e31d2d18afacb0a5de705c6a4f2e51f5bcc6
+- `2026-10-10 04:25 UTC` SELL **swordowl** (time stop) price +0.0%, net $-0.09 after fees. Cash $5.62
+- `2026-10-10 04:26 UTC` BUY **DEGEN ** $1.19 @ 0.0003038 (score 0.52, liq $10,787, mcap $303,802) https://dexscreener.com/base/0xce7c351fa939ac5f2c03bfcecdc066d0d8f953ce3e5c1d64c761eb3b4fd86e30

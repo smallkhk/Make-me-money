@@ -1,16 +1,6 @@
 {
-  "cash": 4.492388921504478,
+  "cash": 4.430963312856615,
   "positions": {
-    "0xb156780c0fdc06e3d35df9bb0b11500bc7fd4bb5": {
-      "symbol": "swordowl",
-      "qty": 3860.943976433268,
-      "entry_px": 0.0003045,
-      "cost": 1.2197865420349796,
-      "entry_liq": 10793.16,
-      "opened": 1791584751.3339763,
-      "url": "https://dexscreener.com/base/0xaf2f2d6b31340839ed5b9df96c8b237293ec670ee41e234e15a603993642a282",
-      "peak_pct": 0
-    },
     "0x8f61e3261d25d41a7968cf6ed48f2cef8a94d2d4": {
       "symbol": "Catnip",
       "qty": 3940.580598024817,
@@ -30,6 +20,15 @@
       "opened": 1791585389.4590201,
       "url": "https://dexscreener.com/base/0x58ead70b67b24cbfa1e08a6acdb7e31d2d18afacb0a5de705c6a4f2e51f5bcc6",
       "peak_pct": 0
+    },
+    "0x6655a4516099574510de0a912eae62263610e0c3": {
+      "symbol": "DEGEN ",
+      "qty": 3784.876076271698,
+      "entry_px": 0.0003038,
+      "cost": 1.1934418408083225,
+      "entry_liq": 10786.87,
+      "opened": 1791606378.85867,
+      "url": "https://dexscreener.com/base/0xce7c351fa939ac5f2c03bfcecdc066d0d8f953ce3e5c1d64c761eb3b4fd86e30"
     }
   },
   "closed": [
@@ -116,8 +115,15 @@
       "reason": "stop loss",
       "addr": "0x408444fd665a5149cc3cff6580aec981debc38eb",
       "at": 1791580652.9865897
+    },
+    {
+      "symbol": "swordowl",
+      "pnl": -0.08777030987452061,
+      "reason": "time stop",
+      "addr": "0xb156780c0fdc06e3d35df9bb0b11500bc7fd4bb5",
+      "at": 1791606354.1683152
     }
   ],
-  "seen_rejects": 314321,
+  "seen_rejects": 314662,
   "paused_until": 1791570663.5603478
 }
