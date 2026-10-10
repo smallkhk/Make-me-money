@@ -1,26 +1,6 @@
 {
-  "cash": 4.430963312856615,
+  "cash": 6.675943892207833,
   "positions": {
-    "0x8f61e3261d25d41a7968cf6ed48f2cef8a94d2d4": {
-      "symbol": "Catnip",
-      "qty": 3940.580598024817,
-      "entry_px": 0.0002967,
-      "cost": 1.213167176853322,
-      "entry_liq": 10658.45,
-      "opened": 1791585389.167557,
-      "url": "https://dexscreener.com/base/0xa4202f977bc2611e2ca0e84bdf723bba864e4323e52bd031bfc2b998f0f4b8f8",
-      "peak_pct": 0
-    },
-    "0x1385fad088625602708b20e3c04d6df9795b0f78": {
-      "symbol": "Butt",
-      "qty": 3952.085389609957,
-      "entry_px": 0.0002942,
-      "cost": 1.2065676398404184,
-      "entry_liq": 10604.74,
-      "opened": 1791585389.4590201,
-      "url": "https://dexscreener.com/base/0x58ead70b67b24cbfa1e08a6acdb7e31d2d18afacb0a5de705c6a4f2e51f5bcc6",
-      "peak_pct": 0
-    },
     "0x6655a4516099574510de0a912eae62263610e0c3": {
       "symbol": "DEGEN ",
       "qty": 3784.876076271698,
@@ -123,8 +103,22 @@
       "reason": "time stop",
       "addr": "0xb156780c0fdc06e3d35df9bb0b11500bc7fd4bb5",
       "at": 1791606354.1683152
+    },
+    {
+      "symbol": "Catnip",
+      "pnl": -0.08750856989763234,
+      "reason": "time stop",
+      "addr": "0x8f61e3261d25d41a7968cf6ed48f2cef8a94d2d4",
+      "at": 1791606991.4789066
+    },
+    {
+      "symbol": "Butt",
+      "pnl": -0.08724566744488937,
+      "reason": "time stop",
+      "addr": "0x1385fad088625602708b20e3c04d6df9795b0f78",
+      "at": 1791606991.4791582
     }
   ],
   "seen_rejects": 314662,
-  "paused_until": 1791570663.5603478
+  "paused_until": 1791614191.479072
 }

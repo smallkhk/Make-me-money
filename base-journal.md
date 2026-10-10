@@ -32,3 +32,6 @@
 - `2026-10-09 22:36 UTC` BUY **Butt** $1.21 @ 0.0002942 (score 0.51, liq $10,605, mcap $294,202) https://dexscreener.com/base/0x58ead70b67b24cbfa1e08a6acdb7e31d2d18afacb0a5de705c6a4f2e51f5bcc6
 - `2026-10-10 04:25 UTC` SELL **swordowl** (time stop) price +0.0%, net $-0.09 after fees. Cash $5.62
 - `2026-10-10 04:26 UTC` BUY **DEGEN ** $1.19 @ 0.0003038 (score 0.52, liq $10,787, mcap $303,802) https://dexscreener.com/base/0xce7c351fa939ac5f2c03bfcecdc066d0d8f953ce3e5c1d64c761eb3b4fd86e30
+- `2026-10-10 04:36 UTC` SELL **Catnip** (time stop) price +0.0%, net $-0.09 after fees. Cash $5.56
+- `2026-10-10 04:36 UTC` PAUSE 3 losses in a row, no new buys for 2h
+- `2026-10-10 04:36 UTC` SELL **Butt** (time stop) price +0.0%, net $-0.09 after fees. Cash $6.68
