@@ -19,7 +19,7 @@
       "entry_liq": 98619.98,
       "opened": 1791614226.548559,
       "url": "https://dexscreener.com/base/0x3df0dbe379ee7d48ee542c2c9eaa4bd297e858c2eed28a23d19c860437bfc1b4",
-      "peak_pct": 28.721682847896446
+      "peak_pct": 39.40129449838188
     },
     "0x220f4f3b384a5587d9d9d222b58b216ad6d52c1a": {
       "symbol": "SIW",
@@ -28,7 +28,8 @@
       "cost": 1.1588642887023728,
       "entry_liq": 10831.05,
       "opened": 1791616539.6068563,
-      "url": "https://dexscreener.com/base/0x6f9f2997d5a4883ba35a6b115f3c448f3cc64fe7ef39ca222e459403eacc793f"
+      "url": "https://dexscreener.com/base/0x6f9f2997d5a4883ba35a6b115f3c448f3cc64fe7ef39ca222e459403eacc793f",
+      "peak_pct": 0
     }
   },
   "closed": [
