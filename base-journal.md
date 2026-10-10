@@ -47,3 +47,4 @@
 - `2026-10-10 13:15 UTC` BUY **TWITCH PAD** $1.16 @ 0.0002842 (score 0.51, liq $10,445, mcap $284,247) https://dexscreener.com/base/0x7566679ed74efe67ae95a7843663468803ecb15a378c96926b6d6df0ebeadca3
 - `2026-10-10 13:31 UTC` SELL **PONS100** (time stop) price +0.0%, net $-0.09 after fees. Cash $5.38
 - `2026-10-10 13:31 UTC` PAUSE 3 losses in a row, no new buys for 2h
+- `2026-10-10 15:31 UTC` BUY **USMS** $1.14 @ 7.401e-06 (score 0.56, liq $217,241, mcap $740,104) https://dexscreener.com/base/0x2b994f00539af60420ed847d6bc262cb3bde1f18c05abdd9bebb4672492f54e8

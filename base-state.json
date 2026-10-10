@@ -1,5 +1,5 @@
 {
-  "cash": 5.378891980780728,
+  "cash": 4.236423510989836,
   "positions": {
     "0xf9ee1131997a5cd31c34a7be486708d09f8cc9a7": {
       "symbol": "QCHAN",
@@ -20,6 +20,15 @@
       "opened": 1791638152.483402,
       "url": "https://dexscreener.com/base/0x7566679ed74efe67ae95a7843663468803ecb15a378c96926b6d6df0ebeadca3",
       "peak_pct": 0
+    },
+    "0x367e6b0311e05f71d5016108e2d96c36695ff035": {
+      "symbol": "USMS",
+      "qty": 148630.36085583366,
+      "entry_px": 7.401e-06,
+      "cost": 1.142468469790893,
+      "entry_liq": 217241.45,
+      "opened": 1791646314.2049966,
+      "url": "https://dexscreener.com/base/0x2b994f00539af60420ed847d6bc262cb3bde1f18c05abdd9bebb4672492f54e8"
     }
   },
   "closed": [
@@ -164,6 +173,6 @@
       "at": 1791639104.66419
     }
   ],
-  "seen_rejects": 316236,
+  "seen_rejects": 316485,
   "paused_until": 1791646304.6643546
 }
