@@ -9,7 +9,7 @@
       "entry_liq": 182142.56,
       "opened": 1791666975.781128,
       "url": "https://dexscreener.com/base/0xcd5006eda0796eed8709f70a367ecdd2e87c0ad19925334a6df4c5ae04d628ad",
-      "peak_pct": 17.570337246133793
+      "peak_pct": 22.787404509036712
     },
     "0xf17f4d65dd3f3cfc2ce005b55bea5a69bf64a030": {
       "symbol": "A&T",
@@ -199,6 +199,6 @@
       "at": 1791671266.2099392
     }
   ],
-  "seen_rejects": 322391,
+  "seen_rejects": 324643,
   "paused_until": 1791666953.6315012
 }
