@@ -1,16 +1,6 @@
 {
-  "cash": 3.934224565801809,
+  "cash": 3.940152416102152,
   "positions": {
-    "0xf9ee1131997a5cd31c34a7be486708d09f8cc9a7": {
-      "symbol": "QCHAN",
-      "qty": 3682.7128587907837,
-      "entry_px": 0.0003055,
-      "cost": 1.1681534801010007,
-      "entry_liq": 10838.06,
-      "opened": 1791628028.9350038,
-      "url": "https://dexscreener.com/base/0xaa615e80e9f897cbd914d7c9d9103fa1ddc83bc428b1385ed4b9ec9b3ff4f2ec",
-      "peak_pct": 0
-    },
     "0xfed6ca3c26440b80f0edd6496d5f2bd4319aeff2": {
       "symbol": "TWITCH PAD",
       "qty": 3914.481724599953,
@@ -30,6 +20,15 @@
       "opened": 1791647279.3330321,
       "url": "https://dexscreener.com/base/0x1d24c787a3db7797fb2ae6104d4074f883bd1140f0dc41b33c1d01ecdb041783",
       "peak_pct": 0
+    },
+    "0xa733e1c42ea91fab7af7b0d09b2d88dbe9bdbbe6": {
+      "symbol": "HIBIDI",
+      "qty": 3700.088264126354,
+      "entry_px": 0.0002798,
+      "cost": 1.0765227622412643,
+      "entry_liq": 10372.95,
+      "opened": 1791649663.3351107,
+      "url": "https://dexscreener.com/base/0xbbff59bb8e30bb85dd26ad7a560697989fe13f93ca95ccea94a8dc5c451c79f9"
     }
   },
   "closed": [
@@ -179,8 +178,15 @@
       "reason": "stop loss",
       "addr": "0x367e6b0311e05f71d5016108e2d96c36695ff035",
       "at": 1791647278.9788346
+    },
+    {
+      "symbol": "QCHAN",
+      "pnl": -0.08570286755939294,
+      "reason": "time stop",
+      "addr": "0xf9ee1131997a5cd31c34a7be486708d09f8cc9a7",
+      "at": 1791649631.068208
     }
   ],
-  "seen_rejects": 316734,
+  "seen_rejects": 316986,
   "paused_until": 1791646304.6643546
 }

@@ -50,3 +50,5 @@
 - `2026-10-10 15:31 UTC` BUY **USMS** $1.14 @ 7.401e-06 (score 0.56, liq $217,241, mcap $740,104) https://dexscreener.com/base/0x2b994f00539af60420ed847d6bc262cb3bde1f18c05abdd9bebb4672492f54e8
 - `2026-10-10 15:47 UTC` SELL **USMS** (stop loss) price -25.1%, net $-0.36 after fees. Cash $5.02
 - `2026-10-10 15:47 UTC` BUY **Pepper** $1.09 @ 0.0002865 (score 0.51, liq $10,494, mcap $286,560) https://dexscreener.com/base/0x1d24c787a3db7797fb2ae6104d4074f883bd1140f0dc41b33c1d01ecdb041783
+- `2026-10-10 16:27 UTC` SELL **QCHAN** (time stop) price +0.0%, net $-0.09 after fees. Cash $5.02
+- `2026-10-10 16:27 UTC` BUY **HIBIDI** $1.08 @ 0.0002798 (score 0.51, liq $10,373, mcap $279,892) https://dexscreener.com/base/0xbbff59bb8e30bb85dd26ad7a560697989fe13f93ca95ccea94a8dc5c451c79f9
