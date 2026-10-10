@@ -1,16 +1,6 @@
 {
-  "cash": 3.940152416102152,
+  "cash": 5.010279714283638,
   "positions": {
-    "0xfed6ca3c26440b80f0edd6496d5f2bd4319aeff2": {
-      "symbol": "TWITCH PAD",
-      "qty": 3914.481724599953,
-      "entry_px": 0.0002842,
-      "cost": 1.155325625680786,
-      "entry_liq": 10444.82,
-      "opened": 1791638152.483402,
-      "url": "https://dexscreener.com/base/0x7566679ed74efe67ae95a7843663468803ecb15a378c96926b6d6df0ebeadca3",
-      "peak_pct": 0
-    },
     "0x28d2ff0a4b64b5a7df3e994561bdd8de4e2d3dec": {
       "symbol": "Pepper",
       "qty": 3656.7104030263145,
@@ -186,8 +176,15 @@
       "reason": "time stop",
       "addr": "0xf9ee1131997a5cd31c34a7be486708d09f8cc9a7",
       "at": 1791649631.068208
+    },
+    {
+      "symbol": "TWITCH PAD",
+      "pnl": -0.08519832749930001,
+      "reason": "time stop",
+      "addr": "0xfed6ca3c26440b80f0edd6496d5f2bd4319aeff2",
+      "at": 1791659753.6313398
     }
   ],
   "seen_rejects": 316986,
-  "paused_until": 1791646304.6643546
+  "paused_until": 1791666953.6315012
 }
