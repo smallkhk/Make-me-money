@@ -1,16 +1,6 @@
 {
-  "cash": 4.427228741682534,
+  "cash": 4.365801136728752,
   "positions": {
-    "0x6655a4516099574510de0a912eae62263610e0c3": {
-      "symbol": "DEGEN ",
-      "qty": 3784.876076271698,
-      "entry_px": 0.0003038,
-      "cost": 1.1934418408083225,
-      "entry_liq": 10786.87,
-      "opened": 1791606378.85867,
-      "url": "https://dexscreener.com/base/0xce7c351fa939ac5f2c03bfcecdc066d0d8f953ce3e5c1d64c761eb3b4fd86e30",
-      "peak_pct": 0
-    },
     "0x220f4f3b384a5587d9d9d222b58b216ad6d52c1a": {
       "symbol": "SIW",
       "qty": 3650.530760603191,
@@ -30,6 +20,15 @@
       "opened": 1791617504.1018038,
       "url": "https://dexscreener.com/base/0x0530505fb14d17241135db81f12bb8bf60f1d8fb7a0beb67e7002541a1665250",
       "peak_pct": 0
+    },
+    "0xf9ee1131997a5cd31c34a7be486708d09f8cc9a7": {
+      "symbol": "QCHAN",
+      "qty": 3682.7128587907837,
+      "entry_px": 0.0003055,
+      "cost": 1.1681534801010007,
+      "entry_liq": 10838.06,
+      "opened": 1791628028.9350038,
+      "url": "https://dexscreener.com/base/0xaa615e80e9f897cbd914d7c9d9103fa1ddc83bc428b1385ed4b9ec9b3ff4f2ec"
     }
   },
   "closed": [
@@ -151,8 +150,15 @@
       "reason": "take profit",
       "addr": "0xc1c69aba95da684821b8a8f532719b8ade1605bb",
       "at": 1791617471.9704335
+    },
+    {
+      "symbol": "DEGEN ",
+      "pnl": -0.08671596566110407,
+      "reason": "time stop",
+      "addr": "0x6655a4516099574510de0a912eae62263610e0c3",
+      "at": 1791627980.314648
     }
   ],
-  "seen_rejects": 315704,
+  "seen_rejects": 316012,
   "paused_until": 1791614191.479072
 }

@@ -41,3 +41,5 @@
 - `2026-10-10 07:15 UTC` BUY **SIW** $1.16 @ 0.0003057 (score 0.53, liq $10,831, mcap $305,728) https://dexscreener.com/base/0x6f9f2997d5a4883ba35a6b115f3c448f3cc64fe7ef39ca222e459403eacc793f
 - `2026-10-10 07:31 UTC` SELL **SHX** (take profit) price +50.5%, net $+0.47 after fees. Cash $5.61
 - `2026-10-10 07:31 UTC` BUY **PONS100** $1.18 @ 0.000262 (score 0.52, liq $10,028, mcap $262,093) https://dexscreener.com/base/0x0530505fb14d17241135db81f12bb8bf60f1d8fb7a0beb67e7002541a1665250
+- `2026-10-10 10:26 UTC` SELL **DEGEN ** (time stop) price +0.0%, net $-0.09 after fees. Cash $5.53
+- `2026-10-10 10:27 UTC` BUY **QCHAN** $1.17 @ 0.0003055 (score 0.52, liq $10,838, mcap $305,506) https://dexscreener.com/base/0xaa615e80e9f897cbd914d7c9d9103fa1ddc83bc428b1385ed4b9ec9b3ff4f2ec
