@@ -1,16 +1,6 @@
 {
-  "cash": 4.2840084368366815,
+  "cash": 5.378891980780728,
   "positions": {
-    "0x2759ac6609accf0cc4ee77df220df33bd9a520ef": {
-      "symbol": "PONS100",
-      "qty": 4342.6259427246405,
-      "entry_px": 0.000262,
-      "cost": 1.1811249436182834,
-      "entry_liq": 10027.77,
-      "opened": 1791617504.1018038,
-      "url": "https://dexscreener.com/base/0x0530505fb14d17241135db81f12bb8bf60f1d8fb7a0beb67e7002541a1665250",
-      "peak_pct": 0
-    },
     "0xf9ee1131997a5cd31c34a7be486708d09f8cc9a7": {
       "symbol": "QCHAN",
       "qty": 3682.7128587907837,
@@ -165,8 +155,15 @@
       "reason": "time stop",
       "addr": "0x220f4f3b384a5587d9d9d222b58b216ad6d52c1a",
       "at": 1791638140.4239895
+    },
+    {
+      "symbol": "PONS100",
+      "pnl": -0.08624139967423661,
+      "reason": "time stop",
+      "addr": "0x2759ac6609accf0cc4ee77df220df33bd9a520ef",
+      "at": 1791639104.66419
     }
   ],
   "seen_rejects": 316236,
-  "paused_until": 1791614191.479072
+  "paused_until": 1791646304.6643546
 }
