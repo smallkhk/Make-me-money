@@ -19,7 +19,7 @@
       "entry_liq": 171147.86,
       "opened": 1791614226.1990116,
       "url": "https://dexscreener.com/base/0x35a3980d045ccdb462d8e120b7e72b02ad2b71d37e11c45aac7e5b156e0f7ea8",
-      "peak_pct": 2.3214637025378737
+      "peak_pct": 10.899075349203201
     },
     "0xc1c69aba95da684821b8a8f532719b8ade1605bb": {
       "symbol": "SHX",
@@ -29,7 +29,7 @@
       "entry_liq": 98619.98,
       "opened": 1791614226.548559,
       "url": "https://dexscreener.com/base/0x3df0dbe379ee7d48ee542c2c9eaa4bd297e858c2eed28a23d19c860437bfc1b4",
-      "peak_pct": 0.364077669902918
+      "peak_pct": 4.692556634304212
     }
   },
   "closed": [
