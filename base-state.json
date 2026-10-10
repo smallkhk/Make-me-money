@@ -1,5 +1,5 @@
 {
-  "cash": 6.675943892207833,
+  "cash": 4.334669891010457,
   "positions": {
     "0x6655a4516099574510de0a912eae62263610e0c3": {
       "symbol": "DEGEN ",
@@ -10,6 +10,24 @@
       "opened": 1791606378.85867,
       "url": "https://dexscreener.com/base/0xce7c351fa939ac5f2c03bfcecdc066d0d8f953ce3e5c1d64c761eb3b4fd86e30",
       "peak_pct": 0
+    },
+    "0x9b65a869aba2eee858b3b0dde325f89bf4f25f73": {
+      "symbol": "ONDEX",
+      "qty": 2224.637496723133,
+      "entry_px": 0.0005083,
+      "cost": 1.1738683866268762,
+      "entry_liq": 171147.86,
+      "opened": 1791614226.1990116,
+      "url": "https://dexscreener.com/base/0x35a3980d045ccdb462d8e120b7e72b02ad2b71d37e11c45aac7e5b156e0f7ea8"
+    },
+    "0xc1c69aba95da684821b8a8f532719b8ade1605bb": {
+      "symbol": "SHX",
+      "qty": 4548.722300384978,
+      "entry_px": 0.0002472,
+      "cost": 1.1674056145705,
+      "entry_liq": 98619.98,
+      "opened": 1791614226.548559,
+      "url": "https://dexscreener.com/base/0x3df0dbe379ee7d48ee542c2c9eaa4bd297e858c2eed28a23d19c860437bfc1b4"
     }
   },
   "closed": [
@@ -119,6 +137,6 @@
       "at": 1791606991.4791582
     }
   ],
-  "seen_rejects": 314662,
+  "seen_rejects": 315012,
   "paused_until": 1791614191.479072
 }

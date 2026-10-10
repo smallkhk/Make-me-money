@@ -35,3 +35,5 @@
 - `2026-10-10 04:36 UTC` SELL **Catnip** (time stop) price +0.0%, net $-0.09 after fees. Cash $5.56
 - `2026-10-10 04:36 UTC` PAUSE 3 losses in a row, no new buys for 2h
 - `2026-10-10 04:36 UTC` SELL **Butt** (time stop) price +0.0%, net $-0.09 after fees. Cash $6.68
+- `2026-10-10 06:37 UTC` BUY **ONDEX** $1.17 @ 0.0005083 (score 0.62, liq $171,148, mcap $508,344) https://dexscreener.com/base/0x35a3980d045ccdb462d8e120b7e72b02ad2b71d37e11c45aac7e5b156e0f7ea8
+- `2026-10-10 06:37 UTC` BUY **SHX** $1.17 @ 0.0002472 (score 0.59, liq $98,620, mcap $247,218) https://dexscreener.com/base/0x3df0dbe379ee7d48ee542c2c9eaa4bd297e858c2eed28a23d19c860437bfc1b4
