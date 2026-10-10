@@ -1,5 +1,5 @@
 {
-  "cash": 3.9696488480262717,
+  "cash": 4.427228741682534,
   "positions": {
     "0x6655a4516099574510de0a912eae62263610e0c3": {
       "symbol": "DEGEN ",
@@ -11,16 +11,6 @@
       "url": "https://dexscreener.com/base/0xce7c351fa939ac5f2c03bfcecdc066d0d8f953ce3e5c1d64c761eb3b4fd86e30",
       "peak_pct": 0
     },
-    "0xc1c69aba95da684821b8a8f532719b8ade1605bb": {
-      "symbol": "SHX",
-      "qty": 4548.722300384978,
-      "entry_px": 0.0002472,
-      "cost": 1.1674056145705,
-      "entry_liq": 98619.98,
-      "opened": 1791614226.548559,
-      "url": "https://dexscreener.com/base/0x3df0dbe379ee7d48ee542c2c9eaa4bd297e858c2eed28a23d19c860437bfc1b4",
-      "peak_pct": 39.40129449838188
-    },
     "0x220f4f3b384a5587d9d9d222b58b216ad6d52c1a": {
       "symbol": "SIW",
       "qty": 3650.530760603191,
@@ -30,6 +20,15 @@
       "opened": 1791616539.6068563,
       "url": "https://dexscreener.com/base/0x6f9f2997d5a4883ba35a6b115f3c448f3cc64fe7ef39ca222e459403eacc793f",
       "peak_pct": 0
+    },
+    "0x2759ac6609accf0cc4ee77df220df33bd9a520ef": {
+      "symbol": "PONS100",
+      "qty": 4342.6259427246405,
+      "entry_px": 0.000262,
+      "cost": 1.1811249436182834,
+      "entry_liq": 10027.77,
+      "opened": 1791617504.1018038,
+      "url": "https://dexscreener.com/base/0x0530505fb14d17241135db81f12bb8bf60f1d8fb7a0beb67e7002541a1665250"
     }
   },
   "closed": [
@@ -144,8 +143,15 @@
       "reason": "stop loss",
       "addr": "0x9b65a869aba2eee858b3b0dde325f89bf4f25f73",
       "at": 1791616539.0075135
+    },
+    {
+      "symbol": "SHX",
+      "pnl": 0.47129922270404645,
+      "reason": "take profit",
+      "addr": "0xc1c69aba95da684821b8a8f532719b8ade1605bb",
+      "at": 1791617471.9704335
     }
   ],
-  "seen_rejects": 315358,
+  "seen_rejects": 315704,
   "paused_until": 1791614191.479072
 }

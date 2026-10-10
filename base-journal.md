@@ -39,3 +39,5 @@
 - `2026-10-10 06:37 UTC` BUY **SHX** $1.17 @ 0.0002472 (score 0.59, liq $98,620, mcap $247,218) https://dexscreener.com/base/0x3df0dbe379ee7d48ee542c2c9eaa4bd297e858c2eed28a23d19c860437bfc1b4
 - `2026-10-10 07:15 UTC` SELL **ONDEX** (stop loss) price -26.6%, net $-0.38 after fees. Cash $5.13
 - `2026-10-10 07:15 UTC` BUY **SIW** $1.16 @ 0.0003057 (score 0.53, liq $10,831, mcap $305,728) https://dexscreener.com/base/0x6f9f2997d5a4883ba35a6b115f3c448f3cc64fe7ef39ca222e459403eacc793f
+- `2026-10-10 07:31 UTC` SELL **SHX** (take profit) price +50.5%, net $+0.47 after fees. Cash $5.61
+- `2026-10-10 07:31 UTC` BUY **PONS100** $1.18 @ 0.000262 (score 0.52, liq $10,028, mcap $262,093) https://dexscreener.com/base/0x0530505fb14d17241135db81f12bb8bf60f1d8fb7a0beb67e7002541a1665250
