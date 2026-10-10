@@ -1,5 +1,5 @@
 {
-  "cash": 4.236423510989836,
+  "cash": 3.934224565801809,
   "positions": {
     "0xf9ee1131997a5cd31c34a7be486708d09f8cc9a7": {
       "symbol": "QCHAN",
@@ -21,15 +21,14 @@
       "url": "https://dexscreener.com/base/0x7566679ed74efe67ae95a7843663468803ecb15a378c96926b6d6df0ebeadca3",
       "peak_pct": 0
     },
-    "0x367e6b0311e05f71d5016108e2d96c36695ff035": {
-      "symbol": "USMS",
-      "qty": 148630.36085583366,
-      "entry_px": 7.401e-06,
-      "cost": 1.142468469790893,
-      "entry_liq": 217241.45,
-      "opened": 1791646314.2049966,
-      "url": "https://dexscreener.com/base/0x2b994f00539af60420ed847d6bc262cb3bde1f18c05abdd9bebb4672492f54e8",
-      "peak_pct": 0
+    "0x28d2ff0a4b64b5a7df3e994561bdd8de4e2d3dec": {
+      "symbol": "Pepper",
+      "qty": 3656.7104030263145,
+      "entry_px": 0.0002865,
+      "cost": 1.0891392441694765,
+      "entry_liq": 10493.63,
+      "opened": 1791647279.3330321,
+      "url": "https://dexscreener.com/base/0x1d24c787a3db7797fb2ae6104d4074f883bd1140f0dc41b33c1d01ecdb041783"
     }
   },
   "closed": [
@@ -172,8 +171,15 @@
       "reason": "time stop",
       "addr": "0x2759ac6609accf0cc4ee77df220df33bd9a520ef",
       "at": 1791639104.66419
+    },
+    {
+      "symbol": "USMS",
+      "pnl": -0.3555281708094433,
+      "reason": "stop loss",
+      "addr": "0x367e6b0311e05f71d5016108e2d96c36695ff035",
+      "at": 1791647278.9788346
     }
   ],
-  "seen_rejects": 316485,
+  "seen_rejects": 316734,
   "paused_until": 1791646304.6643546
 }
