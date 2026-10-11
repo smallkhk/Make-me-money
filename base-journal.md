@@ -58,3 +58,5 @@
 - `2026-10-10 21:48 UTC` SELL **Pepper** (time stop) price +0.0%, net $-0.08 after fees. Cash $4.95
 - `2026-10-10 21:48 UTC` BUY **A&T** $1.05 @ 0.0002768 (score 0.52, liq $10,339, mcap $276,811) https://dexscreener.com/base/0x219b8d07245f5902043b817cd566c99138d118da1f3ae83315e0fe271a25d8fa
 - `2026-10-10 22:27 UTC` SELL **HIBIDI** (time stop) price +0.0%, net $-0.08 after fees. Cash $4.90
+- `2026-10-11 02:31 UTC` SELL **USMS** (stop loss) price -25.1%, net $-0.33 after fees. Cash $5.63
+- `2026-10-11 02:31 UTC` PAUSE 3 losses in a row, no new buys for 2h

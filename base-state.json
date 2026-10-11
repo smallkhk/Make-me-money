@@ -1,16 +1,6 @@
 {
-  "cash": 4.896416713510967,
+  "cash": 5.627034211767361,
   "positions": {
-    "0x13e845f8a8bba6717a0bb18c74e6d131b6dc3c86": {
-      "symbol": "USMS",
-      "qty": 190627.19798238235,
-      "entry_px": 5.367e-06,
-      "cost": 1.0639817911579845,
-      "entry_liq": 182142.56,
-      "opened": 1791666975.781128,
-      "url": "https://dexscreener.com/base/0xcd5006eda0796eed8709f70a367ecdd2e87c0ad19925334a6df4c5ae04d628ad",
-      "peak_pct": 34.33948201975032
-    },
     "0xf17f4d65dd3f3cfc2ce005b55bea5a69bf64a030": {
       "symbol": "A&T",
       "qty": 3649.657259842832,
@@ -197,8 +187,15 @@
       "reason": "time stop",
       "addr": "0xa733e1c42ea91fab7af7b0d09b2d88dbe9bdbbe6",
       "at": 1791671266.2099392
+    },
+    {
+      "symbol": "USMS",
+      "pnl": -0.33336429290159086,
+      "reason": "stop loss",
+      "addr": "0x13e845f8a8bba6717a0bb18c74e6d131b6dc3c86",
+      "at": 1791685882.8626835
     }
   ],
-  "seen_rejects": 391849,
-  "paused_until": 1791666953.6315012
+  "seen_rejects": 392255,
+  "paused_until": 1791693082.863507
 }
